@@ -46,7 +46,7 @@ export default function SecurityHero() {
         {/* Main heading */}
         <h1 
           ref={titleRef}
-          className="font-migra text-6xl md:text-8xl lg:text-9xl text-white leading-none mb-8 tracking-tight"
+          className="font-montreal text-6xl md:text-8xl lg:text-9xl text-white leading-none mb-8 tracking-tight"
         >
           Security
           <br />

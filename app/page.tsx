@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import HeroSection from '@/components/HeroSection'
+import LawyersUseSection from '@/components/LawyersUseSection'
 import ExperienceSection from '@/components/ExperienceSection'
 import TextRevealSection from '@/components/TextRevealSection'
 import WorkSection from '@/components/WorkSection'
@@ -16,9 +17,12 @@ export default function Home() {
     <main>
       <Header />
       <HeroSection />
-      <ExperienceSection />
+      {/* <LawyersUseSection /> */}
+      {/* <ExperienceSection /> */}
       <MarqueeSection/>
       <TextRevealSection />
+      <LawyersUseSection />
+
       <WorkSection />
       {/* <AboutSection /> */}
       {/* <ServicesSection /> */}

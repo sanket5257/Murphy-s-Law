@@ -68,7 +68,7 @@ export default function SecurityCompliance() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div ref={contentRef}>
-            <h2 className="font-migra text-4xl md:text-6xl text-white mb-8 leading-tight">
+            <h2 className="font-montreal text-4xl md:text-6xl text-white mb-8 leading-tight">
               Compliance &
               <br />
               <span className="text-green-400">Standards</span>

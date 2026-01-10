@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         'migra': ['PP Migra', 'serif'],
         'montreal': ['PP Neue Montreal', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
       },
       backdropBlur: {
         'xs': '2px',

@@ -121,7 +121,7 @@ export default function SecurityCertifications() {
         <div className="text-center mb-20">
           <h2 
             ref={titleRef}
-            className="font-migra text-4xl md:text-6xl text-white mb-6 leading-tight"
+            className="font-montreal text-4xl md:text-6xl text-white mb-6 leading-tight"
           >
             Security
             <br />
@@ -174,7 +174,7 @@ export default function SecurityCertifications() {
           ref={ctaRef}
           className="text-center bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-2xl p-12 border border-white/10"
         >
-          <h3 className="font-migra text-3xl md:text-4xl text-white mb-6">
+          <h3 className="font-montreal text-3xl md:text-4xl text-white mb-6">
             Ready to Secure Your Business?
           </h3>
           <p className="font-montreal text-lg text-white/70 mb-8 max-w-2xl mx-auto">

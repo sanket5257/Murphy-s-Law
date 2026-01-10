@@ -19,7 +19,7 @@ export default function SecurityPage() {
             </div>
             
             {/* Main heading */}
-            <h1 className="font-migra text-5xl text-white leading-tight mb-8">
+            <h1 className="font-montreal text-5xl text-white leading-tight mb-8">
               Your data is<br />
               in safe hands.
             </h1>
@@ -92,7 +92,7 @@ export default function SecurityPage() {
             <p className="font-montreal text-xs text-white/60 uppercase tracking-wider mb-6">
               YOUR DATA, YOUR DECISIONS
             </p>
-            <h2 className="font-migra text-4xl md:text-5xl text-white leading-tight">
+            <h2 className="font-montreal text-4xl md:text-5xl text-white leading-tight">
               You maintain control over your data at all times.
             </h2>
           </div>
@@ -175,7 +175,7 @@ export default function SecurityPage() {
             
             {/* Trusted Data Storage */}
             <div>
-              <h2 className="font-migra text-4xl text-white mb-16 leading-tight">
+              <h2 className="font-montreal text-4xl text-white mb-16 leading-tight">
                 Trusted data storage
               </h2>
               
@@ -211,7 +211,7 @@ export default function SecurityPage() {
             
             {/* Legal-grade Security */}
             <div>
-              <h2 className="font-migra text-4xl text-white mb-16 leading-tight">
+              <h2 className="font-montreal text-4xl text-white mb-16 leading-tight">
                 Legal-grade security
               </h2>
               
@@ -266,7 +266,7 @@ export default function SecurityPage() {
             <p className="font-montreal text-xs text-white/60 uppercase tracking-wider mb-6">
               CERTIFIED & COMPLIANT
             </p>
-            <h2 className="font-migra text-4xl md:text-5xl text-white leading-tight max-w-4xl mx-auto">
+            <h2 className="font-montreal text-4xl md:text-5xl text-white leading-tight max-w-4xl mx-auto">
               Murphy's Law is committed to maintaining compliance with the most rigorous<br />
               international safety and security standards.
             </h2>

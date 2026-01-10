@@ -118,6 +118,7 @@ export default function Header() {
             src="/img/logo.png" 
             alt="Estrela Studio" 
             className="h-8 md:h-10 w-auto"
+            style={{ filter: 'brightness(0)' }}
           />
         </div>
         
@@ -129,32 +130,32 @@ export default function Header() {
         >
           <ul className="flex list-none gap-6 md:gap-8 items-center m-0 p-0 whitespace-nowrap">
             <li className="flex items-center gap-1">
-              <a href="#platform" className="font-montreal text-xs md:text-sm text-white/80 hover:text-white transition-colors duration-300">Platform</a>
-              <svg className="w-3 h-3 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <a href="#platform" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">Platform</a>
+              <svg className="w-3 h-3 text-black/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </li>
             <li className="flex items-center gap-1">
-              <a href="#solutions" className="font-montreal text-xs md:text-sm text-white/80 hover:text-white transition-colors duration-300">Solutions</a>
-              <svg className="w-3 h-3 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <a href="#solutions" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">Solutions</a>
+              <svg className="w-3 h-3 text-black/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </li>
             <li>
-              <a href="#customers" className="font-montreal text-xs md:text-sm text-white/80 hover:text-white transition-colors duration-300">Customers</a>
+              <a href="#customers" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">Customers</a>
             </li>
             <li>
-              <a href="/security" className="font-montreal text-xs md:text-sm text-white/80 hover:text-white transition-colors duration-300">Security</a>
+              <a href="/security" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">Security</a>
             </li>
             <li className="flex items-center gap-1">
-              <a href="#resources" className="font-montreal text-xs md:text-sm text-white/80 hover:text-white transition-colors duration-300">Resources</a>
-              <svg className="w-3 h-3 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <a href="#resources" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">Resources</a>
+              <svg className="w-3 h-3 text-black/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </li>
             <li className="flex items-center gap-1">
-              <a href="#about" className="font-montreal text-xs md:text-sm text-white/80 hover:text-white transition-colors duration-300">About</a>
-              <svg className="w-3 h-3 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <a href="#about" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">About</a>
+              <svg className="w-3 h-3 text-black/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </li>
@@ -163,7 +164,7 @@ export default function Header() {
         
         {/* Login Button on Right Corner */}
         <div className="relative z-10 flex items-center flex-shrink-0">
-          <button className="font-montreal text-xs md:text-sm text-white/80 hover:text-white bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-4 md:px-6 py-2 transition-all duration-300">
+          <button className="font-montreal text-xs md:text-sm text-black/80 hover:text-black bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-4 md:px-6 py-2 transition-all duration-300">
             Login
           </button>
         </div>

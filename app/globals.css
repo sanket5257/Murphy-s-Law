@@ -4,23 +4,23 @@
 
 @font-face {
   font-family: 'PP Migra';
-  src: url('/fonts/PPMigra-Regular.woff2') format('woff2');
+  src: url('/fonts/075adf7a92f05f28-s.p.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'PP Migra';
-  src: url('/fonts/PPMigra-Italic.woff2') format('woff2');
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/45ff0666134a754e-s.p.woff2') format('woff2');
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('/fonts/PPNeueMontreal-Regular.woff2') format('woff2');
+  font-family: 'Inter';
+  src: url('/fonts/dd4c3ed54f9a74fa-s.p.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -34,6 +34,10 @@
   
   a {
     @apply text-inherit no-underline;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montreal;
   }
 
 }

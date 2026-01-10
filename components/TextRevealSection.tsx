@@ -147,14 +147,14 @@ export default function HeroSection() {
             ref={textRef}
             className="relative z-0"
           >
-            <h1 className="text-[5rem] md:text-[7rem] lg:text-[8.5rem] leading-[0.95] font-serif">
+            <h1 className="text-[5rem] md:text-[7rem] lg:text-[8.5rem] leading-[0.95] font-migra">
               <span className=" text-black">Crafting competitive</span>
              
               <span className="block text-black">digital <span className="bg-gradient-to-r from-orange-500 via-orange-300 to-red-200 bg-clip-text text-transparent italic">experiences</span></span>
              
             </h1>
             
-            <p className="text-[0.95rem] italic text-gray-700 mt-8 font-serif">
+            <p className="text-[0.95rem] font-migra text-gray-700 mt-8">
               Inside Myrph's Law
             </p>
           </div>
