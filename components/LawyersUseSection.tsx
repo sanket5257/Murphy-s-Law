@@ -172,11 +172,6 @@ export default function LawyersUseSection() {
           </h2>
         </div>
 
-        {/* Debug: Show all tabs info */}
-        <div className="text-center mb-4 text-xs text-gray-500">
-          Total tabs: {tabsData.length} | Active: {activeTab} | Progress: {progress.toFixed(0)}%
-        </div>
-
         {/* Navigation Tabs */}
         <div ref={tabsRef} className="flex justify-center mb-12">
           <div className="flex flex-wrap justify-center gap-1 md:gap-2 bg-gray-100 rounded-full p-2 max-w-4xl">
