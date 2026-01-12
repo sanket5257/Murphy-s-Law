@@ -216,14 +216,14 @@ export default function Header() {
             </li>
             <li className="flex items-center gap-1">
               <a 
-                href="#Pricing" 
+                href="#pricing"
                 className={`font-montreal text-xs md:text-sm transition-colors duration-300 ${
                   isDarkSection 
                     ? 'text-white/80 hover:text-white' 
                     : 'text-black/80 hover:text-black'
                 }`}
               >
-                Pricing
+                pricing
               </a>
             </li>
             <li>
