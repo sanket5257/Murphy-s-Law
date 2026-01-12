@@ -144,7 +144,7 @@ export default function Header() {
               <a href="/security" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">Security</a>
             </li>
             <li className="flex items-center gap-1">
-              <a href="#resources" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">Contact</a>
+              <a href="#contact" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">Contact</a>
               
             </li>
             
