@@ -183,7 +183,7 @@ export default function Header() {
           <a href="/" className="cursor-pointer">
             <img 
               src="/img/logo.png" 
-              alt="Estrela Studio" 
+              alt="Murphy's Law" 
               className="h-8 md:h-10 w-auto hover:opacity-80 transition-all duration-300"
               style={{ 
                 filter: isDarkSection 

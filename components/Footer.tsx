@@ -189,7 +189,7 @@ export default function Footer() {
             {/* Copyright */}
             <div className="text-center md:text-left">
               <p className="font-montreal text-white/60 text-sm">
-                © {new Date().getFullYear()} Estrela Studio. All rights reserved.
+                © {new Date().getFullYear()} Murphy's Law. All rights reserved.
               </p>
             </div>
             

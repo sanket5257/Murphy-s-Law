@@ -64,7 +64,7 @@ export default function PricingSection() {
   ]
 
   return (
-    <section className="relative w-full bg-black py-20 md:py-32 overflow-hidden">
+    <section id="pricing" className="relative w-full bg-black py-20 md:py-32 overflow-hidden">
       {/* Background Pattern/Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
       
