@@ -9,6 +9,7 @@ export default function Header() {
   const navMenuRef = useRef<HTMLDivElement>(null)
   const [isScrolled, setIsScrolled] = useState(false)
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up')
+  const [isDarkSection, setIsDarkSection] = useState(false)
   const lastScrollY = useRef(0)
 
   useEffect(() => {
@@ -17,6 +18,44 @@ export default function Header() {
     const navMenu = navMenuRef.current
 
     if (!nav || !glow) return
+
+    // Section background detection
+    const observerOptions = {
+      root: null,
+      rootMargin: '-80px 0px -80% 0px', // Only trigger when section is near the header
+      threshold: 0
+    }
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const section = entry.target as HTMLElement
+          const bgColor = window.getComputedStyle(section).backgroundColor
+          const bgClass = section.className
+          
+          // Check if section has dark background
+          const isDark = bgClass.includes('bg-black') || 
+                        bgClass.includes('bg-gray-900') || 
+                        bgClass.includes('bg-slate-900') ||
+                        bgClass.includes('bg-zinc-900') ||
+                        bgColor === 'rgb(0, 0, 0)' ||
+                        !!section.querySelector('video') // Sections with video backgrounds are typically dark
+          
+          console.log('Section detected:', {
+            className: bgClass,
+            backgroundColor: bgColor,
+            isDark,
+            hasVideo: !!section.querySelector('video')
+          })
+          
+          setIsDarkSection(isDark)
+        }
+      })
+    }, observerOptions)
+
+    // Observe all sections
+    const sections = document.querySelectorAll('section')
+    sections.forEach(section => sectionObserver.observe(section))
 
     // Scroll handler to hide/show navigation
     const handleScroll = () => {
@@ -109,6 +148,10 @@ export default function Header() {
       nav.removeEventListener('mousemove', handleMouseMove)
       nav.removeEventListener('mouseenter', handleMouseEnter)
       nav.removeEventListener('mouseleave', handleMouseLeave)
+      
+      // Cleanup observer
+      const sections = document.querySelectorAll('section')
+      sections.forEach(section => sectionObserver?.unobserve(section))
     }
   }, [])
 
@@ -132,12 +175,19 @@ export default function Header() {
         
         {/* Logo on Left Corner */}
         <div className="relative z-10 flex items-center flex-shrink-0">
-          <img 
-            src="/img/logo.png" 
-            alt="Estrela Studio" 
-            className="h-8 md:h-10 w-auto"
-            style={{ filter: 'brightness(0)' }}
-          />
+          <a href="/" className="cursor-pointer">
+            <img 
+              src="/img/logo.png" 
+              alt="Estrela Studio" 
+              className="h-8 md:h-10 w-auto hover:opacity-80 transition-all duration-300"
+              style={{ 
+                filter: isDarkSection 
+                  ? 'brightness(0) invert(1)' // White logo on dark sections
+                  : 'brightness(0) invert(0)', // Black logo on light sections
+                transition: 'filter 0.3s ease'
+              }}
+            />
+          </a>
         </div>
         
         {/* Navigation Menu in Center */}
@@ -148,30 +198,77 @@ export default function Header() {
         >
           <ul className="flex list-none gap-6 md:gap-8 items-center m-0 p-0 whitespace-nowrap">
             <li className="flex items-center gap-1">
-              <a href="#Key_Features" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">Key Features</a>
-             
+              <a 
+                href="#Key_Features" 
+                className={`font-montreal text-xs md:text-sm transition-colors duration-300 ${
+                  isDarkSection 
+                    ? 'text-white/80 hover:text-white' 
+                    : 'text-black/80 hover:text-black'
+                }`}
+              >
+                Key Features
+              </a>
             </li>
             <li className="flex items-center gap-1">
-              <a href="#Pricing" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">Pricing</a>
-              
+              <a 
+                href="#Pricing" 
+                className={`font-montreal text-xs md:text-sm transition-colors duration-300 ${
+                  isDarkSection 
+                    ? 'text-white/80 hover:text-white' 
+                    : 'text-black/80 hover:text-black'
+                }`}
+              >
+                Pricing
+              </a>
             </li>
             <li>
-              <a href="#About" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">About</a>
+              <a 
+                href="#About" 
+                className={`font-montreal text-xs md:text-sm transition-colors duration-300 ${
+                  isDarkSection 
+                    ? 'text-white/80 hover:text-white' 
+                    : 'text-black/80 hover:text-black'
+                }`}
+              >
+                About
+              </a>
             </li>
             <li>
-              <a href="/security" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">Security</a>
+              <a 
+                href="/security" 
+                className={`font-montreal text-xs md:text-sm transition-colors duration-300 ${
+                  isDarkSection 
+                    ? 'text-white/80 hover:text-white' 
+                    : 'text-black/80 hover:text-black'
+                }`}
+              >
+                Security
+              </a>
             </li>
             <li className="flex items-center gap-1">
-              <a href="#contact" className="font-montreal text-xs md:text-sm text-black/80 hover:text-black transition-colors duration-300">Contact</a>
-              
+              <a 
+                href="#contact" 
+                className={`font-montreal text-xs md:text-sm transition-colors duration-300 ${
+                  isDarkSection 
+                    ? 'text-white/80 hover:text-white' 
+                    : 'text-black/80 hover:text-black'
+                }`}
+              >
+                Contact
+              </a>
             </li>
-            
           </ul>
         </div>
         
         {/* Login Button on Right Corner */}
         <div className="relative z-10 flex items-center flex-shrink-0">
-          <button className="font-montreal text-xs md:text-sm text-black/80 hover:text-black bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-4 md:px-6 py-2 transition-all duration-300">
+          <button 
+            className={`font-montreal text-xs md:text-sm bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-4 md:px-6 py-2 transition-all duration-300 ${
+              isDarkSection 
+                ? 'text-white/80 hover:text-white' 
+                : 'text-black/80 hover:text-black'
+            }`}
+          >
             Login
           </button>
         </div>
