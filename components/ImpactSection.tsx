@@ -12,59 +12,52 @@ export default function ImpactSection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
+    // Create a single timeline for better performance
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
     // Animate title
     if (titleRef.current) {
-      gsap.fromTo(titleRef.current, 
+      tl.fromTo(titleRef.current, 
         { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse'
-          }
-        }
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
       )
     }
 
-    // Animate stats with stagger
-    statsRefs.current.forEach((stat, index) => {
-      if (stat) {
-        gsap.fromTo(stat,
-          { opacity: 0, y: 80 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            delay: index * 0.2,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: stat,
-              start: 'top 85%',
-              end: 'bottom 15%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        )
+    // Animate stats with stagger in a single timeline
+    const validStats = statsRefs.current.filter(Boolean)
+    if (validStats.length > 0) {
+      tl.fromTo(validStats,
+        { opacity: 0, y: 60 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.8, 
+          stagger: 0.15,
+          ease: 'power2.out' 
+        },
+        '-=0.4'
+      )
 
-        // Animate numbers counting up
-        const numberElement = stat.querySelector('.stat-number')
+      // Animate numbers counting up with a single timeline
+      validStats.forEach((stat, index) => {
+        const numberElement = stat?.querySelector('.stat-number')
         if (numberElement) {
           const finalNumber = numberElement.textContent || '0'
           const isKFormat = finalNumber.includes('k+')
           const numericValue = parseInt(finalNumber.replace(/[^\d]/g, ''))
           
-          // Create a counter object for GSAP to animate
           const counter = { value: 0 }
           
-          gsap.to(counter, {
+          tl.to(counter, {
             value: numericValue,
-            duration: 2,
-            delay: index * 0.2 + 0.5,
+            duration: 1.5,
             ease: 'power2.out',
             onUpdate: function() {
               const currentValue = Math.round(counter.value)
@@ -73,16 +66,11 @@ export default function ImpactSection() {
               } else {
                 numberElement.textContent = currentValue.toString()
               }
-            },
-            scrollTrigger: {
-              trigger: stat,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse'
             }
-          })
+          }, `-=${1.5 - (index * 0.1)}`)
         }
-      }
-    })
+      })
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
