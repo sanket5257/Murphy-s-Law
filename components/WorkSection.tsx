@@ -17,7 +17,7 @@ const WorkSection = () => {
   }, []);
 
   return (
-    <section className="py-20 px-6 bg-white">
+    <section id='Key_Features' className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-left mb-16">

@@ -147,7 +147,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div id="About" className="min-h-screen bg-white">
       <div
         ref={containerRef}
         className="sticky top-0 h-screen flex items-center justify-center overflow-hidden"
