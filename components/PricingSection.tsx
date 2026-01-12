@@ -136,6 +136,14 @@ export default function PricingSection() {
                     )}
                   </span>
                 </div>
+                 {/* CTA Button */}
+              <button className={`relative z-10 w-full py-4 px-6 rounded-xl font-montreal font-medium text-sm transition-all duration-300 ${
+                plan.popular 
+                  ? 'bg-white text-black hover:bg-gray-100' 
+                  : 'bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm'
+              }`}>
+                Get Started
+              </button>
               </div>
 
               {/* Features */}
@@ -156,27 +164,12 @@ export default function PricingSection() {
                 </ul>
               </div>
 
-              {/* CTA Button */}
-              <button className={`relative z-10 w-full py-4 px-6 rounded-xl font-montreal font-medium text-sm transition-all duration-300 ${
-                plan.popular 
-                  ? 'bg-white text-black hover:bg-gray-100' 
-                  : 'bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm'
-              }`}>
-                Get Started
-              </button>
+             
             </div>
           ))}
         </div>
 
-        {/* Bottom Toggle */}
-        <div className="flex items-center justify-center mt-16">
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
-            <div className="w-4 h-4 rounded-full bg-white/60"></div>
-            <span className="font-montreal text-white/80 text-sm">
-              Billed Yearly
-            </span>
-          </div>
-        </div>
+       
       </div>
     </section>
   )
