@@ -34,18 +34,23 @@ export default function Header() {
           const bgClass = section.className
           
           // Check if section has dark background
-          const isDark = bgClass.includes('bg-black') || 
-                        bgClass.includes('bg-gray-900') || 
-                        bgClass.includes('bg-slate-900') ||
-                        bgClass.includes('bg-zinc-900') ||
-                        bgColor === 'rgb(0, 0, 0)' ||
-                        !!section.querySelector('video') // Sections with video backgrounds are typically dark
+          const hasWhiteBg = bgClass.includes('bg-white') || bgColor === 'rgb(255, 255, 255)'
+          const hasBlackBg = bgClass.includes('bg-black') || 
+                            bgClass.includes('bg-gray-900') || 
+                            bgClass.includes('bg-slate-900') ||
+                            bgClass.includes('bg-zinc-900') ||
+                            bgColor === 'rgb(0, 0, 0)'
+          const hasVideoWithDarkOverlay = !!section.querySelector('video') && !hasWhiteBg
+          
+          const isDark = (hasBlackBg || hasVideoWithDarkOverlay) && !hasWhiteBg
           
           console.log('Section detected:', {
             className: bgClass,
             backgroundColor: bgColor,
-            isDark,
-            hasVideo: !!section.querySelector('video')
+            hasWhiteBg,
+            hasBlackBg,
+            hasVideoWithDarkOverlay,
+            isDark
           })
           
           setIsDarkSection(isDark)
@@ -231,18 +236,6 @@ export default function Header() {
                 }`}
               >
                 About
-              </a>
-            </li>
-            <li>
-              <a 
-                href="/security" 
-                className={`font-montreal text-xs md:text-sm transition-colors duration-300 ${
-                  isDarkSection 
-                    ? 'text-white/80 hover:text-white' 
-                    : 'text-black/80 hover:text-black'
-                }`}
-              >
-                Security
               </a>
             </li>
             <li className="flex items-center gap-1">
