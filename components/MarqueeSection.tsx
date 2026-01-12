@@ -14,9 +14,9 @@ export default function MarqueeSection() {
   ]
 
   return (
-    <section className="relative py-16 md:py-24 bg-white overflow-hidden">
+    <section className="relative py-8 md:py-12 bg-white overflow-hidden">
       {/* Section Title */}
-      <div className="text-center mb-12 md:mb-16">
+      <div className="text-center mb-8 md:mb-10">
         <h2 className="font-migra text-3xl md:text-4xl lg:text-5xl text-black leading-tight">
           Partner Law Firms
         </h2>

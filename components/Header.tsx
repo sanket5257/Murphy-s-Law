@@ -223,7 +223,7 @@ export default function Header() {
                     : 'text-black/80 hover:text-black'
                 }`}
               >
-                pricing
+              Pricing
               </a>
             </li>
             <li>
