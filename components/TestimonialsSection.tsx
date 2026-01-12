@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useRef, useEffect, useState } from 'react'
+import { gsap } from 'gsap'
 
 const testimonials = [
   {
@@ -23,19 +24,76 @@ const testimonials = [
 export default function TestimonialsSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const centerCardRef = useRef<HTMLDivElement>(null)
+  const leftCardRef = useRef<HTMLDivElement>(null)
+  const rightCardRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(console.error)
     }
+
+    // Initialize only center card animation
+    const centerCard = centerCardRef.current
+    if (centerCard) {
+      gsap.set(centerCard, { opacity: 1, y: 0, scale: 1 })
+    }
   }, [])
 
+  const animateTransition = (newIndex: number, direction: 'next' | 'prev' | 'direct' = 'direct') => {
+    if (isTransitioning || newIndex === currentTestimonial) return
+    
+    setIsTransitioning(true)
+    
+    const centerCard = centerCardRef.current
+    if (!centerCard) return
+    
+    // Animate out only the center card
+    gsap.to(centerCard, {
+      opacity: 0,
+      y: direction === 'next' ? -30 : direction === 'prev' ? 30 : 0,
+      scale: 0.95,
+      duration: 0.4,
+      ease: "power2.inOut",
+      onComplete: () => {
+        // Update state
+        setCurrentTestimonial(newIndex)
+        
+        // Animate in only the center card
+        gsap.fromTo(centerCard, 
+          {
+            opacity: 0,
+            y: direction === 'next' ? 30 : direction === 'prev' ? -30 : 0,
+            scale: 0.95
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.5,
+            ease: "power2.out",
+            onComplete: () => {
+              setIsTransitioning(false)
+            }
+          }
+        )
+      }
+    })
+  }
+
   const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
+    const newIndex = (currentTestimonial + 1) % testimonials.length
+    animateTransition(newIndex, 'next')
   }
 
   const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+    const newIndex = (currentTestimonial - 1 + testimonials.length) % testimonials.length
+    animateTransition(newIndex, 'prev')
+  }
+
+  const goToTestimonial = (index: number) => {
+    animateTransition(index, 'direct')
   }
 
   return (
@@ -76,7 +134,7 @@ export default function TestimonialsSection() {
         <div className="relative w-full max-w-7xl mx-auto">
           <div className="flex justify-center items-center space-x-6">
             {/* Left Card (Previous) */}
-            <div className="hidden lg:block w-96 opacity-50 transform scale-90">
+            <div ref={leftCardRef} className="hidden lg:block w-96 opacity-50 transform scale-90">
               <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-10 h-[500px] flex flex-col justify-between">
                 <div>
                   <p className="text-white/80 text-sm leading-relaxed mb-6">
@@ -95,7 +153,7 @@ export default function TestimonialsSection() {
             </div>
 
             {/* Center Card (Current) */}
-            <div className="w-full max-w-2xl lg:w-[600px] transform scale-100">
+            <div ref={centerCardRef} className="w-full max-w-2xl lg:w-[600px] transform scale-100">
               <div className="backdrop-blur-xl bg-white/15 border border-white/30 rounded-2xl p-12 lg:p-16 shadow-2xl min-h-[500px] flex flex-col justify-between">
                 <div className="mb-8">
                   <p className="text-white text-base lg:text-lg leading-relaxed">
@@ -114,7 +172,7 @@ export default function TestimonialsSection() {
             </div>
 
             {/* Right Card (Next) */}
-            <div className="hidden lg:block w-96 opacity-50 transform scale-90">
+            <div ref={rightCardRef} className="hidden lg:block w-96 opacity-50 transform scale-90">
               <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-10 h-[500px] flex flex-col justify-between">
                 <div>
                   <p className="text-white/80 text-sm leading-relaxed mb-6">
@@ -136,7 +194,8 @@ export default function TestimonialsSection() {
           {/* Navigation Arrows */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-4 lg:left-0 top-1/2 transform -translate-y-1/2 backdrop-blur-md bg-white/10 border border-white/20 rounded-full p-3 hover:bg-white/20 transition-all duration-300"
+            disabled={isTransitioning}
+            className="absolute left-4 lg:left-0 top-1/2 transform -translate-y-1/2 backdrop-blur-md bg-white/10 border border-white/20 rounded-full p-3 hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M15 18L9 12L15 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -145,7 +204,8 @@ export default function TestimonialsSection() {
 
           <button
             onClick={nextTestimonial}
-            className="absolute right-4 lg:right-0 top-1/2 transform -translate-y-1/2 backdrop-blur-md bg-white/10 border border-white/20 rounded-full p-3 hover:bg-white/20 transition-all duration-300"
+            disabled={isTransitioning}
+            className="absolute right-4 lg:right-0 top-1/2 transform -translate-y-1/2 backdrop-blur-md bg-white/10 border border-white/20 rounded-full p-3 hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -158,8 +218,9 @@ export default function TestimonialsSection() {
           {testimonials.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentTestimonial(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              onClick={() => goToTestimonial(index)}
+              disabled={isTransitioning}
+              className={`w-2 h-2 rounded-full transition-all duration-300 disabled:cursor-not-allowed ${
                 index === currentTestimonial 
                   ? 'bg-white' 
                   : 'bg-white/40 hover:bg-white/60'
