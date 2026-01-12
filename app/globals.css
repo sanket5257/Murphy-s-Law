@@ -36,8 +36,64 @@
     @apply text-inherit no-underline;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-montreal;
+  /* 
+   * STANDARDIZED HEADING SYSTEM
+   * Maintains consistent sizes across all breakpoints and components
+   * 
+   * Usage:
+   * - h1: Main page headings (hero titles)
+   * - h2: Section headings 
+   * - h3: Subsection headings
+   * - h4-h6: Smaller headings
+   * 
+   * Utility classes for non-semantic headings:
+   * - .subheading-large: Large secondary text
+   * - .subheading-medium: Medium secondary text  
+   * - .subheading-small: Small secondary text
+   * - .tagline: Small uppercase labels
+   */
+
+  /* Standardized heading sizes across all breakpoints */
+  h1 {
+    @apply font-migra text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl leading-tight;
+  }
+
+  h2 {
+    @apply font-migra text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight;
+  }
+
+  h3 {
+    @apply font-montreal text-xl md:text-2xl lg:text-3xl xl:text-4xl leading-relaxed;
+  }
+
+  h4 {
+    @apply font-montreal text-lg md:text-xl lg:text-2xl leading-relaxed;
+  }
+
+  h5 {
+    @apply font-montreal text-base md:text-lg lg:text-xl leading-relaxed;
+  }
+
+  h6 {
+    @apply font-montreal text-sm md:text-base lg:text-lg leading-relaxed;
+  }
+
+  /* Subheading utility classes for consistent secondary text */
+  .subheading-large {
+    @apply font-montreal text-lg md:text-xl lg:text-2xl xl:text-3xl leading-relaxed;
+  }
+
+  .subheading-medium {
+    @apply font-montreal text-base md:text-lg lg:text-xl leading-relaxed;
+  }
+
+  .subheading-small {
+    @apply font-montreal text-sm md:text-base lg:text-lg leading-relaxed;
+  }
+
+  /* Tagline utility for consistent small text */
+  .tagline {
+    @apply font-montreal text-sm md:text-base lg:text-lg tracking-widest uppercase;
   }
 
 }

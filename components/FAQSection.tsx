@@ -138,12 +138,13 @@ export default function FAQSection() {
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen bg-black py-20 px-6 md:px-12 lg:px-20"
+      className="min-h-screen bg-black py-16 md:py-24 lg:py-32 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1920px] mx-auto">
         <h2 
           ref={titleRef}
-          className="font-migra text-6xl md:text-8xl lg:text-9xl text-white text-center mb-20 tracking-tight"
+          className="text-white text-center mb-20 tracking-tight"
+         
         >
           FAQs
         </h2>
@@ -159,7 +160,7 @@ export default function FAQSection() {
                 className="flex items-center justify-between py-8 cursor-pointer group hover:bg-white/5 transition-colors duration-300 px-6"
                 onClick={() => toggleFAQ(index)}
               >
-                <h3 className="font-montreal text-xl md:text-2xl lg:text-3xl text-white flex-1 pr-8 group-hover:text-white/80 transition-colors duration-300">
+                <h3 className="subheading-large text-white flex-1 pr-8 group-hover:text-white/80 transition-colors duration-300">
                   {faq.question}
                 </h3>
                 

@@ -160,14 +160,14 @@ export default function LawyersUseSection() {
   const currentTab = tabsData[activeTab]
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white py-20">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
+    <section ref={sectionRef} className="relative w-full bg-white py-16 md:py-24 lg:py-32">
+      <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="font-montreal text-sm text-black/60 uppercase tracking-widest mb-4">
+          <p className="tagline text-black/60 mb-4">
             Solutions for All Lawyers
           </p>
-          <h2 className="font-migra text-4xl md:text-5xl lg:text-6xl text-black leading-tight">
+          <h2 className="text-black">
             How Lawyers Use Murphy
           </h2>
         </div>
@@ -230,7 +230,7 @@ export default function LawyersUseSection() {
 
               {/* Right Side - Content */}
               <div ref={contentRef} className="bg-black p-8 lg:p-12 flex flex-col justify-center">
-                <h3 className="font-migra text-3xl md:text-4xl text-white mb-6">
+                <h3 className="text-white mb-6">
                   {currentTab.title}
                 </h3>
                 <p className="font-montreal text-white/90 text-lg leading-relaxed mb-8">

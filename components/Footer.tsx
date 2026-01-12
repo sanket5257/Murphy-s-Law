@@ -47,14 +47,12 @@ export default function Footer() {
   }
 
   return (
-    <footer id="contact" className="relative bg-black text-white py-16 md:py-20 px-8 md:px-16 lg:px-24 overflow-hidden">
-     
-
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+    <footer id="contact" className="relative bg-black text-white py-16 md:py-24 lg:py-32 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 overflow-hidden">
+      <div className="max-w-[1920px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 xl:gap-20 2xl:gap-24">
           {/* Contact Us Section */}
           <div>
-            <h3 className="font-migra text-2xl md:text-3xl text-white mb-8">
+            <h3 className="text-white font-migra mb-8 lg:mb-12">
               Contact Us
             </h3>
             
@@ -111,7 +109,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-migra text-2xl md:text-3xl text-white mb-8">
+            <h3 className="text-white font-migra mb-8 lg:mb-12">
               Quick Links
             </h3>
             <ul className="space-y-4">
@@ -125,7 +123,7 @@ export default function Footer() {
 
           {/* Send Us A Message */}
           <div>
-            <h3 className="font-migra text-2xl md:text-3xl text-white mb-4">
+            <h3 className="text-white font-migra mb-4 lg:mb-6">
               Send Us
               <br />
               A Message

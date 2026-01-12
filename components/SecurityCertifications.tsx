@@ -121,13 +121,13 @@ export default function SecurityCertifications() {
         <div className="text-center mb-20">
           <h2 
             ref={titleRef}
-            className="font-montreal text-4xl md:text-6xl text-white mb-6 leading-tight"
+            className="text-white mb-6"
           >
             Security
             <br />
             <span className="text-blue-400">Operations</span>
           </h2>
-          <p className="font-montreal text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="subheading-medium text-white/70 max-w-3xl mx-auto">
             Continuous security monitoring and proactive threat management 
             to keep your data safe around the clock.
           </p>
@@ -174,7 +174,7 @@ export default function SecurityCertifications() {
           ref={ctaRef}
           className="text-center bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-2xl p-12 border border-white/10"
         >
-          <h3 className="font-montreal text-3xl md:text-4xl text-white mb-6">
+          <h3 className="text-white mb-6">
             Ready to Secure Your Business?
           </h3>
           <p className="font-montreal text-lg text-white/70 mb-8 max-w-2xl mx-auto">

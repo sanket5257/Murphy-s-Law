@@ -68,13 +68,13 @@ export default function SecurityCompliance() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div ref={contentRef}>
-            <h2 className="font-montreal text-4xl md:text-6xl text-white mb-8 leading-tight">
+            <h2 className="text-white mb-8">
               Compliance &
               <br />
               <span className="text-green-400">Standards</span>
             </h2>
             
-            <p className="font-montreal text-lg md:text-xl text-white/70 mb-12 leading-relaxed">
+            <p className="subheading-medium text-white/70 mb-12">
               We maintain the highest industry standards and certifications 
               to ensure your data is protected according to global regulations.
             </p>

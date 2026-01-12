@@ -90,10 +90,10 @@ export default function SecurityFeatures() {
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-20">
-          <h2 className="font-montreal text-4xl md:text-6xl text-white mb-6 leading-tight">
+          <h2 className="text-white mb-6">
             Security Features
           </h2>
-          <p className="font-montreal text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="subheading-medium text-white/70 max-w-3xl mx-auto">
             Comprehensive security measures designed to protect your business 
             and maintain the highest standards of data protection.
           </p>

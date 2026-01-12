@@ -14,10 +14,10 @@ export default function MarqueeSection() {
   ]
 
   return (
-    <section className="relative py-8 md:py-12 bg-white overflow-hidden">
+    <section className="relative bg-white overflow-hidden">
       {/* Section Title */}
       <div className="text-center mb-8 md:mb-10">
-        <h2 className="font-migra text-3xl md:text-4xl lg:text-5xl text-black leading-tight">
+        <h2 className="text-black">
           Partner Law Firms
         </h2>
       </div>

@@ -17,14 +17,14 @@ const WorkSection = () => {
   }, []);
 
   return (
-    <section id='Key_Features' className="py-20 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section id='Key_Features' className="py-16 md:py-24 lg:py-32 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 bg-white">
+      <div className="max-w-[1920px] mx-auto">
         {/* Header */}
         <div className="text-left mb-16">
-          <p className="text-sm uppercase tracking-wider text-gray-500 mb-4">
+          <p className="tagline text-gray-500 mb-4">
             SMARTER TOOLS, BETTER OUTCOMES
           </p>
-          <h2 className="text-4xl text-black font-migra md:text-5xl lg:text-6xl font-light leading-tight max-w-4xl">
+          <h2 className="text-black max-w-4xl">
             Murphy streamlines everything from research to drafting and 
             review — helping lawyers spend less time managing process, 
             and more time delivering value.
@@ -87,7 +87,7 @@ const WorkSection = () => {
             </div>
             
             <div className="p-6">
-              <h3 className="text-xl font-medium mb-3">Review faster</h3>
+              <h3 className="font-medium mb-3">Review faster</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Being an experienced lawyer means reviewing and reading 
                 mountains of material. Legora can analyze tens of thousands of 
@@ -125,7 +125,7 @@ const WorkSection = () => {
             </div>
             
             <div className="p-6">
-              <h3 className="text-xl font-medium mb-3">Draft smarter</h3>
+              <h3 className="font-medium mb-3">Draft smarter</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Legora draws on precedent to draft, rewrite, and refine your 
                 content in Word. It identifies the substance of each document and 
@@ -184,7 +184,7 @@ const WorkSection = () => {
             </div>
             
             <div className="p-6">
-              <h3 className="text-xl font-medium mb-3">Research deeper</h3>
+              <h3 className="font-medium mb-3">Research deeper</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Access up-to-date information, legal databases, and your DMS 
                 content, all within Legora. With partnerships across jurisdictions 

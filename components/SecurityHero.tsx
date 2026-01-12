@@ -46,7 +46,8 @@ export default function SecurityHero() {
         {/* Main heading */}
         <h1 
           ref={titleRef}
-          className="font-montreal text-6xl md:text-8xl lg:text-9xl text-white leading-none mb-8 tracking-tight"
+          className="text-white leading-none mb-8 tracking-tight"
+          style={{ fontSize: 'clamp(4rem, 10vw, 9rem)' }}
         >
           Security
           <br />
@@ -56,7 +57,7 @@ export default function SecurityHero() {
         {/* Subtitle */}
         <p 
           ref={subtitleRef}
-          className="font-montreal text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-16 leading-relaxed"
+          className="subheading-large text-white/70 max-w-3xl mx-auto mb-16"
         >
           Enterprise-grade security built into every layer of our platform. 
           Your data protection is our highest priority.

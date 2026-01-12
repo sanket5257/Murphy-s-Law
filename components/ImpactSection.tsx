@@ -93,13 +93,13 @@ export default function ImpactSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
+    <section ref={sectionRef} className="relative w-full bg-white py-16 md:py-24 lg:py-32">
+      <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
         {/* Title */}
         <div className="text-center mb-16 md:mb-24">
           <h2 
             ref={titleRef}
-            className="font-migra text-4xl md:text-5xl lg:text-6xl text-black leading-tight"
+            className="text-black"
           >
             Quantifiable Impact
           </h2>
@@ -115,9 +115,9 @@ export default function ImpactSection() {
             >
               {/* Number */}
               <div className="mb-6">
-                <span className="stat-number font-migra text-6xl md:text-7xl lg:text-8xl text-black leading-none">
+                <h2 className="stat-number font-migra text-black leading-none" >
                   {stat.number}
-                </span>
+                </h2>
               </div>
               
               {/* Description */}

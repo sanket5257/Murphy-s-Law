@@ -64,14 +64,14 @@ export default function PricingSection() {
   ]
 
   return (
-    <section id="pricing" className="relative w-full bg-black py-20 md:py-32 overflow-hidden">
+    <section id="pricing" className="relative w-full bg-black py-16 md:py-24 lg:py-32 overflow-hidden">
       {/* Background Pattern/Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
+      <div className="relative z-10 max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="font-migra text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-8">
+          <h2 className="text-white mb-8">
             Pricing
           </h2>
           
@@ -97,7 +97,7 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-12 2xl:gap-16 max-w-[1600px] mx-auto">
           {plans.map((plan, index) => (
             <div
               key={plan.name}
@@ -129,12 +129,12 @@ export default function PricingSection() {
                 
                 {/* Price */}
                 <div className="mb-6">
-                  <span className="font-migra text-5xl md:text-6xl text-white">
+                  <h2 className="font-migra text-white" >
                     ${isYearly ? plan.price.yearly : plan.price.monthly}
                     {plan.price.monthly > 0 && (
                       <span className="font-montreal text-white/60 text-lg">/m</span>
                     )}
-                  </span>
+                  </h2>
                 </div>
                  {/* CTA Button */}
               <button className={`relative z-10 w-full py-4 px-6 rounded-xl font-montreal font-medium text-sm transition-all duration-300 ${

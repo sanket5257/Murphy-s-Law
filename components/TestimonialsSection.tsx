@@ -114,16 +114,15 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-6 py-20">
+      <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 py-16 md:py-24 lg:py-32 max-w-[1920px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 lg:mb-24">
           {/* Glassmorphism badge */}
-          <div className="inline-flex items-center px-4 py-2 mb-8 rounded-full backdrop-blur-md bg-white/10 border border-white/20">
-            <span className="text-white/80 text-sm font-medium">Testimonials</span>
-            
+          <div className="inline-flex items-center px-4 py-2 lg:px-6 lg:py-3 mb-8 lg:mb-12 rounded-full backdrop-blur-md bg-white/10 border border-white/20">
+            <span className="text-white/80 text-sm lg:text-base font-medium">Testimonials</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-migra lg:text-6xl font-light text-white leading-tight max-w-4xl mx-auto">
+          <h2 className="text-white max-w-5xl mx-auto">
             Some words from our
             <br />
             valued clients
@@ -131,21 +130,21 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Testimonial Cards Container */}
-        <div className="relative w-full max-w-7xl mx-auto">
-          <div className="flex justify-center items-center space-x-6">
+        <div className="relative w-full max-w-[1600px] mx-auto">
+          <div className="flex justify-center items-center space-x-6 lg:space-x-8 xl:space-x-12">
             {/* Left Card (Previous) */}
-            <div ref={leftCardRef} className="hidden lg:block w-96 opacity-50 transform scale-90">
-              <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-10 h-[500px] flex flex-col justify-between">
+            <div ref={leftCardRef} className="hidden lg:block w-80 xl:w-96 2xl:w-[420px] opacity-50 transform scale-90">
+              <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-8 xl:p-10 h-[500px] xl:h-[550px] flex flex-col justify-between">
                 <div>
-                  <p className="text-white/80 text-sm leading-relaxed mb-6">
+                  <p className="text-white/80 text-sm xl:text-base leading-relaxed mb-6">
                     "{testimonials[(currentTestimonial - 1 + testimonials.length) % testimonials.length].text.substring(0, 120)}..."
                   </p>
                 </div>
                 <div>
-                  <p className="text-white font-medium text-lg">
+                  <p className="text-white font-medium text-lg xl:text-xl">
                     {testimonials[(currentTestimonial - 1 + testimonials.length) % testimonials.length].name}
                   </p>
-                  <p className="text-white/60 text-sm">
+                  <p className="text-white/60 text-sm xl:text-base">
                     {testimonials[(currentTestimonial - 1 + testimonials.length) % testimonials.length].role}
                   </p>
                 </div>
@@ -153,18 +152,18 @@ export default function TestimonialsSection() {
             </div>
 
             {/* Center Card (Current) */}
-            <div ref={centerCardRef} className="w-full max-w-2xl lg:w-[600px] transform scale-100">
-              <div className="backdrop-blur-xl bg-white/15 border border-white/30 rounded-2xl p-12 lg:p-16 shadow-2xl min-h-[500px] flex flex-col justify-between">
+            <div ref={centerCardRef} className="w-full max-w-2xl lg:w-[600px] xl:w-[700px] 2xl:w-[800px] transform scale-100">
+              <div className="backdrop-blur-xl bg-white/15 border border-white/30 rounded-2xl p-8 md:p-12 lg:p-16 xl:p-20 shadow-2xl min-h-[500px] xl:min-h-[600px] flex flex-col justify-between">
                 <div className="mb-8">
-                  <p className="text-white text-base lg:text-lg leading-relaxed">
+                  <p className="text-white text-base lg:text-lg xl:text-xl leading-relaxed">
                     "{testimonials[currentTestimonial].text}"
                   </p>
                 </div>
                 <div>
-                  <p className="text-white font-medium text-xl mb-1">
+                  <p className="text-white font-medium subheading-medium mb-1">
                     {testimonials[currentTestimonial].name}
                   </p>
-                  <p className="text-white/70 text-sm">
+                  <p className="text-white/70 text-sm xl:text-base">
                     {testimonials[currentTestimonial].role}
                   </p>
                 </div>
@@ -172,18 +171,18 @@ export default function TestimonialsSection() {
             </div>
 
             {/* Right Card (Next) */}
-            <div ref={rightCardRef} className="hidden lg:block w-96 opacity-50 transform scale-90">
-              <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-10 h-[500px] flex flex-col justify-between">
+            <div ref={rightCardRef} className="hidden lg:block w-80 xl:w-96 2xl:w-[420px] opacity-50 transform scale-90">
+              <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-8 xl:p-10 h-[500px] xl:h-[550px] flex flex-col justify-between">
                 <div>
-                  <p className="text-white/80 text-sm leading-relaxed mb-6">
+                  <p className="text-white/80 text-sm xl:text-base leading-relaxed mb-6">
                     "{testimonials[(currentTestimonial + 1) % testimonials.length].text.substring(0, 120)}..."
                   </p>
                 </div>
                 <div>
-                  <p className="text-white font-medium text-lg">
+                  <p className="text-white font-medium text-lg xl:text-xl">
                     {testimonials[(currentTestimonial + 1) % testimonials.length].name}
                   </p>
-                  <p className="text-white/60 text-sm">
+                  <p className="text-white/60 text-sm xl:text-base">
                     {testimonials[(currentTestimonial + 1) % testimonials.length].role}
                   </p>
                 </div>
