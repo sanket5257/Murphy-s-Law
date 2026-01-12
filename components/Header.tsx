@@ -8,6 +8,8 @@ export default function Header() {
   const glowRef = useRef<HTMLDivElement>(null)
   const navMenuRef = useRef<HTMLDivElement>(null)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up')
+  const lastScrollY = useRef(0)
 
   useEffect(() => {
     const nav = navRef.current
@@ -20,27 +22,43 @@ export default function Header() {
     const handleScroll = () => {
       const scrolled = window.pageYOffset
       const maxScroll = 300 // Longer scroll distance for smoother transition
-      const scrollProgress = Math.min(scrolled / maxScroll, 1) // 0 to 1
       
-      // Use easing function for smoother transition
-      const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4)
-      const easedProgress = easeOutQuart(scrollProgress)
+      // Detect scroll direction
+      const currentScrollY = scrolled
+      const direction = currentScrollY > lastScrollY.current ? 'down' : 'up'
+      setScrollDirection(direction)
+      lastScrollY.current = currentScrollY
       
       setIsScrolled(scrolled > 50)
 
       if (navMenu && nav) {
-        // Very smooth opacity transition
-        const opacity = Math.max(0, 1 - (easedProgress * 1.5))
-        
-        // Smooth header width transition with CSS
-        nav.style.maxWidth = `${1152 - (easedProgress * 852)}px`
-        navMenu.style.opacity = opacity.toString()
-        
-        // Hide navigation completely when opacity is very low
-        if (opacity < 0.1) {
-          navMenu.style.visibility = 'hidden'
-        } else {
+        // If scrolling up or at top, expand header
+        if (direction === 'up' || scrolled < 50) {
+          // Expand header
+          nav.style.maxWidth = '1152px'
+          navMenu.style.opacity = '1'
           navMenu.style.visibility = 'visible'
+        } else {
+          // Scrolling down - collapse header
+          const scrollProgress = Math.min(scrolled / maxScroll, 1) // 0 to 1
+          
+          // Use easing function for smoother transition
+          const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4)
+          const easedProgress = easeOutQuart(scrollProgress)
+          
+          // Very smooth opacity transition
+          const opacity = Math.max(0, 1 - (easedProgress * 1.5))
+          
+          // Smooth header width transition with CSS
+          nav.style.maxWidth = `${1152 - (easedProgress * 852)}px`
+          navMenu.style.opacity = opacity.toString()
+          
+          // Hide navigation completely when opacity is very low
+          if (opacity < 0.1) {
+            navMenu.style.visibility = 'hidden'
+          } else {
+            navMenu.style.visibility = 'visible'
+          }
         }
       }
     }
