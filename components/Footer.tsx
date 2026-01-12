@@ -183,16 +183,34 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Large Brand Name */}
-        <div className="text-center mt-16 mb-8">
-          <div className="relative">
-            <h1 className="font-migra text-[8vw] md:text-[12vw] lg:text-[15vw] text-white leading-none tracking-tight">
-              MURPHY'S
-            </h1>
-            {/* Glassmorphism overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-3xl opacity-50"></div>
+        {/* Bottom Section - Privacy Policy and Copyright */}
+        <div className="border-t border-white/20 mt-16 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            {/* Copyright */}
+            <div className="text-center md:text-left">
+              <p className="font-montreal text-white/60 text-sm">
+                © {new Date().getFullYear()} Estrela Studio. All rights reserved.
+              </p>
+            </div>
+            
+            {/* Privacy Policy and Terms */}
+            <div className="flex items-center gap-6">
+              <a 
+                href="/privacy-policy" 
+                className="font-montreal text-white/60 hover:text-white text-sm transition-colors"
+              >
+                Privacy Policy
+              </a>
+              <a 
+                href="/terms-of-service" 
+                className="font-montreal text-white/60 hover:text-white text-sm transition-colors"
+              >
+                Terms of Service
+              </a>
+            </div>
           </div>
         </div>
+       
       </div>
     </footer>
   )
