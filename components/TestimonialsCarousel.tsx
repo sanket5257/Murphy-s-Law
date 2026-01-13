@@ -108,22 +108,24 @@ export default function TestimonialsCarousel() {
 
     if (!isVisible) {
       return {
-        transform: `translateX(${position > 0 ? '600px' : '-600px'}) scale(0.4) rotateY(${position > 0 ? '45deg' : '-45deg'})`,
+        transform: `translateX(${position > 0 ? '900px' : '-900px'}) scale(0.3) rotateY(${position > 0 ? '60deg' : '-60deg'})`,
         opacity: 0,
         zIndex: 0,
-        filter: 'blur(4px)',
+        filter: 'blur(6px)',
       }
     }
 
-    const translateX = position * 320
-    const scale = isActive ? 1 : isAdjacent ? 0.85 : 0.7
-    const opacity = isActive ? 1 : isAdjacent ? 0.8 : 0.5
+    // Increased spacing for larger cards
+    const translateX = position * 480 // Increased from 420 to 480 for larger cards
+    const scale = isActive ? 1 : isAdjacent ? 0.75 : 0.6
+    const opacity = isActive ? 1 : isAdjacent ? 0.7 : 0.4
     const zIndex = isActive ? 10 : isAdjacent ? 5 : 1
-    const rotateY = position * 15 // Subtle 3D rotation
-    const blur = isActive ? 0 : Math.abs(position) * 1
+    const rotateY = position * 20
+    const blur = isActive ? 0 : Math.abs(position) * 1.5
+    const translateZ = isActive ? '0px' : '-100px' // Increased depth for larger cards
 
     return {
-      transform: `translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg) translateZ(${isActive ? '0px' : '-50px'})`,
+      transform: `translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg) translateZ(${translateZ})`,
       opacity,
       zIndex,
       filter: `blur(${blur}px)`,
@@ -155,9 +157,7 @@ export default function TestimonialsCarousel() {
       <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 py-16">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <div className="inline-flex items-center px-6 py-3 mb-8 lg:mb-12 rounded-full backdrop-blur-md bg-white/10 border border-white/20">
-            <span className="text-white/80 text-base font-medium">Testimonials</span>
-          </div>
+         
 
           <h2 className="text-white font-migra text-4xl md:text-5xl lg:text-6xl mb-6">
             Some words from our
@@ -170,16 +170,16 @@ export default function TestimonialsCarousel() {
 
         {/* Carousel Container with 3D perspective */}
         <div 
-          className="relative w-full h-[500px] flex items-center justify-center mb-16"
+          className="relative w-full h-[600px] flex items-center justify-center mb-16 overflow-hidden"
           style={{ 
-            perspective: '1200px',
+            perspective: '1800px', // Increased perspective for larger cards
             perspectiveOrigin: 'center center'
           }}
         >
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className={`absolute w-96 h-[450px] transition-all duration-700 ease-in-out cursor-pointer ${
+              className={`absolute w-96 h-[500px] transition-all duration-700 ease-in-out cursor-pointer ${
                 getSlidePosition(index) === 0 ? 'cursor-default' : 'cursor-pointer'
               }`}
               style={{
