@@ -23,7 +23,7 @@ export default function PricingSection() {
     },
     {
       name: 'Pro',
-      price: { monthly: 199, yearly: 159 },
+      price: { monthly: 199, yearly: 2350 },
       features: [
         'Access to standard AI model',
         'Legislation and regulation',
@@ -41,7 +41,7 @@ export default function PricingSection() {
     },
     {
       name: 'Business',
-      price: { monthly: 1999, yearly: 1599 },
+      price: { monthly: 1999, yearly: 20000 },
       features: [
         'Access to standard AI model',
         'Legislation and regulation',
