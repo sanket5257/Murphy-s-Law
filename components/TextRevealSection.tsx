@@ -147,23 +147,23 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div id="About" className="min-h-screen bg-white">
+    <div id="About" className=" bg-white">
       <div
         ref={containerRef}
-        className="sticky top-0 h-screen flex items-center justify-center overflow-hidden"
+        className=""
       >
-        <div className="relative w-full max-w-7xl px-8">
+        <div className="relative w-full px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
           {/* Main heading text - positioned to the left */}
           <div ref={textRef} className="relative z-0">
             <h1 style={{ fontSize: 'clamp(3rem, 8vw, 8.5rem)' }} className="leading-[0.95] font-migra">
-              <span className=" text-black">We are revolutionizing</span>
+              <h1 className=" text-black">We are revolutionizing</h1>
 
-              <span className="block text-black">
+              <h1 className="block text-black">
                 access to{" "}
                 <span className="bg-gradient-to-r from-orange-500 via-orange-300 to-red-200 bg-clip-text text-transparent italic">
                   legal assistance
                 </span>
-              </span>
+              </h1>
             </h1>
 
             <p className="subheading-small font-migra text-gray-700 mt-8">
@@ -174,7 +174,7 @@ export default function HeroSection() {
           {/* Description section with glassmorphism - positioned absolutely to the right */}
           <div
             ref={descriptionRef}
-            className="absolute z-50 top-1/2 right-8 -translate-y-1/2 max-w-xs backdrop-blur-xl bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden"
+            className="absolute z-50 top-1/2 right-4 md:right-8 lg:right-16 xl:right-24 2xl:right-32 max-w-xl -translate-y-1/2 backdrop-blur-xl bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden"
           >
             {/* Cursor following glow overlay */}
             <div

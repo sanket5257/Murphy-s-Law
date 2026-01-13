@@ -116,7 +116,7 @@ export default function SecurityCertifications() {
       ref={sectionRef}
       className="relative py-24 md:py-32 px-8 md:px-16 lg:px-24 bg-black"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="">
         {/* Section header */}
         <div className="text-center mb-20">
           <h2 
@@ -127,7 +127,7 @@ export default function SecurityCertifications() {
             <br />
             <span className="text-blue-400">Operations</span>
           </h2>
-          <p className="subheading-medium text-white/70 max-w-3xl mx-auto">
+          <p className="subheading-medium text-white/70 mx-auto">
             Continuous security monitoring and proactive threat management 
             to keep your data safe around the clock.
           </p>
@@ -177,7 +177,7 @@ export default function SecurityCertifications() {
           <h3 className="text-white mb-6">
             Ready to Secure Your Business?
           </h3>
-          <p className="font-montreal text-lg text-white/70 mb-8 max-w-2xl mx-auto">
+          <p className="font-montreal text-lg text-white/70 mb-8 mx-auto">
             Get started with enterprise-grade security today. Our team will help you 
             implement the right security measures for your specific needs.
           </p>

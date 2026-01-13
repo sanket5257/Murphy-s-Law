@@ -164,7 +164,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-6 py-5 md:px-8 md:py-6">
       <nav 
         ref={navRef}
-        className="relative flex items-center backdrop-blur-xl bg-white/10 border border-white/10 rounded-full px-6 md:px-8 py-2.5 md:py-3 shadow-2xl max-w-6xl w-full overflow-hidden transition-all duration-500 ease-out"
+        className="relative flex items-center backdrop-blur-xl bg-white/10 border border-white/10 rounded-full px-6 md:px-8 py-2.5 md:py-3 shadow-2xl  w-full overflow-hidden transition-all duration-500 ease-out"
       >
         {/* Cursor following glow overlay */}
         <div 

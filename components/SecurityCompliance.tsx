@@ -64,7 +64,7 @@ export default function SecurityCompliance() {
       ref={sectionRef}
       className="relative py-24 md:py-32 px-8 md:px-16 lg:px-24 bg-gradient-to-b from-black to-gray-900"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div ref={contentRef}>

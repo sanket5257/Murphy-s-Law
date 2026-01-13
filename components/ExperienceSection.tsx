@@ -38,11 +38,11 @@ export default function ExperienceSection() {
 
   return (
     <section className="bg-white py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="">
         <div className="flex justify-center items-center">
           <video
             ref={videoRef}
-            className="w-full max-w-4xl rounded-lg shadow-lg"
+            className="w-full rounded-lg shadow-lg"
             autoPlay
             muted
             loop

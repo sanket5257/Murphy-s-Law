@@ -161,7 +161,7 @@ export default function LawyersUseSection() {
 
   return (
     <section ref={sectionRef} className="relative w-full bg-white py-16 md:py-24 lg:py-32">
-      <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
+      <div className="px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="tagline text-black/60 mb-4">
@@ -174,7 +174,7 @@ export default function LawyersUseSection() {
 
         {/* Navigation Tabs */}
         <div ref={tabsRef} className="flex justify-center mb-12">
-          <div className="flex flex-wrap justify-center gap-1 md:gap-2 bg-gray-100 rounded-full p-2 max-w-4xl">
+          <div className="flex flex-wrap justify-center gap-1 md:gap-2 bg-gray-100 rounded-full p-2">
             {tabsData.map((tab, index) => (
               <button
                 key={tab.id}
@@ -213,7 +213,7 @@ export default function LawyersUseSection() {
         </div>
 
         {/* Main Content Card */}
-        <div className="max-w-6xl mx-auto">
+        <div className="mx-auto">
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
             <div className="grid lg:grid-cols-2">
               {/* Left Side - Image */}

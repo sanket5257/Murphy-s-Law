@@ -48,7 +48,7 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="relative bg-black text-white py-16 md:py-24 lg:py-32 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 overflow-hidden">
-      <div className="max-w-[1920px] mx-auto">
+      <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 xl:gap-20 2xl:gap-24">
           {/* Contact Us Section */}
           <div>

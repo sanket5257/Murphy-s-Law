@@ -138,9 +138,9 @@ export default function FAQSection() {
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen bg-black py-16 md:py-24 lg:py-32 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32"
+      className="min-h-screen bg-black py-16 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32"
     >
-      <div className="max-w-[1920px] mx-auto">
+      <div className="">
         <h2 
           ref={titleRef}
           className="text-white text-center mb-20 tracking-tight"
@@ -177,7 +177,7 @@ export default function FAQSection() {
                 style={{ height: openIndex === index ? 'auto' : 0 }}
               >
                 <div className="px-6 pb-8">
-                  <p className="font-montreal text-lg md:text-xl text-white/80 leading-relaxed max-w-4xl">
+                  <p className="font-montreal text-lg md:text-xl text-white/80 leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

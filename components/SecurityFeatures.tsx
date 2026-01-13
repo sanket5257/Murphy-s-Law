@@ -87,13 +87,13 @@ export default function SecurityFeatures() {
       ref={sectionRef}
       className="relative py-24 md:py-32 px-8 md:px-16 lg:px-24 bg-black"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="">
         {/* Section header */}
         <div className="text-center mb-20">
           <h2 className="text-white mb-6">
             Security Features
           </h2>
-          <p className="subheading-medium text-white/70 max-w-3xl mx-auto">
+          <p className="subheading-medium text-white/70 mx-auto">
             Comprehensive security measures designed to protect your business 
             and maintain the highest standards of data protection.
           </p>

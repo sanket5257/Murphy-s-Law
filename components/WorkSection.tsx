@@ -18,13 +18,13 @@ const WorkSection = () => {
 
   return (
     <section id='Key_Features' className="py-16 md:py-24 lg:py-32 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 bg-white">
-      <div className="max-w-[1920px] mx-auto">
+      <div className="">
         {/* Header */}
         <div className="text-left mb-16">
           <p className="tagline text-gray-500 mb-4">
             SMARTER TOOLS, BETTER OUTCOMES
           </p>
-          <h2 className="text-black max-w-4xl">
+          <h2 className="text-black">
             Murphy streamlines everything from research to drafting and 
             review — helping lawyers spend less time managing process, 
             and more time delivering value.
@@ -138,7 +138,7 @@ const WorkSection = () => {
           {/* Panel 3 - Research deeper */}
           <div className="bg-white rounded-2xl shadow-sm border overflow-hidden">
             <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative flex items-center justify-center p-6">
-              <div className="bg-white rounded-lg p-4 shadow-lg w-full max-w-xs">
+              <div className="bg-white rounded-lg p-4 shadow-lg w-full">
                 <div className="mb-4">
                   <input 
                     type="text" 

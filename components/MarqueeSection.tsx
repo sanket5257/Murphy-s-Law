@@ -14,9 +14,9 @@ export default function MarqueeSection() {
   ]
 
   return (
-    <section className="relative bg-white overflow-hidden">
+    <section className="relative pb-20 bg-white overflow-hidden">
       {/* Section Title */}
-      <div className="text-center mb-8 md:mb-10">
+      <div className="text-center mb-8 ">
         <h2 className="text-black">
           Partner Law Firms
         </h2>
@@ -29,13 +29,13 @@ export default function MarqueeSection() {
           {partnerLogos.map((logo, index) => (
             <div 
               key={`first-${index}`}
-              className="flex-shrink-0 flex items-center justify-center h-16 md:h-20 lg:h-24"
+              className="flex-shrink-0 flex items-center justify-center h-16"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-h-full max-w-full object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
-                style={{ maxWidth: '200px' }}
+                className="object-contain transition-opacity duration-300 filter grayscale hover:grayscale-0"
+                style={{ maxWidth: '150px', maxHeight: '100%' }}
               />
             </div>
           ))}
@@ -43,13 +43,13 @@ export default function MarqueeSection() {
           {partnerLogos.map((logo, index) => (
             <div 
               key={`second-${index}`}
-              className="flex-shrink-0 flex items-center justify-center h-16 md:h-20 lg:h-24"
+              className="flex-shrink-0 flex items-center justify-center h-16 "
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-h-full max-w-full object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
-                style={{ maxWidth: '200px' }}
+                className="object-contain transition-opacity duration-300 filter grayscale hover:grayscale-0"
+                style={{ maxWidth: '150px', maxHeight: '100%' }}
               />
             </div>
           ))}

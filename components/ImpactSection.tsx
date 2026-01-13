@@ -93,8 +93,8 @@ export default function ImpactSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white py-16 md:py-24 lg:py-32">
-      <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
+    <section ref={sectionRef} className="relative w-full bg-white">
+      <div className="px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
         {/* Title */}
         <div className="text-center mb-16 md:mb-24">
           <h2 
@@ -121,7 +121,7 @@ export default function ImpactSection() {
               </div>
               
               {/* Description */}
-              <p className="font-montreal text-lg md:text-xl text-black/80 leading-relaxed max-w-xs mx-auto">
+              <p className="font-montreal text-lg md:text-xl text-black/80 leading-relaxed mx-auto">
                 {stat.description}
               </p>
             </div>

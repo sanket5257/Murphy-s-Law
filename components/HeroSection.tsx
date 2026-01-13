@@ -4,37 +4,39 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen w-full bg-white">
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-start items-center px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 text-center pt-32 pb-16 md:pb-24 lg:pb-32 max-w-[1920px] mx-auto">
+      <div className="relative z-10 flex flex-col justify-start items-center px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 text-center pt-32 pb-16 md:pb-24 lg:pb-32">
         {/* Top tagline */}
-        <p className="tagline text-black/80 mb-8 lg:mb-12">
+        <p className="tagline text-black/80 mb-8">
           DISCOVER THE FUTURE OF LAW
         </p>
         
         {/* Main Heading */}
-        <h1 className="text-black mb-12 lg:mb-16 max-w-6xl">
+        <h1 className="text-black">
           Legal Intelligence.
           <br />
           Redefined.
         </h1>
         
-        {/* CTA Button */}
-        <div className="mb-16 lg:mb-20">
-          <button className="bg-black text-white font-montreal font-medium px-8 py-3 lg:px-10 lg:py-4 xl:px-12 xl:py-5 rounded-sm hover:bg-gray-800 transition-colors duration-300 text-base lg:text-lg">
-            Request a Demo
-          </button>
-        </div>
+        
         
         {/* Bottom tagline */}
-        <div className="max-w-3xl mb-12 lg:mb-16">
-          <h2 className="subheading-large text-black font-medium">
+        <div className="mb-8">
+          <h2 className="subheading-large text-black ">
             Empower Your Legal Journey
             <br />
             with AI-Driven Expertise
           </h2>
         </div>
+
+        {/* CTA Button */}
+        <div className="mb-8">
+          <button className="bg-black text-white font-montreal font-medium px-8 py-4 rounded-md hover:bg-gray-800 transition-colors duration-300 ">
+            Request a Demo
+          </button>
+        </div>
         
         {/* Video Section */}
-        <div className="w-full max-w-7xl 2xl:max-w-[1600px]">
+        <div className="w-full">
           <video
             className="w-full h-auto rounded-lg shadow-2xl"
             autoPlay

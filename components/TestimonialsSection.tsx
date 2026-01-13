@@ -114,7 +114,7 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 py-16 md:py-24 lg:py-32 max-w-[1920px] mx-auto">
+      <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 py-16">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-24">
           {/* Glassmorphism badge */}
@@ -122,7 +122,7 @@ export default function TestimonialsSection() {
             <span className="text-white/80 text-sm lg:text-base font-medium">Testimonials</span>
           </div>
 
-          <h2 className="text-white max-w-5xl mx-auto">
+          <h2 className="text-white mx-auto">
             Some words from our
             <br />
             valued clients
@@ -130,7 +130,7 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Testimonial Cards Container */}
-        <div className="relative w-full max-w-[1600px] mx-auto">
+        <div className="relative w-full">
           <div className="flex justify-center items-center space-x-6 lg:space-x-8 xl:space-x-12">
             {/* Left Card (Previous) */}
             <div ref={leftCardRef} className="hidden lg:block w-80 xl:w-96 2xl:w-[420px] opacity-50 transform scale-90">
@@ -152,7 +152,7 @@ export default function TestimonialsSection() {
             </div>
 
             {/* Center Card (Current) */}
-            <div ref={centerCardRef} className="w-full max-w-2xl lg:w-[600px] xl:w-[700px] 2xl:w-[800px] transform scale-100">
+            <div ref={centerCardRef} className="w-full lg:w-[600px] xl:w-[700px] 2xl:w-[800px] transform scale-100">
               <div className="backdrop-blur-xl bg-white/15 border border-white/30 rounded-2xl p-8 md:p-12 lg:p-16 xl:p-20 shadow-2xl min-h-[500px] xl:min-h-[600px] flex flex-col justify-between">
                 <div className="mb-8">
                   <p className="text-white text-base lg:text-lg xl:text-xl leading-relaxed">

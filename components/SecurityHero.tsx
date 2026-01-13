@@ -42,7 +42,7 @@ export default function SecurityHero() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black to-black" />
       
-      <div className="relative z-10 max-w-7xl mx-auto text-center">
+      <div className="relative z-10 text-center">
         {/* Main heading */}
         <h1 
           ref={titleRef}
@@ -57,7 +57,7 @@ export default function SecurityHero() {
         {/* Subtitle */}
         <p 
           ref={subtitleRef}
-          className="subheading-large text-white/70 max-w-3xl mx-auto mb-16"
+          className="subheading-large text-white/70 mx-auto mb-16"
         >
           Enterprise-grade security built into every layer of our platform. 
           Your data protection is our highest priority.
@@ -66,7 +66,7 @@ export default function SecurityHero() {
         {/* Security image */}
         <div 
           ref={imageRef}
-          className="relative max-w-4xl mx-auto"
+          className="relative mx-auto"
         >
           <img 
             src="/img/security iamges/4NiQ5LBDGQ2eSxB2XzEI2lZg8Fg.webp"
