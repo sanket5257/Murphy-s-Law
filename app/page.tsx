@@ -3,10 +3,11 @@ import HeroSection from '@/components/HeroSection'
 import LawyersUseSection from '@/components/LawyersUseSection'
 import ImpactSection from '@/components/ImpactSection'
 import VisionSection from '@/components/VisionSection'
+import CarouselDemo from '@/components/CarouselDemo'
 import PricingSection from '@/components/PricingSection'
 import TextRevealSection from '@/components/TextRevealSection'
 import WorkSection from '@/components/WorkSection'
-import TestimonialsSection from '@/components/TestimonialsSection'
+import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 import FAQSection from '@/components/FAQSection'
 import Footer from '@/components/Footer'
 import MarqueeSection from '@/components/MarqueeSection'
@@ -21,9 +22,10 @@ export default function Home() {
       <LawyersUseSection />
       <ImpactSection />
       <VisionSection />
+      {/* <CarouselDemo /> */}
       <WorkSection />
       <PricingSection />
-      <TestimonialsSection />
+      <TestimonialsCarousel />
       <FAQSection />
       <Footer />
     </main>
