@@ -127,7 +127,7 @@ export default function ImpactSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white">
+    <section ref={sectionRef} className="relative w-full bg-white pb-32">
       <div className="px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
         {/* Title */}
         <div className="text-center mb-16 md:mb-24">
