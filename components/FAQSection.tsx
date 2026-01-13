@@ -8,28 +8,20 @@ gsap.registerPlugin(ScrollTrigger)
 
 const faqs = [
   {
-    question: "What types of projects do you take on?",
-    answer: "We specialise in branding and UX/UI design for websites and apps, but our approach is versatile. Whether it's a full brand identity, a design system build, or ongoing design support, we adapt to fit your business goals."
+    question: "Will documents I upload to Murphy be safe?",
+    answer: "Yes, we use industry-standard security measures with robust encryption. Murphy does not train underlying models using your data."
   },
   {
-    question: "Which industries do you work with?",
-    answer: "Our core expertise is in fintech and e-commerce, but we've partnered with clients across hospitality, law, accounting, packaging, edtech and many more. We are an agile team and our skills can adapt to most verticals, bringing a fresh, human-centric perspective to any industry."
+    question: "Where does Murphy get case law from?",
+    answer: "Other large language models do not have direct access to proprietary case law databases and rely on publicly available sources to generate legal answers. However, Murphy is integrated with reputable and reliable case law databases and has specifically curated datasets. This ensures that Murphy always has access to the most recent case law out there."
   },
   {
-    question: "How does your pricing work?",
-    answer: "We offer both project-based pricing and ongoing retainers, billed at a flat hourly rate. Once we scope your project, you'll receive a clear estimate before we begin. If the scope shifts, we'll flag it early so there are no surprises."
+    question: "Can I export and download answers?",
+    answer: "Yes, Murphy allows you to share entire chats and export documents in Word or PDF format. These documents are pre-formated and can be edited to suit user preferences."
   },
   {
-    question: "Do you handle development too?",
-    answer: "We focus on what we do best: design. For development, we collaborate with trusted partners we believe are the best of the best. If you already have a dev team, we'll work hand-in-hand with them to ensure a smooth handover and seamless build."
-  },
-  {
-    question: "What is your design process like?",
-    answer: "Every project begins with a discovery session to align on your goals. From there, we move through two key phases: UX Discovery & Design, where we focus on research, user flows, and wireframes to create an intuitive experience, and UI Discovery & Design, where we bring your brand to life through polished, visually engaging interfaces."
-  },
-  {
-    question: "How long does a typical project take?",
-    answer: "Timelines depend on scope, but most branding projects take roughly 6 to 8 weeks, and websites or apps typically run 8 to 12 weeks from kickoff to development handover. We'll always share a timeline upfront to ensure clarity and structure."
+    question: "Can I upload documents for review?",
+    answer: "Yes, you can upload contracts, court pleadings, or other legal documents to be summarised, for clause extraction, or for compliance checks."
   }
 ]
 

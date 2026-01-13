@@ -5,16 +5,16 @@ export default function MarqueeSection() {
   const partnerLogos = [
     { src: '/img/SMAI-Logo.png', alt: 'SMAI Law Firm' },
     { src: '/img/3.png', alt: 'Partner Law Firm' },
-    { src: '/img/SMAI-Logo.png', alt: 'SMAI Legal' },
+    { src: '/img/5.png', alt: 'SMAI Legal' },
     { src: '/img/3.png', alt: 'Legal Partners' },
-    { src: '/img/SMAI-Logo.png', alt: 'SMAI Partners' },
+    { src: '/img/mmh-logo.png', alt: 'SMAI Partners' },
     { src: '/img/3.png', alt: 'Law Associates' },
     { src: '/img/SMAI-Logo.png', alt: 'SMAI Associates' },
     { src: '/img/3.png', alt: 'Legal Group' },
   ]
 
   return (
-    <section className="relative pb-20 bg-white overflow-hidden">
+    <section className="relative pb-40 bg-white overflow-hidden">
       {/* Section Title */}
       <div className="text-center mb-8 ">
         <h2 className="text-black">

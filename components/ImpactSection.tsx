@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -8,8 +8,15 @@ export default function ImpactSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const statsRefs = useRef<(HTMLDivElement | null)[]>([])
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isClient) return
+    
     gsap.registerPlugin(ScrollTrigger)
 
     // Create a single timeline for better performance
@@ -50,8 +57,27 @@ export default function ImpactSection() {
         const numberElement = stat?.querySelector('.stat-number')
         if (numberElement) {
           const finalNumber = numberElement.textContent || '0'
-          const isKFormat = finalNumber.includes('k+')
-          const numericValue = parseInt(finalNumber.replace(/[^\d]/g, ''))
+          
+          // Handle different number formats
+          let numericValue = 0
+          let suffix = ''
+          let isPercentage = false
+          let isMultiplier = false
+          
+          if (finalNumber.includes('%')) {
+            isPercentage = true
+            numericValue = parseInt(finalNumber.replace(/[^\d]/g, ''))
+            suffix = '%'
+          } else if (finalNumber.includes('x')) {
+            isMultiplier = true
+            numericValue = parseInt(finalNumber.replace(/[^\d]/g, ''))
+            suffix = 'x'
+          } else if (finalNumber.includes('k+')) {
+            numericValue = parseInt(finalNumber.replace(/[^\d]/g, ''))
+            suffix = 'k+'
+          } else {
+            numericValue = parseInt(finalNumber.replace(/[^\d]/g, ''))
+          }
           
           const counter = { value: 0 }
           
@@ -61,7 +87,11 @@ export default function ImpactSection() {
             ease: 'power2.out',
             onUpdate: function() {
               const currentValue = Math.round(counter.value)
-              if (isKFormat) {
+              if (isPercentage) {
+                numberElement.textContent = currentValue + '%'
+              } else if (isMultiplier) {
+                numberElement.textContent = currentValue + 'x'
+              } else if (suffix === 'k+') {
                 numberElement.textContent = currentValue + 'k+'
               } else {
                 numberElement.textContent = currentValue.toString()
@@ -75,20 +105,24 @@ export default function ImpactSection() {
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
-  }, [])
+  }, [isClient])
 
   const stats = [
     {
-      number: '700',
-      description: 'Leading law firms and enterprises'
+      number: '65%',
+      description: 'Reduction in Document Review Time'
     },
     {
-      number: '50',
-      description: 'of AmLaw 100 firms on Murphy'
+      number: '5x',
+      description: 'Case Law Research Productivity Gains'
     },
     {
-      number: '74k+',
-      description: 'Lawyers using Murphy'
+      number: '20%',
+      description: 'Increase in Billable Hours'
+    },
+    {
+      number: '95%',
+      description: 'Cost Reduction When Compared With Traditional Legal Research Fees'
     }
   ]
 
@@ -106,7 +140,7 @@ export default function ImpactSection() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16">
           {stats.map((stat, index) => (
             <div
               key={index}
