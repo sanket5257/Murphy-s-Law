@@ -117,10 +117,7 @@ export default function TestimonialsSection() {
       <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 py-16">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-24">
-          {/* Glassmorphism badge */}
-          <div className="inline-flex items-center px-4 py-2 lg:px-6 lg:py-3 mb-8 lg:mb-12 rounded-full backdrop-blur-md bg-white/10 border border-white/20">
-            <span className="text-white/80 text-sm lg:text-base font-medium">Testimonials</span>
-          </div>
+         
 
           <h2 className="text-white mx-auto">
             Some words from our
