@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function TermsOfService() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen pt-32 bg-black text-white">
       {/* Header */}
       <div className="py-16 px-8">
         <div className="max-w-4xl mx-auto">

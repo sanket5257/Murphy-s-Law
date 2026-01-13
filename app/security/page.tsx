@@ -5,7 +5,7 @@ import FAQSection from '@/components/FAQSection'
 export default function SecurityPage() {
   return (
     <main className="min-h-screen  bg-black">
-      <Header />
+      {/* <Header /> */}
       
       {/* Main Security Section */}
       <section className="min-h-screen flex">
@@ -338,7 +338,7 @@ export default function SecurityPage() {
       </section>
       <FAQSection/>
 
-      <Footer />
+      {/* <Footer /> */}
     </main>
   )
 }
