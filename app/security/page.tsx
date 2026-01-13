@@ -1,5 +1,3 @@
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import FAQSection from '@/components/FAQSection'
 
 export default function SecurityPage() {
@@ -9,8 +7,9 @@ export default function SecurityPage() {
       
       {/* Main Security Section */}
       <section className="min-h-screen flex">
-        {/* Left Side - Content */}
-        <div className="w-1/2 bg-black flex flex-col justify-center px-16 py-32">
+        <div className="max-w-7xl mx-auto w-full flex">
+          {/* Left Side - Content */}
+          <div className="w-1/2 bg-black flex flex-col justify-center px-16 py-32">
           <div className="">
             {/* Small header */}
             <div className="flex items-center gap-2 mb-8">
@@ -81,12 +80,13 @@ export default function SecurityPage() {
             </div>
           </div>
         </div>
+        </div>
       </section>
       
       
       {/* Your Data, Your Decisions Section */}
       <section className="bg-neutral-900 min-h-screen flex items-center px-16">
-        <div className="">
+        <div className="max-w-7xl mx-auto w-full">
           {/* Header */}
           <div className="text-center mb-20">
             <p className="tagline text-white/60 mb-6">
@@ -170,7 +170,7 @@ export default function SecurityPage() {
 
       {/* Trusted Data Storage & Legal-grade Security Section */}
       <section className="bg-black py-24 px-16">
-        <div className="">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32">
             
             {/* Trusted Data Storage */}
@@ -260,7 +260,7 @@ export default function SecurityPage() {
 
       {/* Certifications & Compliance Section */}
       <section className="bg-black py-24 px-16">
-        <div className="">
+        <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
             <p className="tagline text-white/60 mb-6">
