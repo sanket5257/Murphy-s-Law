@@ -48,7 +48,25 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="relative bg-black text-whitep pb-8 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 overflow-hidden">
-      <div className="">
+      {/* CTA Section */}
+      <div className="py-16 md:py-20 border-b border-white/10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          <div>
+            <h2 className="text-white font-migra text-3xl md:text-4xl lg:text-5xl leading-tight">
+              Unlock Professional Class AI
+              <br />
+              for Your Firm
+            </h2>
+          </div>
+          <div>
+            <button className="px-8 py-4 bg-white text-black font-montreal font-medium rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
+              Request a Demo
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="pt-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 xl:gap-20 2xl:gap-24">
           {/* Contact Us Section */}
           <div>
