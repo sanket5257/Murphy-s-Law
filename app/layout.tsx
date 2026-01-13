@@ -1,10 +1,12 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import SmoothScrolling from '@/components/SmoothScrolling'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Murphys Law',
-  description: 'A people first digital studio',
+  title: 'Murphys Law AI',
+  description: 'Legal Intelligence Redefined - AI-powered legal assistance platform',
 }
 
 export default function RootLayout({
@@ -16,7 +18,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <SmoothScrolling>
-          {children}
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
         </SmoothScrolling>
       </body>
     </html>
