@@ -132,7 +132,7 @@ export default function FAQSection() {
       ref={sectionRef}
       className="min-h-screen bg-black py-16 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32"
     >
-      <div className="">
+      <div className="max-w-7xl mx-auto">
         <h2 
           ref={titleRef}
           className="text-white text-center mb-20 tracking-tight"

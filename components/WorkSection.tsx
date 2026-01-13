@@ -18,7 +18,7 @@ const WorkSection = () => {
 
   return (
     <section id='Key_Features' className="py-16 md:py-24 lg:py-32 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 bg-white">
-      <div className="">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-left mb-16">
           <p className="tagline text-gray-500 mb-4">

@@ -15,15 +15,16 @@ export default function MarqueeSection() {
 
   return (
     <section className="relative pb-40 bg-white overflow-hidden">
-      {/* Section Title */}
-      <div className="text-center mb-8 ">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Title */}
+        <div className="text-center mb-8 ">
         <h2 className="text-black">
           Partner Law Firms
         </h2>
-      </div>
+        </div>
 
-      {/* Marquee Container */}
-      <div className="marquee-container overflow-hidden whitespace-nowrap">
+        {/* Marquee Container */}
+        <div className="marquee-container overflow-hidden whitespace-nowrap">
         <div className="marquee-content inline-flex items-center gap-16 md:gap-24 lg:gap-32 animate-marquee">
           {/* First set of logos */}
           {partnerLogos.map((logo, index) => (
@@ -53,6 +54,7 @@ export default function MarqueeSection() {
               />
             </div>
           ))}
+        </div>
         </div>
       </div>
 

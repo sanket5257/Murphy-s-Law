@@ -42,7 +42,7 @@ export default function HeroSection() {
   return (
     <section ref={sectionRef} className="relative min-h-screen w-full bg-white">
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-start items-center px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 text-center pt-48 pb-16 md:pb-24 lg:pb-32">
+      <div className="relative z-10 flex flex-col justify-start items-center px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 text-center pt-48 pb-16 md:pb-24 lg:pb-32 max-w-7xl mx-auto">
         {/* Top tagline */}
         <p className="tagline text-black/80 mb-8">
           DISCOVER THE FUTURE OF LAW

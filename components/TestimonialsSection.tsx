@@ -69,7 +69,7 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 py-16">
+      <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 py-16 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-24">
           {/* Glassmorphism badge */}

@@ -47,7 +47,7 @@ const benefitsData = [
 export default function BenefitsSection() {
   return (
     <section className="relative min-h-screen w-full bg-white py-16 md:py-24">
-      <div className="w-full px-4 md:px-8 lg:px-16">
+      <div className="w-full px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-16 lg:mb-20">
           <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-black/5 border border-black/10">

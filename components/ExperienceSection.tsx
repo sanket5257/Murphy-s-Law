@@ -38,7 +38,7 @@ export default function ExperienceSection() {
 
   return (
     <section className="bg-white py-16 px-4">
-      <div className="">
+      <div className="max-w-7xl mx-auto">
         <div className="flex justify-center items-center">
           <video
             ref={videoRef}

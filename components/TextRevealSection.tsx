@@ -152,7 +152,7 @@ export default function HeroSection() {
         ref={containerRef}
         className=""
       >
-        <div className="relative w-full px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
+        <div className="relative w-full px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 max-w-7xl mx-auto">
           {/* Main heading text - positioned to the left */}
           <div ref={textRef} className="relative z-0">
             <h1 style={{ fontSize: 'clamp(3rem, 8vw, 8.5rem)' }} className="leading-[0.95] font-migra">

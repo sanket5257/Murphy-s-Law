@@ -175,7 +175,7 @@ export default function LawyersUseSection() {
 
   return (
     <section className="relative w-full bg-white py-16 md:py-24 lg:py-32">
-      <div className="px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
+      <div className="px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="tagline text-black/60 mb-4">
