@@ -1,7 +1,16 @@
 'use client'
 
 import React, { useRef, useEffect, useState } from 'react'
-import { gsap } from 'gsap'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules'
+import type { Swiper as SwiperType } from 'swiper'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/autoplay'
+import 'swiper/css/effect-coverflow'
 
 const testimonials = [
   {
@@ -24,76 +33,22 @@ const testimonials = [
 export default function TestimonialsSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
-  const [isTransitioning, setIsTransitioning] = useState(false)
-  const centerCardRef = useRef<HTMLDivElement>(null)
-  const leftCardRef = useRef<HTMLDivElement>(null)
-  const rightCardRef = useRef<HTMLDivElement>(null)
+  const swiperRef = useRef<SwiperType | null>(null)
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(console.error)
     }
-
-    // Initialize only center card animation
-    const centerCard = centerCardRef.current
-    if (centerCard) {
-      gsap.set(centerCard, { opacity: 1, y: 0, scale: 1 })
-    }
   }, [])
 
-  const animateTransition = (newIndex: number, direction: 'next' | 'prev' | 'direct' = 'direct') => {
-    if (isTransitioning || newIndex === currentTestimonial) return
-    
-    setIsTransitioning(true)
-    
-    const centerCard = centerCardRef.current
-    if (!centerCard) return
-    
-    // Animate out only the center card
-    gsap.to(centerCard, {
-      opacity: 0,
-      y: direction === 'next' ? -30 : direction === 'prev' ? 30 : 0,
-      scale: 0.95,
-      duration: 0.4,
-      ease: "power2.inOut",
-      onComplete: () => {
-        // Update state
-        setCurrentTestimonial(newIndex)
-        
-        // Animate in only the center card
-        gsap.fromTo(centerCard, 
-          {
-            opacity: 0,
-            y: direction === 'next' ? 30 : direction === 'prev' ? -30 : 0,
-            scale: 0.95
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.5,
-            ease: "power2.out",
-            onComplete: () => {
-              setIsTransitioning(false)
-            }
-          }
-        )
-      }
-    })
-  }
-
-  const nextTestimonial = () => {
-    const newIndex = (currentTestimonial + 1) % testimonials.length
-    animateTransition(newIndex, 'next')
-  }
-
-  const prevTestimonial = () => {
-    const newIndex = (currentTestimonial - 1 + testimonials.length) % testimonials.length
-    animateTransition(newIndex, 'prev')
+  const handleSlideChange = (swiper: SwiperType) => {
+    setCurrentTestimonial(swiper.activeIndex)
   }
 
   const goToTestimonial = (index: number) => {
-    animateTransition(index, 'direct')
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(index)
+    }
   }
 
   return (
@@ -117,7 +72,10 @@ export default function TestimonialsSection() {
       <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 py-16">
         {/* Header */}
         <div className="text-center mb-16 lg:mb-24">
-         
+          {/* Glassmorphism badge */}
+          <div className="inline-flex items-center px-4 py-2 lg:px-6 lg:py-3 mb-8 lg:mb-12 rounded-full backdrop-blur-md bg-white/10 border border-white/20">
+            <span className="text-white/80 text-sm lg:text-base font-medium">Testimonials</span>
+          </div>
 
           <h2 className="text-white mx-auto">
             Some words from our
@@ -126,97 +84,100 @@ export default function TestimonialsSection() {
           </h2>
         </div>
 
-        {/* Testimonial Cards Container */}
+        {/* Swiper Testimonials Carousel */}
         <div className="relative w-full">
-          <div className="flex justify-center items-center space-x-6 lg:space-x-8 xl:space-x-12">
-            {/* Left Card (Previous) */}
-            <div ref={leftCardRef} className="hidden lg:block w-80 xl:w-96 2xl:w-[420px] opacity-50 transform scale-90">
-              <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-8 xl:p-10 h-[500px] xl:h-[550px] flex flex-col justify-between">
-                <div>
-                  <p className="text-white/80 text-sm xl:text-base leading-relaxed mb-6">
-                    "{testimonials[(currentTestimonial - 1 + testimonials.length) % testimonials.length].text.substring(0, 120)}..."
-                  </p>
-                </div>
-                <div>
-                  <p className="text-white font-medium text-lg xl:text-xl">
-                    {testimonials[(currentTestimonial - 1 + testimonials.length) % testimonials.length].name}
-                  </p>
-                  <p className="text-white/60 text-sm xl:text-base">
-                    {testimonials[(currentTestimonial - 1 + testimonials.length) % testimonials.length].role}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Center Card (Current) */}
-            <div ref={centerCardRef} className="w-full lg:w-[600px] xl:w-[700px] 2xl:w-[800px] transform scale-100">
-              <div className="backdrop-blur-xl bg-white/15 border border-white/30 rounded-2xl p-8 md:p-12 lg:p-16 xl:p-20 shadow-2xl min-h-[500px] xl:min-h-[600px] flex flex-col justify-between">
-                <div className="mb-8">
-                  <p className="text-white text-base lg:text-lg xl:text-xl leading-relaxed">
-                    "{testimonials[currentTestimonial].text}"
-                  </p>
-                </div>
-                <div>
-                  <p className="text-white font-medium subheading-medium mb-1">
-                    {testimonials[currentTestimonial].name}
-                  </p>
-                  <p className="text-white/70 text-sm xl:text-base">
-                    {testimonials[currentTestimonial].role}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Card (Next) */}
-            <div ref={rightCardRef} className="hidden lg:block w-80 xl:w-96 2xl:w-[420px] opacity-50 transform scale-90">
-              <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-8 xl:p-10 h-[500px] xl:h-[550px] flex flex-col justify-between">
-                <div>
-                  <p className="text-white/80 text-sm xl:text-base leading-relaxed mb-6">
-                    "{testimonials[(currentTestimonial + 1) % testimonials.length].text.substring(0, 120)}..."
-                  </p>
-                </div>
-                <div>
-                  <p className="text-white font-medium text-lg xl:text-xl">
-                    {testimonials[(currentTestimonial + 1) % testimonials.length].name}
-                  </p>
-                  <p className="text-white/60 text-sm xl:text-base">
-                    {testimonials[(currentTestimonial + 1) % testimonials.length].role}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevTestimonial}
-            disabled={isTransitioning}
-            className="absolute left-4 lg:left-0 top-1/2 transform -translate-y-1/2 backdrop-blur-md bg-white/10 border border-white/20 rounded-full p-3 hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={0}
+            slidesPerView={1}
+            centeredSlides={true}
+            speed={800}
+            allowTouchMove={true}
+            grabCursor={true}
+            loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper
+            }}
+            onSlideChange={handleSlideChange}
+            className="w-full"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15 18L9 12L15 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex justify-center items-center space-x-6 lg:space-x-8 xl:space-x-12">
+                  {/* Left Card (Previous) */}
+                  <div className="hidden lg:block w-80 xl:w-96 2xl:w-[420px] opacity-50 transform scale-90">
+                    <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-8 xl:p-10 h-[400px] xl:h-[450px] flex flex-col justify-between">
+                      <div>
+                        <p className="text-white/80 text-sm xl:text-base leading-relaxed mb-4">
+                          "{testimonials[(index - 1 + testimonials.length) % testimonials.length].text.substring(0, 120)}..."
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium text-lg xl:text-xl">
+                          {testimonials[(index - 1 + testimonials.length) % testimonials.length].name}
+                        </p>
+                        <p className="text-white/60 text-sm xl:text-base">
+                          {testimonials[(index - 1 + testimonials.length) % testimonials.length].role}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
-          <button
-            onClick={nextTestimonial}
-            disabled={isTransitioning}
-            className="absolute right-4 lg:right-0 top-1/2 transform -translate-y-1/2 backdrop-blur-md bg-white/10 border border-white/20 rounded-full p-3 hover:bg-white/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+                  {/* Center Card (Current) */}
+                  <div className="w-full lg:w-[600px] xl:w-[700px] 2xl:w-[800px] transform scale-100">
+                    <div className="backdrop-blur-xl bg-white/15 border border-white/30 rounded-2xl p-8 md:p-10 lg:p-12 xl:p-16 shadow-2xl min-h-[400px] xl:min-h-[450px] flex flex-col justify-between">
+                      <div className="mb-6">
+                        <p className="text-white text-base lg:text-lg xl:text-xl leading-relaxed">
+                          "{testimonial.text}"
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium subheading-medium mb-1">
+                          {testimonial.name}
+                        </p>
+                        <p className="text-white/70 text-sm xl:text-base">
+                          {testimonial.role}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Card (Next) */}
+                  <div className="hidden lg:block w-80 xl:w-96 2xl:w-[420px] opacity-50 transform scale-90">
+                    <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-8 xl:p-10 h-[400px] xl:h-[450px] flex flex-col justify-between">
+                      <div>
+                        <p className="text-white/80 text-sm xl:text-base leading-relaxed mb-4">
+                          "{testimonials[(index + 1) % testimonials.length].text.substring(0, 120)}..."
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium text-lg xl:text-xl">
+                          {testimonials[(index + 1) % testimonials.length].name}
+                        </p>
+                        <p className="text-white/60 text-sm xl:text-base">
+                          {testimonials[(index + 1) % testimonials.length].role}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         {/* Dots Indicator */}
-        <div className="flex space-x-2 mt-12">
+        <div className="flex space-x-2 mt-12 justify-center">
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => goToTestimonial(index)}
-              disabled={isTransitioning}
-              className={`w-2 h-2 rounded-full transition-all duration-300 disabled:cursor-not-allowed ${
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentTestimonial 
                   ? 'bg-white' 
                   : 'bg-white/40 hover:bg-white/60'

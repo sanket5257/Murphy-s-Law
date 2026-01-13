@@ -1,7 +1,15 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { gsap } from 'gsap'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import type { Swiper as SwiperType } from 'swiper'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/autoplay'
 
 interface TabContent {
   id: string
@@ -75,22 +83,38 @@ const tabsData: TabContent[] = [
 export default function LawyersUseSection() {
   const [activeTab, setActiveTab] = useState(0)
   const [progress, setProgress] = useState(0)
-  const sectionRef = useRef<HTMLElement>(null)
-  const imageRef = useRef<HTMLImageElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
-  const tabsRef = useRef<HTMLDivElement>(null)
+  const swiperRef = useRef<SwiperType | null>(null)
   const progressRefs = useRef<(HTMLDivElement | null)[]>(new Array(tabsData.length).fill(null))
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
-  // Auto-scroll functionality
+  // Progress bar animation for active tab
   useEffect(() => {
-    const startAutoScroll = () => {
+    const currentProgressRef = progressRefs.current[activeTab]
+    if (currentProgressRef) {
+      // Reset all progress bars first
+      progressRefs.current.forEach((ref, index) => {
+        if (ref && index !== activeTab) {
+          ref.style.width = '0%'
+        }
+      })
+      
+      // Animate current progress bar
+      currentProgressRef.style.width = `${progress}%`
+    }
+  }, [progress, activeTab])
+
+  // Auto-progress functionality
+  useEffect(() => {
+    const startAutoProgress = () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
       
       intervalRef.current = setInterval(() => {
         setProgress(prev => {
           if (prev >= 100) {
-            setActiveTab(current => (current + 1) % tabsData.length)
+            // Move to next slide
+            if (swiperRef.current) {
+              swiperRef.current.slideNext()
+            }
             return 0
           }
           return prev + 2 // Adjust speed here (2% every interval)
@@ -98,69 +122,59 @@ export default function LawyersUseSection() {
       }, 100) // Update every 100ms
     }
 
-    startAutoScroll()
+    startAutoProgress()
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
     }
   }, [activeTab])
 
-  // GSAP animations for tab changes
-  useEffect(() => {
-    if (contentRef.current && imageRef.current) {
-      const tl = gsap.timeline()
-      
-      tl.to(contentRef.current, {
-        opacity: 0,
-        y: 20,
-        duration: 0.3,
-        ease: 'power2.out'
-      })
-      .to(imageRef.current, {
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.3,
-        ease: 'power2.out'
-      }, 0)
-      .to([contentRef.current, imageRef.current], {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.4,
-        ease: 'power2.out',
-        stagger: 0.1
-      })
-    }
-  }, [activeTab])
-
-  // Progress bar animation
-  useEffect(() => {
-    const currentProgressRef = progressRefs.current[activeTab]
-    if (currentProgressRef) {
-      gsap.to(currentProgressRef, {
-        width: `${progress}%`,
-        duration: 0.1,
-        ease: 'none'
-      })
-    }
-  }, [progress, activeTab])
-
   const handleTabClick = (index: number) => {
+    // Clear any existing auto-progress
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+    }
+    
     setActiveTab(index)
     setProgress(0)
+    
+    // Move swiper to the clicked slide
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(index)
+    }
     
     // Reset all progress bars
     progressRefs.current.forEach((ref) => {
       if (ref) {
-        gsap.set(ref, { width: '0%' })
+        ref.style.width = '0%'
       }
     })
+    
+    // Restart auto-progress after a delay
+    setTimeout(() => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+      
+      intervalRef.current = setInterval(() => {
+        setProgress(prev => {
+          if (prev >= 100) {
+            if (swiperRef.current) {
+              swiperRef.current.slideNext()
+            }
+            return 0
+          }
+          return prev + 2
+        })
+      }, 100)
+    }, 1000)
   }
 
-  const currentTab = tabsData[activeTab]
+  const handleSlideChange = (swiper: SwiperType) => {
+    setActiveTab(swiper.activeIndex)
+    setProgress(0)
+  }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white py-16 md:py-24 lg:py-32">
+    <section className="relative w-full bg-white py-16 md:py-24 lg:py-32">
       <div className="px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
         {/* Header */}
         <div className="text-center mb-16">
@@ -173,7 +187,7 @@ export default function LawyersUseSection() {
         </div>
 
         {/* Navigation Tabs */}
-        <div ref={tabsRef} className="flex justify-center mb-12">
+        <div className="flex justify-center mb-12">
           <div className="flex flex-wrap justify-center gap-1 md:gap-2 bg-gray-100 rounded-full p-2">
             {tabsData.map((tab, index) => (
               <button
@@ -212,36 +226,57 @@ export default function LawyersUseSection() {
           </div>
         </div>
 
-        {/* Main Content Card */}
+        {/* Swiper Carousel */}
         <div className="mx-auto">
-          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-            <div className="grid lg:grid-cols-2">
-              {/* Left Side - Image */}
-              <div className="bg-gray-100 flex items-center justify-center">
-                <div className="w-full ">
-                  <img
-                    ref={imageRef}
-                    src="/img/fbd4e7ba2db5ddd2e95040335b649bac55fa2f3b-569x543.svg"
-                    alt="Legal workflow interface"
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            speed={800}
+            allowTouchMove={true}
+            grabCursor={true}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper
+            }}
+            onSlideChange={handleSlideChange}
+            className="w-full"
+          >
+            {tabsData.map((tab) => (
+              <SwiperSlide key={tab.id}>
+                <div className="px-2">
+                  <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                    <div className="grid lg:grid-cols-2">
+                      {/* Left Side - Image */}
+                      <div className="bg-gray-100 flex items-center justify-center">
+                        <div className="w-full">
+                          <img
+                            src="/img/fbd4e7ba2db5ddd2e95040335b649bac55fa2f3b-569x543.svg"
+                            alt="Legal workflow interface"
+                            className="w-full h-auto"
+                          />
+                        </div>
+                      </div>
 
-              {/* Right Side - Content */}
-              <div ref={contentRef} className="bg-black p-8 lg:p-12 flex flex-col justify-center">
-                <h3 className="text-white mb-6">
-                  {currentTab.title}
-                </h3>
-                <p className="font-montreal text-white/90 text-lg leading-relaxed mb-8">
-                  Drive transformation by embedding your firm's unique expertise, elevating client service, and showing impact.
-                </p>
-                <button className="font-montreal text-white/70 hover:text-white text-sm transition-colors self-start">
-                  Solutions for {currentTab.title} →
-                </button>
-              </div>
-            </div>
-          </div>
+                      {/* Right Side - Content */}
+                      <div className="bg-black">
+                        <div className="p-8 lg:p-12 flex flex-col justify-center h-full">
+                          <h3 className="text-white mb-6">
+                            {tab.title}
+                          </h3>
+                          <p className="font-montreal text-white/90 text-lg leading-relaxed mb-8">
+                            Drive transformation by embedding your firm's unique expertise, elevating client service, and showing impact.
+                          </p>
+                          <button className="font-montreal text-white/70 hover:text-white text-sm transition-colors self-start">
+                            Solutions for {tab.title} →
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>
