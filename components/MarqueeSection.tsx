@@ -17,7 +17,7 @@ export default function MarqueeSection() {
     <section className="relative pb-40 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <div className="text-center mb-8 ">
+        <div className="text-center mb-16 ">
         <h2 className="text-black">
           Partner Law Firms
         </h2>
@@ -30,13 +30,13 @@ export default function MarqueeSection() {
           {partnerLogos.map((logo, index) => (
             <div 
               key={`first-${index}`}
-              className="flex-shrink-0 flex items-center justify-center h-16"
+              className="flex-shrink-0 flex items-center justify-center h-20 md:h-24"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
                 className="object-contain transition-opacity duration-300 filter grayscale hover:grayscale-0"
-                style={{ maxWidth: '150px', maxHeight: '100%' }}
+                style={{ maxWidth: '200px', maxHeight: '100%' }}
               />
             </div>
           ))}
@@ -44,13 +44,13 @@ export default function MarqueeSection() {
           {partnerLogos.map((logo, index) => (
             <div 
               key={`second-${index}`}
-              className="flex-shrink-0 flex items-center justify-center h-16 "
+              className="flex-shrink-0 flex items-center justify-center h-20 md:h-24"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
                 className="object-contain transition-opacity duration-300 filter grayscale hover:grayscale-0"
-                style={{ maxWidth: '150px', maxHeight: '100%' }}
+                style={{ maxWidth: '200px', maxHeight: '100%' }}
               />
             </div>
           ))}
