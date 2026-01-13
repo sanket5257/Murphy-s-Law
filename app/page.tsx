@@ -2,6 +2,7 @@ import HeroSection from '@/components/HeroSection'
 import LawyersUseSection from '@/components/LawyersUseSection'
 import ImpactSection from '@/components/ImpactSection'
 import VisionSection from '@/components/VisionSection'
+import BenefitsSection from '@/components/BenefitsSection'
 import PricingSection from '@/components/PricingSection'
 import TextRevealSection from '@/components/TextRevealSection'
 import WorkSection from '@/components/WorkSection'
@@ -18,6 +19,7 @@ export default function Home() {
       <LawyersUseSection />
       <ImpactSection />
       <VisionSection />
+      <BenefitsSection />
       <WorkSection />
       <PricingSection />
       <TestimonialsCarousel />
