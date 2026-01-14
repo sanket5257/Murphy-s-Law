@@ -243,13 +243,13 @@ export default function TermsOfService() {
                 <strong>Murphy's Law AI</strong>
               </p>
               <p className="font-montreal text-white/70 leading-relaxed mb-2">
-                Email: legal@murphyslawai.com
+                Email: tim@kvelld.co.za
               </p>
               <p className="font-montreal text-white/70 leading-relaxed mb-2">
-                Support: support@murphyslawai.com
+                Cell: 076 787 7637
               </p>
               <p className="font-montreal text-white/70 leading-relaxed">
-                Address: [Company Address]
+                Address: 28 6th Street, Wynberg, Sandton, 2191
               </p>
             </div>
           </section>
