@@ -68,7 +68,7 @@ export default function PricingSection() {
       {/* Background Pattern/Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
       
-      <div className="relative z-10 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 max-w-7xl mx-auto">
+      <div className="relative z-10  max-w-7xl mx-auto">
         {/* Title */}
         <div className="text-center mb-16">
           <h2 className="text-white mb-8">
@@ -137,13 +137,16 @@ export default function PricingSection() {
                   </h2>
                 </div>
                  {/* CTA Button */}
-              <button className={`relative z-10 w-full py-4 px-6 rounded-xl font-montreal font-medium text-sm transition-all duration-300 ${
-                plan.popular 
-                  ? 'bg-white text-black hover:bg-gray-100' 
-                  : 'bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm'
-              }`}>
+              <a 
+                href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
+                className={`relative z-10 w-full py-4 px-6 rounded-xl font-montreal font-medium text-sm transition-all duration-300 text-center block ${
+                  plan.popular 
+                    ? 'bg-white text-black hover:bg-gray-100' 
+                    : 'bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm'
+                }`}
+              >
                 Get Started
-              </button>
+              </a>
               </div>
 
               {/* Features */}

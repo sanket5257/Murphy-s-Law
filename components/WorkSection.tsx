@@ -90,7 +90,7 @@ const WorkSection = () => {
               <h3 className="font-medium mb-3">Review faster</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Being an experienced lawyer means reviewing and reading 
-                mountains of material. Legora can analyze tens of thousands of 
+                mountains of material. Murphy can analyze tens of thousands of 
                 documents simultaneously, quickly surfacing the most relevant 
                 based on your requirements.
               </p>
@@ -127,7 +127,7 @@ const WorkSection = () => {
             <div className="p-6">
               <h3 className="font-medium mb-3">Draft smarter</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Legora draws on precedent to draft, rewrite, and refine your 
+                Murphy draws on precedent to draft, rewrite, and refine your 
                 content in Word. It identifies the substance of each document and 
                 suggests revisions using easy-to-use language—with you in control of 
                 what's approved and applied.
@@ -187,7 +187,7 @@ const WorkSection = () => {
               <h3 className="font-medium mb-3">Research deeper</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Access up-to-date information, legal databases, and your DMS 
-                content, all within Legora. With partnerships across jurisdictions 
+                content, all within Murphy. With partnerships across jurisdictions 
                 and integrations with Manage and SharePoint, everything lawyers 
                 need is here.
               </p>

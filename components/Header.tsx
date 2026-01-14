@@ -255,7 +255,8 @@ export default function Header() {
         
         {/* Login Button on Right Corner */}
         <div className="relative z-10 flex items-center flex-shrink-0">
-          <button 
+          <a 
+            href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
             className={`font-montreal text-xs md:text-sm bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-4 md:px-6 py-2 transition-all duration-300 ${
               isDarkSection 
                 ? 'text-white/80 hover:text-white' 
@@ -263,7 +264,7 @@ export default function Header() {
             }`}
           >
             Login
-          </button>
+          </a>
         </div>
       </nav>
     </header>

@@ -97,12 +97,15 @@ export default function BenefitsSection() {
                     </div>
 
                     {/* CTA Button */}
-                    <button className="inline-flex items-center px-6 py-3 bg-black text-white font-montreal font-medium rounded-full hover:bg-black/90 transition-all duration-300 w-fit group-hover:scale-105">
+                    <a 
+                      href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
+                      className="inline-flex items-center px-6 py-3 bg-black text-white font-montreal font-medium rounded-full hover:bg-black/90 transition-all duration-300 w-fit group-hover:scale-105"
+                    >
                       Learn More
                       <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
-                    </button>
+                    </a>
                   </div>
 
                   {/* Image Side */}
@@ -149,12 +152,18 @@ export default function BenefitsSection() {
         {/* Bottom CTA */}
         <div className="text-center mt-16 lg:mt-20">
           <div className="inline-flex flex-col sm:flex-row gap-4">
-            <button className="px-8 py-4 bg-black text-white font-montreal font-medium rounded-full hover:bg-black/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+            <a 
+              href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
+              className="px-8 py-4 bg-black text-white font-montreal font-medium rounded-full hover:bg-black/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            >
               Start Your Free Trial
-            </button>
-            <button className="px-8 py-4 bg-transparent border-2 border-black text-black font-montreal font-medium rounded-full hover:bg-black hover:text-white transition-all duration-300">
+            </a>
+            <a 
+              href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
+              className="px-8 py-4 bg-transparent border-2 border-black text-black font-montreal font-medium rounded-full hover:bg-black hover:text-white transition-all duration-300"
+            >
               Schedule a Demo
-            </button>
+            </a>
           </div>
         </div>
       </div>

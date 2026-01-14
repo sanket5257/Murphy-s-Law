@@ -15,7 +15,7 @@ export default function MarqueeSection() {
 
   return (
     <section className="relative pb-40 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+      <div className="">
         {/* Section Title */}
         <div className="text-center mb-16 ">
         <h2 className="text-black">
