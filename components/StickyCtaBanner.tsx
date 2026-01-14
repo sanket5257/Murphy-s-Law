@@ -13,26 +13,32 @@ export default function StickyCtaBanner() {
     if (!containerRef.current) return
 
     const container = containerRef.current
+    
+    // Set initial state
+    container.style.position = 'fixed'
 
-    // Animate the container to scroll with the page until it reaches bottom
-    gsap.to(container, {
-      scrollTrigger: {
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      ScrollTrigger.create({
         trigger: container,
         start: 'top bottom',
         end: 'bottom bottom',
         scrub: true,
         onUpdate: (self) => {
-          // When scroll progress reaches 1, container is at its original position (bottom)
+          // When scroll progress reaches 1, container is at its original position
           if (self.progress >= 1) {
             container.style.position = 'sticky'
           } else {
             container.style.position = 'fixed'
           }
         }
-      }
-    })
+      })
+
+      ScrollTrigger.refresh()
+    }, 100)
 
     return () => {
+      clearTimeout(timer)
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [])
@@ -40,7 +46,7 @@ export default function StickyCtaBanner() {
   return (
     <div 
       ref={containerRef}
-      className="bottom-0 left-0 right-0 z-40 flex items-center justify-center py-4 px-4"
+      className="fixed bottom-0 left-0 right-0 z-40 flex items-center justify-center py-4 px-4"
     >
       <a
         href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
