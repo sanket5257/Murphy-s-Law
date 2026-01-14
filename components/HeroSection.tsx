@@ -66,18 +66,10 @@ export default function HeroSection() {
           </h2>
         </div>
 
-        {/* CTA Button */}
-        <div className="mb-8">
-          <a 
-            href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
-            className="bg-black text-white font-montreal font-medium px-8 py-4 rounded-md hover:bg-gray-800 transition-colors duration-300 inline-block"
-          >
-            Request a Demo
-          </a>
-        </div>
+       
         
         {/* Video Section */}
-        <div className="w-full overflow-hidden">
+        <div className="w-full mt-10 overflow-hidden">
           <video
             ref={videoRef}
             className="w-full h-auto rounded-lg shadow-2xl"

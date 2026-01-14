@@ -29,7 +29,7 @@
 @layer base {
   html,
   body {
-    @apply max-w-full overflow-x-hidden font-montreal text-white bg-black;
+    @apply max-w-full overflow-x-hidden font-montreal text-white bg-white;
   }
   
   a {

@@ -155,7 +155,7 @@ export default function HeroSection() {
         <div className="relative py-32 w-full px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 max-w-7xl mx-auto">
           {/* Main heading text - positioned to the left */}
           <div ref={textRef} className="relative z-0">
-            <h1 style={{ fontSize: 'clamp(3rem, 8vw, 8.5rem)' }} className="leading-[0.95] font-migra">
+            <div style={{ fontSize: 'clamp(3rem, 8vw, 8.5rem)' }} className="leading-[0.95] font-migra">
               <h1 className=" text-black">We are revolutionizing</h1>
 
               <h1 className="block text-black">
@@ -164,7 +164,7 @@ export default function HeroSection() {
                   legal assistance
                 </span>
               </h1>
-            </h1>
+            </div>
 
             <p className="subheading-small font-migra text-gray-700 mt-8">
               in South Africa by making expert legal advice available to everyone

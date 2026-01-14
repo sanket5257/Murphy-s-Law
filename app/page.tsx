@@ -9,12 +9,14 @@ import WorkSection from '@/components/WorkSection'
 import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 import FAQSection from '@/components/FAQSection'
 import MarqueeSection from '@/components/MarqueeSection'
+import StickyCtaBanner from '@/components/StickyCtaBanner'
 
 export default function Home() {
   return (
     <>
       <HeroSection />
       <MarqueeSection/>
+      <StickyCtaBanner />
       <TextRevealSection />
       <LawyersUseSection />
       <ImpactSection />
