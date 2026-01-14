@@ -174,7 +174,7 @@ export default function HeroSection() {
           {/* Description section with glassmorphism - positioned absolutely to the right */}
           <div
             ref={descriptionRef}
-            className="absolute z-50 top-1/2 right-4 md:right-8 lg:right-16 xl:right-24 2xl:right-32 max-w-xl -translate-y-1/2 backdrop-blur-xl bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden"
+            className="absolute z-20 top-1/2 right-4 md:right-8 lg:right-16 xl:right-24 2xl:right-32 max-w-xl -translate-y-1/2 backdrop-blur-xl bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden"
           >
             {/* Cursor following glow overlay */}
             <div

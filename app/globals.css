@@ -98,6 +98,196 @@
 
 }
 
+@layer utilities {
+  /* 
+   * SPACING SYSTEM - HARVEY PATTERN
+   * 
+   * This spacing system follows the Harvey.ai design pattern for consistent,
+   * professional spacing across all breakpoints and components.
+   * 
+   * PHILOSOPHY:
+   * - Consistent horizontal padding that scales with viewport size
+   * - Proportional vertical spacing for balanced sections
+   * - Hierarchical gap system for element relationships
+   * - Maximum content width of 1920px for optimal readability
+   * 
+   * BREAKPOINT SCALE:
+   * - Base (mobile, <768px):    px-7 (28px), py-12 (48px)
+   * - md (tablet, ≥768px):      px-8 (32px), py-16 (64px)
+   * - lg (desktop, ≥1024px):    px-9 (36px), py-20 (80px)
+   * - xl (large desktop, ≥1280px): px-10 (40px), py-24 (96px)
+   * 
+   * USAGE GUIDELINES:
+   * - Use .container-wrapper for main page containers (header, sections, footer)
+   * - Use .section-padding for full section spacing (vertical + horizontal)
+   * - Use gap utilities to maintain spacing hierarchy within components
+   */
+
+  /* ============================================
+   * CONTAINER UTILITIES
+   * ============================================
+   * These utilities provide consistent horizontal padding and width constraints
+   * for all major page containers.
+   */
+
+  /**
+   * .container-padding
+   * Applies responsive horizontal padding following the Harvey pattern.
+   * Use this for any container that needs consistent left/right spacing.
+   * 
+   * Values: px-7 (28px) → px-8 (32px) → px-9 (36px) → px-10 (40px)
+   */
+  .container-padding {
+    @apply px-7 md:px-8 lg:px-9 xl:px-10;
+  }
+
+  /**
+   * .container-max-width
+   * Constrains content to a maximum width of 1920px and centers it.
+   * Prevents content from becoming too wide on ultra-wide displays.
+   * 
+   * Use this on content wrappers inside sections.
+   */
+  .container-max-width {
+    @apply max-w-[1920px] mx-auto;
+  }
+
+  /**
+   * .container-wrapper
+   * Combines horizontal padding and max-width constraint.
+   * This is the most commonly used container utility.
+   * 
+   * Use this for: Header, Footer, and main section containers.
+   * 
+   * Example:
+   * <section className="container-wrapper">
+   *   <div className="flex flex-col gap-section">
+   *     {content}
+   *   </div>
+   * </section>
+   */
+  .container-wrapper {
+    @apply container-padding container-max-width;
+  }
+
+  /* ============================================
+   * SECTION SPACING UTILITIES
+   * ============================================
+   * These utilities provide consistent vertical spacing for page sections.
+   */
+
+  /**
+   * .section-padding-y
+   * Applies responsive vertical padding to sections.
+   * Creates breathing room between major page sections.
+   * 
+   * Values: py-12 (48px) → py-16 (64px) → py-20 (80px) → py-24 (96px)
+   * 
+   * Use this when you need only vertical spacing (e.g., full-width sections).
+   */
+  .section-padding-y {
+    @apply py-12 md:py-16 lg:py-20 xl:py-24;
+  }
+
+  /**
+   * .section-padding
+   * Combines vertical and horizontal padding for complete section spacing.
+   * This is the standard utility for most page sections.
+   * 
+   * Use this for: Most page sections that need both vertical and horizontal spacing.
+   * 
+   * Example:
+   * <section className="section-padding">
+   *   <div className="container-max-width">
+   *     {content}
+   *   </div>
+   * </section>
+   */
+  .section-padding {
+    @apply section-padding-y container-padding;
+  }
+
+  /* ============================================
+   * GAP UTILITIES - SPACING HIERARCHY
+   * ============================================
+   * These utilities maintain consistent spacing relationships between elements.
+   * They follow a hierarchical system: element < component < section
+   */
+
+  /**
+   * .gap-section
+   * Large gaps for major content blocks within a section.
+   * Use between distinct subsections or major content groups.
+   * 
+   * Values: gap-8 (32px) → gap-12 (48px) → gap-16 (64px)
+   * 
+   * Examples:
+   * - Space between hero content and feature list
+   * - Space between pricing tiers
+   * - Space between testimonial groups
+   */
+  .gap-section {
+    @apply gap-8 md:gap-12 lg:gap-16;
+  }
+
+  /**
+   * .gap-component
+   * Medium gaps for related elements within a component.
+   * Use between cards, list items, or related content blocks.
+   * 
+   * Values: gap-4 (16px) → gap-6 (24px) → gap-8 (32px)
+   * 
+   * Examples:
+   * - Space between benefit cards
+   * - Space between FAQ items
+   * - Space between form fields
+   */
+  .gap-component {
+    @apply gap-4 md:gap-6 lg:gap-8;
+  }
+
+  /**
+   * .gap-element
+   * Small gaps for tightly related elements.
+   * Use between navigation items, buttons, or inline elements.
+   * 
+   * Values: gap-2 (8px) → gap-3 (12px) → gap-4 (16px)
+   * 
+   * Examples:
+   * - Space between navigation links
+   * - Space between icon and text
+   * - Space between inline buttons
+   */
+  .gap-element {
+    @apply gap-2 md:gap-3 lg:gap-4;
+  }
+
+  /* ============================================
+   * SPACING SCALE REFERENCE
+   * ============================================
+   * 
+   * HORIZONTAL PADDING (container-padding):
+   * Mobile:  28px (1.75rem)
+   * Tablet:  32px (2rem)
+   * Desktop: 36px (2.25rem)
+   * Large:   40px (2.5rem)
+   * 
+   * VERTICAL PADDING (section-padding-y):
+   * Mobile:  48px (3rem)
+   * Tablet:  64px (4rem)
+   * Desktop: 80px (5rem)
+   * Large:   96px (6rem)
+   * 
+   * GAP HIERARCHY:
+   * Element:   8px → 12px → 16px
+   * Component: 16px → 24px → 32px
+   * Section:   32px → 48px → 64px
+   * 
+   * MAX WIDTH: 1920px
+   * ============================================
+   */
+}
+
 *{
   scroll-behavior: smooth;
 }
