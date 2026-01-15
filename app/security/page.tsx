@@ -6,39 +6,39 @@ export default function SecurityPage() {
       {/* <Header /> */}
       
       {/* Main Security Section */}
-      <section className="min-h-screen flex">
-        <div className="max-w-7xl mx-auto w-full flex">
+      <section className="min-h-screen flex flex-col lg:flex-row">
+        <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row">
           {/* Left Side - Content */}
-          <div className="w-1/2 bg-black flex flex-col justify-center px-16 py-32">
+          <div className="w-full lg:w-1/2 bg-black flex flex-col justify-center px-6 md:px-12 lg:px-16 py-16 md:py-24 lg:py-32">
           <div className="">
             {/* Small header */}
-            <div className="flex items-center gap-2 mb-8">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-2 mb-8">
               <span className="tagline text-white/60">SECURITY</span>
               <span className="tagline text-white/40">Always on. Always secure.</span>
             </div>
             
             {/* Main heading */}
-            <h1 className="text-white mb-8">
+            <h1 className="text-white mb-8 text-4xl md:text-5xl lg:text-6xl">
               Your data is<br />
               in safe hands.
             </h1>
             
             {/* Description */}
             <p className="font-montreal text-white/70 text-base leading-relaxed mb-12">
-              From encryption to access management, Murphy's Law<br />
-              enforces rigorous standards to ensure your data stays<br />
+              From encryption to access management, Murphy's Law
+              enforces rigorous standards to ensure your data stays
               secure, private, and compliant.
             </p>
             
             {/* CTA Button */}
-            <button className="font-montreal text-black bg-white hover:bg-white/90 px-6 py-3 text-sm transition-all duration-300">
+            <button className="font-montreal text-black bg-white hover:bg-white/90 px-6 py-3 text-sm transition-all duration-300 rounded-lg">
               Go to trust center
             </button>
           </div>
         </div>
         
         {/* Right Side - Image */}
-        <div className="w-1/2 relative overflow-hidden">
+        <div className="w-full lg:w-1/2 relative overflow-hidden min-h-[400px] lg:min-h-screen">
           <img 
             src="/img/security iamges/4NiQ5LBDGQ2eSxB2XzEI2lZg8Fg.webp"
             alt="Security Architecture"
@@ -85,81 +85,81 @@ export default function SecurityPage() {
       
       
       {/* Your Data, Your Decisions Section */}
-      <section className="bg-neutral-900 min-h-screen flex items-center px-16">
+      <section className="bg-neutral-900 min-h-screen flex items-center px-6 md:px-12 lg:px-16 py-16 md:py-24">
         <div className="max-w-7xl mx-auto w-full">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 md:mb-20">
             <p className="tagline text-white/60 mb-6">
               YOUR DATA, YOUR DECISIONS
             </p>
-            <h2 className="text-white">
+            <h2 className="text-white text-3xl md:text-4xl lg:text-5xl">
               You maintain control over your data at all times.
             </h2>
           </div>
           
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-white/10 rounded-2xl overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-0 md:border md:border-white/10 md:rounded-2xl overflow-hidden">
             
             {/* Data retention */}
-            <div className="text-center p-8 border-r border-white/10 last:border-r-0 lg:last:border-r-0">
-              <div className="w-32 h-32 mx-auto mb-8 flex items-center justify-center">
+            <div className="text-center p-6 md:p-8 md:border-r border-white/10 last:border-r-0 lg:last:border-r-0 bg-neutral-800 md:bg-transparent rounded-xl md:rounded-none">
+              <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 md:mb-8 flex items-center justify-center">
                 <img 
                   src="/img/security iamges/4RqCDyH9K3kIMnlRI2SG2uD16k.svg"
                   alt="Data retention"
-                  className="w-24 h-24"
+                  className="w-20 h-20 md:w-24 md:h-24"
                 />
               </div>
-              <h3 className="font-montreal text-white text-lg font-medium mb-4">Data retention</h3>
+              <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">Data retention</h3>
               <p className="font-montreal text-white/70 text-sm leading-relaxed">
-                Set and manage data retention periods to align with your<br />
+                Set and manage data retention periods to align with your
                 internal policies and regulatory requirements.
               </p>
             </div>
             
             {/* Data governance */}
-            <div className="text-center p-8 border-r border-white/10 last:border-r-0 lg:last:border-r-0">
-              <div className="w-32 h-32 mx-auto mb-8 flex items-center justify-center">
+            <div className="text-center p-6 md:p-8 md:border-r border-white/10 last:border-r-0 lg:last:border-r-0 bg-neutral-800 md:bg-transparent rounded-xl md:rounded-none">
+              <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 md:mb-8 flex items-center justify-center">
                 <img 
                   src="/img/security iamges/AEXl1pc8GJPqy9VFYUI4pzVvWY8.svg"
                   alt="Data governance"
-                  className="w-24 h-24"
+                  className="w-20 h-20 md:w-24 md:h-24"
                 />
               </div>
-              <h3 className="font-montreal text-white text-lg font-medium mb-4">Data governance</h3>
+              <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">Data governance</h3>
               <p className="font-montreal text-white/70 text-sm leading-relaxed">
-                Murphy's Law Data Governance tools give you real-time insight into<br />
+                Murphy's Law Data Governance tools give you real-time insight into
                 who's accessing your data and when.
               </p>
             </div>
             
             {/* Encryption management */}
-            <div className="text-center p-8 border-r border-white/10 last:border-r-0 lg:last:border-r-0">
-              <div className="w-32 h-32 mx-auto mb-8 flex items-center justify-center">
+            <div className="text-center p-6 md:p-8 md:border-r border-white/10 last:border-r-0 lg:last:border-r-0 bg-neutral-800 md:bg-transparent rounded-xl md:rounded-none">
+              <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 md:mb-8 flex items-center justify-center">
                 <img 
                   src="/img/security iamges/Cgztt1a8Ehqzd97ENh7tr2Am4vQ.svg"
                   alt="Encryption management"
-                  className="w-24 h-24"
+                  className="w-20 h-20 md:w-24 md:h-24"
                 />
               </div>
-              <h3 className="font-montreal text-white text-lg font-medium mb-4">Encryption management</h3>
+              <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">Encryption management</h3>
               <p className="font-montreal text-white/70 text-sm leading-relaxed">
-                Manage your own encryption keys with our BYOK option to<br />
+                Manage your own encryption keys with our BYOK option to
                 keep sensitive data protected at all times.
               </p>
             </div>
             
             {/* User authentication */}
-            <div className="text-center p-8">
-              <div className="w-32 h-32 mx-auto mb-8 flex items-center justify-center">
+            <div className="text-center p-6 md:p-8 bg-neutral-800 md:bg-transparent rounded-xl md:rounded-none">
+              <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 md:mb-8 flex items-center justify-center">
                 <img 
                   src="/img/security iamges/4RqCDyH9K3kIMnlRI2SG2uD16k.svg"
                   alt="User authentication"
-                  className="w-24 h-24"
+                  className="w-20 h-20 md:w-24 md:h-24"
                 />
               </div>
-              <h3 className="font-montreal text-white text-lg font-medium mb-4">User authentication</h3>
+              <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">User authentication</h3>
               <p className="font-montreal text-white/70 text-sm leading-relaxed">
-                SSO integration gives you complete control over user<br />
+                SSO integration gives you complete control over user
                 authentication and access management.
               </p>
             </div>
@@ -169,40 +169,40 @@ export default function SecurityPage() {
       </section>
 
       {/* Trusted Data Storage & Legal-grade Security Section */}
-      <section className="bg-black py-24 px-16">
+      <section className="bg-black py-16 md:py-24 px-6 md:px-12 lg:px-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 lg:gap-32">
             
             {/* Trusted Data Storage */}
             <div>
-              <h2 className="text-white mb-16">
+              <h2 className="text-white mb-8 md:mb-16 text-3xl md:text-4xl lg:text-5xl">
                 Trusted data storage
               </h2>
               
-              <div className="space-y-12">
+              <div className="space-y-8 md:space-y-12">
                 {/* Tiered Storage */}
                 <div>
-                  <h3 className="font-montreal text-white text-lg font-medium mb-4">Tiered Storage</h3>
+                  <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">Tiered Storage</h3>
                   <p className="font-montreal text-white/70 text-sm leading-relaxed">
-                    Murphy's Law offers flexible storage options designed to match different data sensitivity levels and<br />
+                    Murphy's Law offers flexible storage options designed to match different data sensitivity levels and
                     compliance needs.
                   </p>
                 </div>
                 
                 {/* EU-hosted and US-based support */}
                 <div>
-                  <h3 className="font-montreal text-white text-lg font-medium mb-4">EU-hosted and US-based support</h3>
+                  <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">EU-hosted and US-based support</h3>
                   <p className="font-montreal text-white/70 text-sm leading-relaxed">
-                    Murphy's Law has both EU-hosted and US-based technical work forces, meaning we ensure a higher<br />
+                    Murphy's Law has both EU-hosted and US-based technical work forces, meaning we ensure a higher
                     level of processing for local data.
                   </p>
                 </div>
                 
                 {/* No foundation model training */}
                 <div>
-                  <h3 className="font-montreal text-white text-lg font-medium mb-4">No foundation model training</h3>
+                  <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">No foundation model training</h3>
                   <p className="font-montreal text-white/70 text-sm leading-relaxed">
-                    Your confidential data remains secure and private to you. Murphy's Law will not use your data to train<br />
+                    Your confidential data remains secure and private to you. Murphy's Law will not use your data to train
                     or fine tune any AI models.
                   </p>
                 </div>
@@ -211,43 +211,43 @@ export default function SecurityPage() {
             
             {/* Legal-grade Security */}
             <div>
-              <h2 className="text-white mb-16">
+              <h2 className="text-white mb-8 md:mb-16 text-3xl md:text-4xl lg:text-5xl">
                 Legal-grade security
               </h2>
               
-              <div className="space-y-12">
+              <div className="space-y-8 md:space-y-12">
                 {/* Zero trust design principles */}
                 <div>
-                  <h3 className="font-montreal text-white text-lg font-medium mb-4">Zero trust design principles</h3>
+                  <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">Zero trust design principles</h3>
                   <p className="font-montreal text-white/70 text-sm leading-relaxed">
-                    We follow Zero Trust architecture, meaning no user or system is inherently trusted – access is<br />
+                    We follow Zero Trust architecture, meaning no user or system is inherently trusted – access is
                     always verified, limited, and logged.
                   </p>
                 </div>
                 
                 {/* Your approval required */}
                 <div>
-                  <h3 className="font-montreal text-white text-lg font-medium mb-4">Your approval required</h3>
+                  <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">Your approval required</h3>
                   <p className="font-montreal text-white/70 text-sm leading-relaxed">
-                    Access to customer data is strictly controlled and only granted to engineers with written<br />
+                    Access to customer data is strictly controlled and only granted to engineers with written
                     customer approval for support-related issues.
                   </p>
                 </div>
                 
                 {/* Regular security audits */}
                 <div>
-                  <h3 className="font-montreal text-white text-lg font-medium mb-4">Regular security audits</h3>
+                  <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">Regular security audits</h3>
                   <p className="font-montreal text-white/70 text-sm leading-relaxed">
-                    Murphy's Law undergoes semi-annual penetration tests covering the full platform scope and follows<br />
+                    Murphy's Law undergoes semi-annual penetration tests covering the full platform scope and follows
                     an "assume breach" methodology to proactively identify and mitigate risks.
                   </p>
                 </div>
                 
                 {/* Trusted infrastructure */}
                 <div>
-                  <h3 className="font-montreal text-white text-lg font-medium mb-4">Trusted infrastructure</h3>
+                  <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">Trusted infrastructure</h3>
                   <p className="font-montreal text-white/70 text-sm leading-relaxed">
-                    Murphy's Law Control is built on the Zendesk authorization system – the same proven<br />
+                    Murphy's Law Control is built on the Zendesk authorization system – the same proven
                     infrastructure that powers Google Drive, YouTube, and other large-scale applications.
                   </p>
                 </div>
@@ -259,65 +259,65 @@ export default function SecurityPage() {
       </section>
 
       {/* Certifications & Compliance Section */}
-      <section className="bg-black py-24 px-16">
+      <section className="bg-black py-16 md:py-24 px-6 md:px-12 lg:px-16">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <p className="tagline text-white/60 mb-6">
               CERTIFIED & COMPLIANT
             </p>
-            <h2 className="text-white mx-auto">
-              Murphy's Law is committed to maintaining compliance with the most rigorous<br />
+            <h2 className="text-white mx-auto text-2xl md:text-3xl lg:text-4xl">
+              Murphy's Law is committed to maintaining compliance with the most rigorous
               international safety and security standards.
             </h2>
           </div>
           
           {/* Certifications Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mt-12 md:mt-20">
             {/* ISO 45001 */}
             <div className="text-left">
-              <h3 className="font-montreal text-white text-lg font-medium mb-4">ISO 45001</h3>
-              <p className="font-montreal text-white/70 text-sm leading-relaxed mb-8">
-                ISO 45001 certifies our AI governance framework gives<br />
+              <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">ISO 45001</h3>
+              <p className="font-montreal text-white/70 text-sm leading-relaxed mb-6 md:mb-8">
+                ISO 45001 certifies our AI governance framework gives
                 consumers confidence in how we build and run AI.
               </p>
-              <div className="w-16 h-16 border border-white/20 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 md:w-16 md:h-16 border border-white/20 rounded-full flex items-center justify-center">
                 <span className="font-montreal text-white/60 text-xs">ISO</span>
               </div>
             </div>
             
             {/* ISO 27001 */}
             <div className="text-left">
-              <h3 className="font-montreal text-white text-lg font-medium mb-4">ISO 27001</h3>
-              <p className="font-montreal text-white/70 text-sm leading-relaxed mb-8">
-                Murphy's Law is fully certified with ISO 27001, the internationally<br />
+              <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">ISO 27001</h3>
+              <p className="font-montreal text-white/70 text-sm leading-relaxed mb-6 md:mb-8">
+                Murphy's Law is fully certified with ISO 27001, the internationally
                 recognised standard for information security management.
               </p>
-              <div className="w-16 h-16 border border-white/20 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 md:w-16 md:h-16 border border-white/20 rounded-full flex items-center justify-center">
                 <span className="font-montreal text-white/60 text-xs">ISO</span>
               </div>
             </div>
             
             {/* SOC2 Type 2 */}
             <div className="text-left">
-              <h3 className="font-montreal text-white text-lg font-medium mb-4">SOC2 Type 2</h3>
-              <p className="font-montreal text-white/70 text-sm leading-relaxed mb-8">
-                We meet SOC2 requirements to ensure secure and<br />
+              <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">SOC2 Type 2</h3>
+              <p className="font-montreal text-white/70 text-sm leading-relaxed mb-6 md:mb-8">
+                We meet SOC2 requirements to ensure secure and
                 compliant management of user access on our systems.
               </p>
-              <div className="w-16 h-16 border border-white/20 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 md:w-16 md:h-16 border border-white/20 rounded-full flex items-center justify-center">
                 <span className="font-montreal text-white/60 text-xs">SOC</span>
               </div>
             </div>
             
             {/* GDPR */}
             <div className="text-left">
-              <h3 className="font-montreal text-white text-lg font-medium mb-4">GDPR</h3>
-              <p className="font-montreal text-white/70 text-sm leading-relaxed mb-8">
-                With our technical team based in Sweden, we operate under<br />
+              <h3 className="font-montreal text-white text-base md:text-lg font-medium mb-3 md:mb-4">GDPR</h3>
+              <p className="font-montreal text-white/70 text-sm leading-relaxed mb-6 md:mb-8">
+                With our technical team based in Sweden, we operate under
                 GDPR — the world's strictest standard for data privacy.
               </p>
-              <div className="w-16 h-16 border border-white/20 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 md:w-16 md:h-16 border border-white/20 rounded-full flex items-center justify-center">
                 <div className="w-8 h-8 border border-white/40 rounded-full flex items-center justify-center">
                   <div className="grid grid-cols-3 gap-0.5">
                     <div className="w-0.5 h-0.5 bg-white/60 rounded-full"></div>
