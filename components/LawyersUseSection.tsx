@@ -169,7 +169,7 @@ export default function LawyersUseSection() {
   }
 
   const handleSlideChange = (swiper: SwiperType) => {
-    setActiveTab(swiper.activeIndex)
+    setActiveTab(swiper.realIndex)
     setProgress(0)
   }
 
@@ -187,17 +187,17 @@ export default function LawyersUseSection() {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="flex flex-wrap justify-center gap-1 md:gap-2 bg-gray-100 rounded-full p-2">
+        <div className="flex justify-center mb-12 overflow-x-auto">
+          <div className="flex md:flex-wrap justify-start md:justify-center gap-1 md:gap-2 bg-gray-100 rounded-full p-2 min-w-max md:min-w-0">
             {tabsData.map((tab, index) => (
               <button
                 key={tab.id}
                 onClick={() => handleTabClick(index)}
-                className={`relative px-3 md:px-6 py-2 md:py-3 rounded-full font-montreal text-xs md:text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap ${
+                className={`relative px-4 md:px-6 py-2 md:py-3 rounded-full font-montreal text-xs md:text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap flex-shrink-0 ${
                   activeTab === index
                     ? 'bg-black text-white'
-                    : 'text-black/70 hover:text-black hover:bg-white'
-                }`}
+                    : 'text-black/70 hover:text-black hover:bg-white hidden md:block'
+                } ${activeTab === index ? 'block' : ''}`}
               >
                 {tab.title}
                 
@@ -235,6 +235,7 @@ export default function LawyersUseSection() {
             speed={800}
             allowTouchMove={true}
             grabCursor={true}
+            loop={true}
             onSwiper={(swiper) => {
               swiperRef.current = swiper
             }}
