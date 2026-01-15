@@ -9,7 +9,8 @@
     "lint": "next lint",
     "seed": "node scripts/seed.js",
     "check-tables": "node scripts/create-tables.js",
-    "setup-db": "node scripts/create-tables.js && node scripts/seed.js"
+    "setup-db": "node scripts/create-tables.js && node scripts/seed.js",
+    "clean": "rmdir /s /q .next 2>nul || rm -rf .next"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.90.1",
