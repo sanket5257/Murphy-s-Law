@@ -56,8 +56,44 @@ export default function AdminPage() {
 
   return (
     <AuthCheck>
-      <div className="min-h-screen mt-48 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50">
-     
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50">
+        {/* Header with Logout */}
+        <div className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
+          <div className="max-w-7xl mx-auto px-6 py-4">
+            <div className="flex justify-between items-center flex-wrap gap-4">
+              <div>
+                <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Murphy's Law Admin</h1>
+                <p className="text-gray-500 text-sm">Content Management System</p>
+              </div>
+              <div className="flex items-center space-x-3 flex-wrap gap-2">
+                {/* User Info */}
+                {userEmail && (
+                  <div className="flex items-center space-x-2 px-3 py-2 bg-gray-100 rounded-lg">
+                    <span className="text-gray-600 text-sm">👤</span>
+                    <span className="text-gray-700 text-sm font-medium">{userEmail}</span>
+                  </div>
+                )}
+                
+                {/* Action Buttons */}
+                <a
+                  href="/"
+                  target="_blank"
+                  className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 text-sm font-medium shadow-sm transition-all duration-200 flex items-center space-x-2"
+                >
+                  <span>🌐</span>
+                  <span className="hidden sm:inline">Site</span>
+                </a>
+                <button
+                  onClick={handleLogout}
+                  className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 text-sm font-medium shadow-sm transition-all duration-200 flex items-center space-x-2"
+                >
+                  <span>🚪</span>
+                  <span>Logout</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div className="max-w-7xl mx-auto px-6 py-8">
           {/* Stats Cards */}
