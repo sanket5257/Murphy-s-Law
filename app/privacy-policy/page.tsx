@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen pt-32 bg-black text-white">
+    <section className="min-h-screen pt-32 bg-black text-white">
       {/* Header */}
       <div className="py-16 px-8">
         <div className="max-w-4xl mx-auto">
@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto px-8 pb-16">
+      <section className="max-w-4xl mx-auto px-8 pb-16">
         <div className="prose prose-lg max-w-none prose-invert">
           
           {/* Introduction */}
@@ -250,7 +250,7 @@ export default function PrivacyPolicy() {
           </section>
 
         </div>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }

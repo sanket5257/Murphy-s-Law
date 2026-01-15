@@ -26,10 +26,10 @@ const testimonials = [
   },
   {
     id: 4,
-    text: "Murphy's Law AI has revolutionized how we approach legal research. The AI-powered insights save us hours of manual work and help us find relevant case law we might have missed.",
-    name: "Sarah Mitchell",
-    role: "Senior Partner",
-    company: "Mitchell & Associates"
+    text: "I am very impressed. Murphy has saved me a lot of time and helped me consider things that may have otherwise gone unnoticed. I have used it in contract reviews, summarizing of complicated new matter facts and even drafting letters. I am really loving it and have even cancelled my other AI subscriptions.",
+    name: "Jason Martin",
+    role: "Founder and Director",
+    company: "Martin Attorneys"
   },
   {
     id: 5,
