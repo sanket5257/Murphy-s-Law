@@ -68,7 +68,7 @@ export default function PricingSection() {
       {/* Background Pattern/Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
       
-      <div className="relative z-10  max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
         {/* Title */}
         <div className="text-center mb-16">
           <h2 className="text-white mb-8">

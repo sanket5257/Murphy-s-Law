@@ -72,7 +72,7 @@ export default function HeroSection() {
         <div className="w-full mt-10 overflow-hidden">
           <video
             ref={videoRef}
-            className="w-full h-auto rounded-lg shadow-2xl"
+            className="w-full h-[300px] md:h-auto rounded-lg shadow-2xl object-cover"
             autoPlay
             muted
             loop

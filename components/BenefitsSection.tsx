@@ -109,7 +109,7 @@ export default function BenefitsSection() {
                   </div>
 
                   {/* Image Side */}
-                  <div className={`relative h-64 lg:h-full ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  <div className={`relative h-64 lg:h-full hidden lg:block ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                     <img 
                       src={benefit.image} 
                       alt={benefit.title}

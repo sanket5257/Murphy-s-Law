@@ -157,7 +157,7 @@ export default function TestimonialsCarousel() {
 
         {/* Carousel Container with 3D perspective */}
         <div 
-          className="relative w-full h-[600px] flex items-center justify-center mb-16 overflow-hidden"
+          className="relative w-full h-[500px] md:h-[600px] flex items-center justify-center mb-16 overflow-hidden"
           style={{ 
             perspective: '1800px', // Increased perspective for larger cards
             perspectiveOrigin: 'center center'
@@ -166,7 +166,7 @@ export default function TestimonialsCarousel() {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className={`absolute w-96 h-[500px] transition-all duration-700 ease-in-out cursor-pointer ${
+              className={`absolute w-80 md:w-96 h-[450px] md:h-[500px] transition-all duration-700 ease-in-out cursor-pointer ${
                 getSlidePosition(index) === 0 ? 'cursor-default' : 'cursor-pointer'
               }`}
               style={{
@@ -178,7 +178,7 @@ export default function TestimonialsCarousel() {
             >
               {/* Glassmorphism Card */}
               <div className={`
-                w-full h-full rounded-2xl backdrop-blur-xl border shadow-2xl p-8
+                w-full h-full rounded-2xl backdrop-blur-xl border shadow-2xl p-6 md:p-8
                 transition-all duration-700 ease-in-out flex flex-col justify-between
                 transform-gpu
                 ${getSlidePosition(index) === 0 
@@ -187,11 +187,11 @@ export default function TestimonialsCarousel() {
                 }
               `}>
                 {/* Quote Icon */}
-                <div className="mb-6">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-700 ${
+                <div className="mb-4 md:mb-6">
+                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-700 ${
                     getSlidePosition(index) === 0 ? 'bg-white/20' : 'bg-white/10'
                   }`}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
                       <path 
                         d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" 
                         fill="currentColor"
@@ -202,9 +202,9 @@ export default function TestimonialsCarousel() {
                 </div>
 
                 {/* Testimonial Text */}
-                <div className="flex-1 mb-6">
+                <div className="flex-1 mb-4 md:mb-6 overflow-y-auto">
                   <p className={`text-white leading-relaxed transition-all duration-700 ${
-                    getSlidePosition(index) === 0 ? 'text-base' : 'text-sm'
+                    getSlidePosition(index) === 0 ? 'text-xs md:text-base' : 'text-xs md:text-sm'
                   }`}>
                     "{testimonial.text}"
                   </p>
@@ -214,27 +214,25 @@ export default function TestimonialsCarousel() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className={`text-white font-medium mb-1 transition-all duration-700 ${
-                      getSlidePosition(index) === 0 ? 'text-lg' : 'text-base'
+                      getSlidePosition(index) === 0 ? 'text-base md:text-lg' : 'text-sm md:text-base'
                     }`}>
                       {testimonial.name}
                     </p>
                     <p className={`text-white/70 transition-all duration-700 ${
-                      getSlidePosition(index) === 0 ? 'text-sm' : 'text-xs'
+                      getSlidePosition(index) === 0 ? 'text-xs md:text-sm' : 'text-xs'
                     }`}>
                       {testimonial.role}
                     </p>
-                    <p className={`text-white/50 mt-1 transition-all duration-700 ${
-                      getSlidePosition(index) === 0 ? 'text-xs' : 'text-xs'
-                    }`}>
+                    <p className={`text-white/50 mt-1 transition-all duration-700 text-xs`}>
                       {testimonial.company}
                     </p>
                   </div>
                   
                   {/* Card Number */}
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-700 ${
+                  <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-700 ${
                     getSlidePosition(index) === 0 ? 'bg-white/20' : 'bg-white/10'
                   }`}>
-                    <span className="text-white text-sm font-medium">
+                    <span className="text-white text-xs md:text-sm font-medium">
                       {String(index + 1).padStart(2, '0')}
                     </span>
                   </div>
