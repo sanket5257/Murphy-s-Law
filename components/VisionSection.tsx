@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 
 export default function VisionSection() {
   const sectionRef = useRef(null)
@@ -13,44 +13,15 @@ export default function VisionSection() {
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Column - Founder Image */}
-          <div className="lg:col-span-3">
-            <div className="space-y-4">
-              <div className="relative w-full aspect-[3/4] rounded-sm overflow-hidden bg-gray-200">
-                <img
-                  src="/img/founder.avif"
-                  alt="Max Jurnstrand"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="text-left pt-2">
-                <p className="font-sans font-normal text-black text-base mb-1">Max Jurnstrand</p>
-                <p className="font-sans text-sm text-black/60 mb-4">Co-founder & CEO</p>
-                {/* Signature */}
-                <div className="w-16 h-12">
-                  <svg viewBox="0 0 80 60" className="w-full h-full">
-                    <path
-                      d="M 10 40 Q 15 20, 25 35 T 45 30 Q 55 25, 65 40"
-                      stroke="black"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Middle Column - Title */}
-          <div className="lg:col-span-2 flex items-start">
+          <div className="lg:col-span-3 flex items-start">
             <h2 className="text-black font-serif text-4xl md:text-5xl lg:text-6xl leading-tight pt-0">
               Our Vision
             </h2>
           </div>
 
           {/* Right Columns - Text Content */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-9">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
               {/* First Text Column */}
               <div className="space-y-6">

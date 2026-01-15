@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
+import { supabase } from '@/lib/supabase'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -12,28 +13,44 @@ import 'swiper/css/pagination'
 import 'swiper/css/autoplay'
 import 'swiper/css/effect-coverflow'
 
-const testimonials = [
-  {
-    text: "The team at Estrela have been amazing and critical to our UI/UX journey, they challenge our thoughts for the better and have allowed us to become South Africa's fastest-growing Buy Now Pay Later platform. I cannot recommend them enough.",
-    name: "Craig Newborn",
-    role: "Former CEO, PayJustNow"
-  },
-  {
-    text: "Working with Estrela Studio has been a genuinely outstanding experience. Their team brings a rare combination of creativity, technical expertise, and collaborative spirit. Estrela met us exactly where we were – they listened closely, understood the strategic goals and translated that direction into clear, compelling visual design.",
-    name: "Donna Blackwell-Kopotic",
-    role: "Sims Lifecycle Service (US)"
-  },
-  {
-    text: "The Estrela team have a grasp of branding and product design like I've never seen before. We searched the globe for a tech-focused CI design agency and found that the top talent was right here in Cape Town.",
-    name: "Colleen Harrison",
-    role: "Former Head of Marketing, Payfast"
-  }
-]
+interface Testimonial {
+  id: number
+  text: string
+  name: string
+  role: string
+  order_index: number
+}
 
 export default function TestimonialsSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([])
   const swiperRef = useRef<SwiperType | null>(null)
+
+  // Fetch testimonials from database
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('testimonials')
+          .select('*')
+          .order('order_index', { ascending: true })
+        
+        if (error) {
+          console.error('Error fetching testimonials:', error)
+          return
+        }
+        
+        if (data && data.length > 0) {
+          setTestimonials(data)
+        }
+      } catch (error) {
+        console.error('Error fetching testimonials:', error)
+      }
+    }
+
+    fetchTestimonials()
+  }, [])
 
   useEffect(() => {
     if (videoRef.current) {

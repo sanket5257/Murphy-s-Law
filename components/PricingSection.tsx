@@ -1,67 +1,47 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { supabase } from '@/lib/supabase'
+
+interface PricingPlan {
+  id: number
+  name: string
+  price_monthly: number
+  price_yearly: number
+  features: string[]
+  button_text: string
+  is_popular: boolean
+  order_index: number
+}
 
 export default function PricingSection() {
   const [isYearly, setIsYearly] = useState(false)
+  const [plans, setPlans] = useState<PricingPlan[]>([])
 
-  const plans = [
-    {
-      name: 'Free',
-      price: { monthly: 0, yearly: 0 },
-      features: [
-        'Access to standard AI model',
-        'Legislation and regulation',
-        '5 questions per day',
-        '50k tokens per day',
-        'Standard response speed',
-        'Chat history (7 days)'
-      ],
-      buttonText: 'GET STARTED',
-      buttonStyle: 'border border-black text-black hover:bg-black hover:text-white',
-      popular: false
-    },
-    {
-      name: 'Pro',
-      price: { monthly: 199, yearly: 2350 },
-      features: [
-        'Access to standard AI model',
-        'Legislation and regulation',
-        'Case law research',
-        '15 questions per day',
-        '100k tokens per day',
-        'Higher response speed',
-        'File upload',
-        'Document review',
-        'Deep Search functionality - Coming Soon'
-      ],
-      buttonText: 'GET STARTED',
-      buttonStyle: 'bg-black text-white hover:bg-gray-800',
-      popular: true
-    },
-    {
-      name: 'Business',
-      price: { monthly: 1999, yearly: 20000 },
-      features: [
-        'Access to standard AI model',
-        'Legislation and regulation',
-        'Case law research',
-        '80 questions per day',
-        '1M tokens per day',
-        'Higher response speed',
-        'Unlimited chat history',
-        'File upload',
-        'Priority support',
-        'Deep Search functionality',
-        'Streamline your work with Workflows (Coming Soon)',
-        'Access to latest models',
-        'Advanced search templates'
-      ],
-      buttonText: 'GET STARTED',
-      buttonStyle: 'border border-black text-black hover:bg-black hover:text-white',
-      popular: false
+  // Fetch pricing plans from database
+  useEffect(() => {
+    const fetchPlans = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('pricing_plans')
+          .select('*')
+          .order('order_index', { ascending: true })
+        
+        if (error) {
+          console.error('Error fetching pricing plans:', error)
+          return
+        }
+        
+        if (data && data.length > 0) {
+          setPlans(data)
+        }
+      } catch (error) {
+        console.error('Error fetching pricing plans:', error)
+      }
     }
-  ]
+
+    fetchPlans()
+  }, [])
 
   return (
     <section id="pricing" className="relative w-full bg-black py-16 md:py-24 lg:py-32 overflow-hidden">
@@ -100,9 +80,9 @@ export default function PricingSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-12 2xl:gap-16">
           {plans.map((plan, index) => (
             <div
-              key={plan.name}
+              key={plan.id}
               className={`relative backdrop-blur-xl bg-white/10 rounded-3xl p-8 lg:p-10 border border-white/20 transition-all duration-300 hover:bg-white/15 hover:border-white/30 group ${
-                plan.popular 
+                plan.is_popular 
                   ? 'bg-white/15 border-white/40 scale-105' 
                   : ''
               }`}
@@ -111,7 +91,7 @@ export default function PricingSection() {
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               {/* Popular Badge */}
-              {plan.popular && (
+              {plan.is_popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <span className="bg-white text-black px-6 py-2 rounded-full font-montreal text-sm font-medium backdrop-blur-sm">
                     Standard Plan
@@ -130,8 +110,8 @@ export default function PricingSection() {
                 {/* Price */}
                 <div className="mb-6">
                   <h2 className="font-migra text-white" >
-                    ${isYearly ? plan.price.yearly : plan.price.monthly}
-                    {plan.price.monthly > 0 && (
+                    ${isYearly ? plan.price_yearly : plan.price_monthly}
+                    {plan.price_monthly > 0 && (
                       <span className="font-montreal text-white/60 text-lg">/m</span>
                     )}
                   </h2>
@@ -140,12 +120,12 @@ export default function PricingSection() {
               <a 
                 href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
                 className={`relative z-10 w-full py-4 px-6 rounded-xl font-montreal font-medium text-sm transition-all duration-300 text-center block ${
-                  plan.popular 
+                  plan.is_popular 
                     ? 'bg-white text-black hover:bg-gray-100' 
                     : 'bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm'
                 }`}
               >
-                Get Started
+                {plan.button_text}
               </a>
               </div>
 

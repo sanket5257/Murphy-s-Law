@@ -6,9 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed": "node scripts/seed.js",
+    "check-tables": "node scripts/create-tables.js",
+    "setup-db": "node scripts/create-tables.js && node scripts/seed.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.90.1",
+    "dotenv": "^17.2.3",
     "gsap": "^3.12.2",
     "lenis": "^1.0.42",
     "next": "14.0.4",

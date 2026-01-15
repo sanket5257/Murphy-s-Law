@@ -3,34 +3,49 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { supabase } from '@/lib/supabase'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const faqs = [
-  {
-    question: "Will documents I upload to Murphy be safe?",
-    answer: "Yes, we use industry-standard security measures with robust encryption. Murphy does not train underlying models using your data."
-  },
-  {
-    question: "Where does Murphy get case law from?",
-    answer: "Other large language models do not have direct access to proprietary case law databases and rely on publicly available sources to generate legal answers. However, Murphy is integrated with reputable and reliable case law databases and has specifically curated datasets. This ensures that Murphy always has access to the most recent case law out there."
-  },
-  {
-    question: "Can I export and download answers?",
-    answer: "Yes, Murphy allows you to share entire chats and export documents in Word or PDF format. These documents are pre-formated and can be edited to suit user preferences."
-  },
-  {
-    question: "Can I upload documents for review?",
-    answer: "Yes, you can upload contracts, court pleadings, or other legal documents to be summarised, for clause extraction, or for compliance checks."
-  }
-]
+interface FAQ {
+  id: number
+  question: string
+  answer: string
+  order_index: number
+}
 
 export default function FAQSection() {
+  const [faqs, setFaqs] = useState<FAQ[]>([])
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const faqRefs = useRef<(HTMLDivElement | null)[]>([])
   const answerRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  // Fetch FAQs from database
+  useEffect(() => {
+    const fetchFAQs = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('faqs')
+          .select('*')
+          .order('order_index', { ascending: true })
+        
+        if (error) {
+          console.error('Error fetching FAQs:', error)
+          return
+        }
+        
+        if (data && data.length > 0) {
+          setFaqs(data)
+        }
+      } catch (error) {
+        console.error('Error fetching FAQs:', error)
+      }
+    }
+
+    fetchFAQs()
+  }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
