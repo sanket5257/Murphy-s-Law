@@ -274,10 +274,10 @@ export default function Header() {
         <div className="hidden md:flex relative z-10 items-center flex-shrink-0">
           <a 
             href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
-            className={`font-montreal text-xs md:text-sm bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-4 md:px-6 py-2 transition-all duration-300 ${
+            className={`font-montreal text-xs md:text-sm rounded-full px-4 md:px-6 py-2 transition-all duration-300 ${
               isDarkSection 
-                ? 'text-white/80 hover:text-white' 
-                : 'text-black/80 hover:text-black'
+                ? 'bg-white/10 hover:bg-white/20 border border-white/20 text-white/80 hover:text-white' 
+                : 'bg-black/10 hover:bg-black/20 border border-black/20 text-black/80 hover:text-black'
             }`}
           >
             Login
@@ -361,10 +361,10 @@ export default function Header() {
             {/* Mobile Login Button */}
             <a 
               href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
-              className={`font-montreal text-lg bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-6 py-3 text-center transition-all duration-300 mt-4 ${
+              className={`font-montreal text-lg rounded-full px-6 py-3 text-center transition-all duration-300 mt-4 ${
                 isDarkSection 
-                  ? 'text-white/80 hover:text-white' 
-                  : 'text-black/80 hover:text-black'
+                  ? 'bg-white/10 hover:bg-white/20 border border-white/20 text-white/80 hover:text-white' 
+                  : 'bg-black/10 hover:bg-black/20 border border-black/20 text-black/80 hover:text-black'
               }`}
             >
               Login
