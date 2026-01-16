@@ -15,7 +15,7 @@ export default function AuthCheck({ children }: { children: React.ReactNode }) {
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_OUT') {
-        router.push('/admin/login')
+        router.push('/cms-dashboard-2026/login')
       } else if (event === 'SIGNED_IN') {
         setAuthenticated(true)
       }
@@ -31,13 +31,13 @@ export default function AuthCheck({ children }: { children: React.ReactNode }) {
       const { data: { session } } = await supabase.auth.getSession()
       
       if (!session) {
-        router.push('/admin/login')
+        router.push('/cms-dashboard-2026/login')
       } else {
         setAuthenticated(true)
       }
     } catch (error) {
       console.error('Error checking auth:', error)
-      router.push('/admin/login')
+      router.push('/cms-dashboard-2026/login')
     } finally {
       setLoading(false)
     }

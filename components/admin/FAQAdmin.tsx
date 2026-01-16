@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Edit2, Trash2, Plus, Save, X, FileQuestion } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import type { FAQ } from '@/lib/database.types'
 
@@ -98,17 +99,17 @@ export default function FAQAdmin({ onUpdate }: { onUpdate?: () => void }) {
 
   if (loading) return (
     <div className="flex items-center justify-center py-12">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
     </div>
   )
 
   return (
     <div className="space-y-6">
-      {/* Add/Edit Form */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-        <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4">
+      {/* Add/Edit Form with glassmorphism */}
+      <div className="backdrop-blur-xl bg-white/5 rounded-2xl border border-white/10 overflow-hidden">
+        <div className="bg-white/5 border-b border-white/10 px-6 py-4">
           <h2 className="text-xl font-bold text-white flex items-center space-x-2">
-            <span>✏️</span>
+            <Edit2 className="w-5 h-5" />
             <span>{editingId ? 'Edit FAQ' : 'Add New FAQ'}</span>
           </h2>
         </div>
@@ -116,23 +117,23 @@ export default function FAQAdmin({ onUpdate }: { onUpdate?: () => void }) {
         <form onSubmit={handleSubmit} className="p-6">
           <div className="space-y-5">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Question</label>
+              <label className="block text-sm font-semibold text-white/80 mb-2">Question</label>
               <input
                 type="text"
                 value={formData.question}
                 onChange={(e) => setFormData({ ...formData, question: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+                className="w-full px-4 py-3 backdrop-blur-md bg-white/10 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-white placeholder-white/40"
                 placeholder="Enter your question here..."
                 required
               />
             </div>
             
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Answer</label>
+              <label className="block text-sm font-semibold text-white/80 mb-2">Answer</label>
               <textarea
                 value={formData.answer}
                 onChange={(e) => setFormData({ ...formData, answer: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none text-gray-900 bg-white"
+                className="w-full px-4 py-3 backdrop-blur-md bg-white/10 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none text-white placeholder-white/40"
                 rows={5}
                 placeholder="Enter the answer..."
                 required
@@ -142,9 +143,9 @@ export default function FAQAdmin({ onUpdate }: { onUpdate?: () => void }) {
             <div className="flex space-x-3 pt-2">
               <button
                 type="submit"
-                className="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 font-semibold shadow-sm transition-all duration-200 flex items-center space-x-2"
+                className="px-6 py-3 backdrop-blur-xl bg-white/10 border border-white/20 text-white rounded-full hover:bg-white/20 font-semibold transition-all duration-300 flex items-center space-x-2"
               >
-                <span>{editingId ? '💾' : '➕'}</span>
+                {editingId ? <Save className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                 <span>{editingId ? 'Update FAQ' : 'Add FAQ'}</span>
               </button>
               {editingId && (
@@ -154,9 +155,10 @@ export default function FAQAdmin({ onUpdate }: { onUpdate?: () => void }) {
                     setEditingId(null)
                     setFormData({ question: '', answer: '' })
                   }}
-                  className="px-6 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 font-semibold transition-all duration-200"
+                  className="px-6 py-3 backdrop-blur-xl bg-white/10 border border-white/20 text-white/60 rounded-full hover:bg-white/20 hover:text-white font-semibold transition-all duration-300 flex items-center space-x-2"
                 >
-                  Cancel
+                  <X className="w-4 h-4" />
+                  <span>Cancel</span>
                 </button>
               )}
             </div>
@@ -167,43 +169,43 @@ export default function FAQAdmin({ onUpdate }: { onUpdate?: () => void }) {
       {/* FAQ List */}
       <div className="space-y-4">
         {faqs.length === 0 ? (
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-12 text-center">
-            <div className="text-6xl mb-4">📝</div>
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">No FAQs Yet</h3>
-            <p className="text-gray-500">Add your first FAQ above or seed the database to get started.</p>
+          <div className="backdrop-blur-xl bg-white/5 rounded-2xl border border-white/10 p-12 text-center">
+            <FileQuestion className="w-16 h-16 text-white/40 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-white mb-2">No FAQs Yet</h3>
+            <p className="text-white/60">Add your first FAQ above or seed the database to get started.</p>
           </div>
         ) : (
           faqs.map((faq, index) => (
             <div 
               key={faq.id} 
-              className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-200"
+              className="backdrop-blur-xl bg-white/5 rounded-2xl border border-white/10 overflow-hidden hover:bg-white/10 transition-all duration-300"
             >
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-start space-x-3 flex-1">
-                    <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-blue-600 font-bold text-sm">{index + 1}</span>
+                    <div className="w-8 h-8 backdrop-blur-md bg-blue-500/20 border border-blue-500/30 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-blue-400 font-bold text-sm">{index + 1}</span>
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-lg text-gray-900 mb-2">{faq.question}</h3>
-                      <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                      <h3 className="font-bold text-lg text-white mb-2">{faq.question}</h3>
+                      <p className="text-white/70 leading-relaxed">{faq.answer}</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="flex space-x-2 mt-4 pt-4 border-t border-gray-100">
+                <div className="flex space-x-2 mt-4 pt-4 border-t border-white/10">
                   <button
                     onClick={() => handleEdit(faq)}
-                    className="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 font-medium text-sm transition-all duration-200 flex items-center space-x-1"
+                    className="px-4 py-2 backdrop-blur-xl bg-white/10 border border-white/20 text-white rounded-full hover:bg-white/20 font-medium text-sm transition-all duration-300 flex items-center space-x-1"
                   >
-                    <span>✏️</span>
+                    <Edit2 className="w-4 h-4" />
                     <span>Edit</span>
                   </button>
                   <button
                     onClick={() => handleDelete(faq.id)}
-                    className="px-4 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 font-medium text-sm transition-all duration-200 flex items-center space-x-1"
+                    className="px-4 py-2 backdrop-blur-xl bg-red-500/20 border border-red-500/30 text-red-400 rounded-full hover:bg-red-500/30 font-medium text-sm transition-all duration-300 flex items-center space-x-1"
                   >
-                    <span>🗑️</span>
+                    <Trash2 className="w-4 h-4" />
                     <span>Delete</span>
                   </button>
                 </div>

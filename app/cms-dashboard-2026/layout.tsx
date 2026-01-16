@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Content Management System',
 }
 
-export default function AdminLayout({
+export default function AdminLayout({ 
   children,
 }: {
   children: React.ReactNode
