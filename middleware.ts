@@ -32,11 +32,71 @@ const SECURITY_CONFIG = {
   ],
   // Honeypot paths (instant block)
   honeypotPaths: [
+    // WordPress
     "/wp-admin",
     "/wp-login.php",
+    "/wp-content",
+    "/wp-includes",
+    "/xmlrpc.php",
+    "/wp-config.php",
+    "/wp-json/wp/v2/users",
+    
+    // Database Management
     "/phpmyadmin",
+    "/pma",
+    "/mysql",
+    "/adminer",
+    "/db",
+    "/database",
+    
+    // Admin Panels
+    "/admin",
+    "/administrator",
+    "/cpanel",
+    "/webadmin",
+    "/controlpanel",
+    "/panel",
+    
+    // Config & Environment
     "/.env",
+    "/.env.local",
+    "/.env.production",
     "/config",
+    "/configuration",
+    "/.git",
+    "/.svn",
+    
+    // Common CMS
+    "/joomla",
+    "/drupal",
+    "/magento",
+    
+    // API Endpoints (common attack targets)
+    "/api/admin",
+    "/api/v1/admin",
+    "/api/users",
+    
+    // Backup Files
+    "/backup",
+    "/backups",
+    "/.backup",
+    "/old",
+    "/temp",
+    "/tmp",
+    
+    // Server Files
+    "/server-status",
+    "/server-info",
+    "/.htaccess",
+    "/web.config",
+    "/phpinfo.php",
+    
+    // Shell & Upload
+    "/shell",
+    "/upload",
+    "/uploads/shell",
+    "/c99.php",
+    "/r57.php",
   ],
   // Violation threshold before blocking
   challengeThreshold: 5, // 5 violations before 15-min block
