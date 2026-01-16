@@ -1,4 +1,10 @@
 import '../globals.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Admin Panel - Murphy\'s Law',
+  description: 'Content Management System',
+}
 
 export default function AdminLayout({
   children,
@@ -7,7 +13,7 @@ export default function AdminLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-gray-50">
         {children}
       </body>
     </html>
