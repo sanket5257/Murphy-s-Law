@@ -1,14 +1,11 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Declare global types for GSAP
-declare global {
-  interface Window {
-    gsap: any;
-    ScrollTrigger: any;
-  }
-}
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,58 +14,24 @@ export default function HeroSection() {
   const glowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Load GSAP and ScrollTrigger from CDN
-    const loadGSAP = async () => {
-      // Create script elements
-      const gsapScript = document.createElement("script");
-      gsapScript.src =
-        "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js";
-      gsapScript.async = true;
+    // Set initial position for description (start from below viewport)
+    gsap.set(descriptionRef.current, {
+      y: 400,
+      opacity: 0,
+    });
 
-      const scrollTriggerScript = document.createElement("script");
-      scrollTriggerScript.src =
-        "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js";
-      scrollTriggerScript.async = true;
-
-      // Wait for GSAP to load
-      await new Promise((resolve) => {
-        gsapScript.onload = resolve;
-        document.body.appendChild(gsapScript);
-      });
-
-      // Wait for ScrollTrigger to load
-      await new Promise((resolve) => {
-        scrollTriggerScript.onload = resolve;
-        document.body.appendChild(scrollTriggerScript);
-      });
-
-      // Initialize animations
-      const gsap = window.gsap;
-      const ScrollTrigger = window.ScrollTrigger;
-
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Set initial position for description (start from below viewport)
-      gsap.set(descriptionRef.current, {
-        y: 400,
-        opacity: 0,
-      });
-
-      // Animate description section upward from below as user scrolls
-      gsap.to(descriptionRef.current, {
-        y: 0,
-        opacity: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-        },
-      });
-    };
-
-    loadGSAP();
+    // Animate description section upward from below as user scrolls
+    gsap.to(descriptionRef.current, {
+      y: 0,
+      opacity: 1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top center",
+        end: "bottom center",
+        scrub: 1,
+      },
+    });
 
     // Mouse move handler for glassmorphism glow effect
     const handleMouseMove = (e: MouseEvent) => {
@@ -83,18 +46,16 @@ export default function HeroSection() {
       const yPercent = (y / rect.height) * 100;
 
       // Update glow position to follow cursor
-      if (window.gsap) {
-        window.gsap.to(glowRef.current, {
-          duration: 0.3,
-          background: `radial-gradient(200px circle at ${xPercent}% ${yPercent}%, rgba(212, 165, 116, 0.3) 0%, rgba(212, 165, 116, 0.1) 50%, transparent 100%)`,
-          ease: "power2.out",
-        });
-      }
+      gsap.to(glowRef.current, {
+        duration: 0.3,
+        background: `radial-gradient(200px circle at ${xPercent}% ${yPercent}%, rgba(212, 165, 116, 0.3) 0%, rgba(212, 165, 116, 0.1) 50%, transparent 100%)`,
+        ease: "power2.out",
+      });
     };
 
     const handleMouseEnter = () => {
-      if (window.gsap && glowRef.current) {
-        window.gsap.to(glowRef.current, {
+      if (glowRef.current) {
+        gsap.to(glowRef.current, {
           duration: 0.3,
           opacity: 1,
           ease: "power2.out",
@@ -103,8 +64,8 @@ export default function HeroSection() {
     };
 
     const handleMouseLeave = () => {
-      if (window.gsap && glowRef.current) {
-        window.gsap.to(glowRef.current, {
+      if (glowRef.current) {
+        gsap.to(glowRef.current, {
           duration: 0.5,
           opacity: 0,
           ease: "power2.out",
@@ -112,23 +73,16 @@ export default function HeroSection() {
       }
     };
 
-    // Add event listeners after GSAP loads
-    const addEventListeners = () => {
-      if (descriptionRef.current) {
-        descriptionRef.current.addEventListener("mousemove", handleMouseMove);
-        descriptionRef.current.addEventListener("mouseenter", handleMouseEnter);
-        descriptionRef.current.addEventListener("mouseleave", handleMouseLeave);
-      }
-    };
-
-    // Load GSAP first, then add event listeners
-    loadGSAP().then(addEventListeners);
+    // Add event listeners
+    if (descriptionRef.current) {
+      descriptionRef.current.addEventListener("mousemove", handleMouseMove);
+      descriptionRef.current.addEventListener("mouseenter", handleMouseEnter);
+      descriptionRef.current.addEventListener("mouseleave", handleMouseLeave);
+    }
 
     // Cleanup
     return () => {
-      if (window.ScrollTrigger) {
-        window.ScrollTrigger.getAll().forEach((trigger: any) => trigger.kill());
-      }
+      ScrollTrigger.getAll().forEach((trigger: any) => trigger.kill());
       if (descriptionRef.current) {
         descriptionRef.current.removeEventListener(
           "mousemove",

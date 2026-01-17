@@ -138,9 +138,9 @@ export default function LawyersUseSection() {
     setActiveTab(index)
     setProgress(0)
     
-    // Move swiper to the clicked slide
+    // Move swiper to the clicked slide - use slideToLoop for looped swiper
     if (swiperRef.current) {
-      swiperRef.current.slideTo(index)
+      swiperRef.current.slideToLoop(index)
     }
     
     // Reset all progress bars

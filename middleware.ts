@@ -289,20 +289,10 @@ export const middleware = async (request: NextRequest) => {
     const fingerprintCheck = trackFingerprint(request);
     if (fingerprintCheck) return applySecurityHeaders(fingerprintCheck);
 
-    // Layer 4: Admin route protection
+    // Layer 4: Admin route protection - Let AuthCheck component handle this
     if (path.startsWith('/cms-dashboard-2026')) {
-      // Allow login page
-      if (path === '/cms-dashboard-2026/login') {
-        const response = NextResponse.next();
-        return applySecurityHeaders(response);
-      }
-      
-      // Check for auth token
-      const token = request.cookies.get('sb-access-token');
-      if (!token) {
-        const response = NextResponse.redirect(new URL('/cms-dashboard-2026/login', request.url));
-        return applySecurityHeaders(response);
-      }
+      const response = NextResponse.next();
+      return applySecurityHeaders(response);
     }
 
     const response = NextResponse.next();

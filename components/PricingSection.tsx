@@ -110,7 +110,7 @@ export default function PricingSection() {
                 {/* Price */}
                 <div className="mb-6">
                   <h2 className="font-migra text-white" >
-                    ${isYearly ? plan.price_yearly : plan.price_monthly}
+                    R{isYearly ? plan.price_yearly : plan.price_monthly}
                     {plan.price_monthly > 0 && (
                       <span className="font-montreal text-white/60 text-lg">/m</span>
                     )}

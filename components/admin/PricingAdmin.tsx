@@ -167,7 +167,7 @@ export default function PricingAdmin({ onUpdate }: { onUpdate?: () => void }) {
             
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-semibold text-white/80 mb-2">Monthly Price ($)</label>
+                <label className="block text-sm font-semibold text-white/80 mb-2">Monthly Price (R)</label>
                 <input
                   type="number"
                   value={formData.price_monthly}
@@ -178,7 +178,7 @@ export default function PricingAdmin({ onUpdate }: { onUpdate?: () => void }) {
               </div>
               
               <div>
-                <label className="block text-sm font-semibold text-white/80 mb-2">Yearly Price ($)</label>
+                <label className="block text-sm font-semibold text-white/80 mb-2">Yearly Price (R)</label>
                 <input
                   type="number"
                   value={formData.price_yearly}
@@ -274,8 +274,8 @@ export default function PricingAdmin({ onUpdate }: { onUpdate?: () => void }) {
               <div className="p-6">
                 <h3 className="font-bold text-2xl text-white mb-2">{plan.name}</h3>
                 <div className="mb-4">
-                  <p className="text-4xl font-bold text-white">${plan.price_monthly}</p>
-                  <p className="text-sm text-white/60 mt-1">${plan.price_yearly}/year</p>
+                  <p className="text-4xl font-bold text-white">R{plan.price_monthly}</p>
+                  <p className="text-sm text-white/60 mt-1">R{plan.price_yearly}/year</p>
                 </div>
                 
                 <div className="mb-6 space-y-2 max-h-64 overflow-y-auto">

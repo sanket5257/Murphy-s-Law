@@ -145,7 +145,7 @@ export default function FAQSection() {
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen bg-black py-16 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32"
+      className=" bg-black py-20 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32"
     >
       <div className="max-w-7xl mx-auto">
         <h2 
