@@ -302,7 +302,7 @@ export default function Header() {
             Login
           </a>
           <a 
-            href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
+            href="https://app.murphys-law.ai/sign-up?_gl=1*1ihcngf*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3Njg2NDU5NDckbzE5JGcwJHQxNzY4NjQ1OTQ3JGo2MCRsMCRoMA.."
             className={`font-montreal text-xs md:text-sm rounded-full px-4 md:px-6 py-2 transition-all duration-300 ${
               isDarkSection 
                 ? 'bg-white text-black hover:bg-white/90' 
