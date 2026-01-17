@@ -7,7 +7,7 @@ const benefitsData = [
     title: "Individuals",
     subtitle: "Personal Legal Empowerment",
     description: "Get quick answers to everyday legal questions without hiring a full-time attorney. Access legal information, understand contracts, and handle personal legal matters with confidence.",
-    image: "/img/founder.avif",
+    image: "/img/individual.jpg",
     features: [
       "Easy, Affordable Legal Guidance",
       "Peace of Mind with AI-powered safety net",
