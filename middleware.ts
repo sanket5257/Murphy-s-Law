@@ -12,7 +12,7 @@ const SECURITY_CONFIG = {
     "bot",
     "spider",
     "wget",
-    "httpx",
+    "httpx", 
     "requests",
     "headless",
     "phantom",

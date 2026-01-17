@@ -1,16 +1,19 @@
 'use client'
 
 export default function MarqueeSection() {
-  // Array of partner logos (duplicating available logos for demo)
+  // Array of partner logos using available images from public folder
   const partnerLogos = [
     { src: '/img/SMAI-Logo.png', alt: 'SMAI Law Firm' },
+    { src: '/img/Black-Attorneys-Inc.png', alt: 'Black Attorneys Inc' },
+    { src: '/img/bregman.png', alt: 'Bregman Law' },
+    { src: '/img/Brittan-law.png', alt: 'Brittan Law' },
+    { src: '/img/mmh-logo.png', alt: 'MMH Legal' },
+    { src: '/img/RSW-logo.webp', alt: 'RSW Law' },
+    { src: '/img/SAI-Logo.webp', alt: 'SAI Legal' },
+    { src: '/img/Wright-inc.webp', alt: 'Wright Inc Law' },
     { src: '/img/3.png', alt: 'Partner Law Firm' },
-    { src: '/img/5.png', alt: 'SMAI Legal' },
-    { src: '/img/3.png', alt: 'Legal Partners' },
-    { src: '/img/mmh-logo.png', alt: 'SMAI Partners' },
-    { src: '/img/3.png', alt: 'Law Associates' },
-    { src: '/img/SMAI-Logo.png', alt: 'SMAI Associates' },
-    { src: '/img/3.png', alt: 'Legal Group' },
+    { src: '/img/4.png', alt: 'Legal Associates' },
+    { src: '/img/5.png', alt: 'Law Partners' },
   ]
 
   return (
@@ -30,13 +33,13 @@ export default function MarqueeSection() {
           {partnerLogos.map((logo, index) => (
             <div 
               key={`first-${index}`}
-              className="flex-shrink-0 flex items-center justify-center h-20 md:h-24"
+              className="flex-shrink-0 flex items-center justify-center h-20 md:h-24 w-32 md:w-40"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="object-contain transition-opacity duration-300 filter grayscale hover:grayscale-0"
-                style={{ maxWidth: '200px', maxHeight: '100%' }}
+                className="object-contain transition-all duration-300 filter grayscale hover:grayscale-0 hover:scale-105"
+                style={{ maxWidth: '160px', maxHeight: '80px' }}
               />
             </div>
           ))}
@@ -44,13 +47,13 @@ export default function MarqueeSection() {
           {partnerLogos.map((logo, index) => (
             <div 
               key={`second-${index}`}
-              className="flex-shrink-0 flex items-center justify-center h-20 md:h-24"
+              className="flex-shrink-0 flex items-center justify-center h-20 md:h-24 w-32 md:w-40"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="object-contain transition-opacity duration-300 filter grayscale hover:grayscale-0"
-                style={{ maxWidth: '200px', maxHeight: '100%' }}
+                className="object-contain transition-all duration-300 filter grayscale hover:grayscale-0 hover:scale-105"
+                style={{ maxWidth: '160px', maxHeight: '80px' }}
               />
             </div>
           ))}

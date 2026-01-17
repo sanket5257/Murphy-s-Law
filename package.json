@@ -14,11 +14,13 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.90.1",
+    "@types/nodemailer": "^7.0.5",
     "dotenv": "^17.2.3",
     "gsap": "^3.14.2",
     "lenis": "^1.0.42",
     "lucide-react": "^0.562.0",
     "next": "14.0.4",
+    "nodemailer": "^7.0.12",
     "react": "^18",
     "react-dom": "^18",
     "swiper": "^12.0.3"
