@@ -3,6 +3,14 @@ import { supabase } from '@/lib/supabase'
 
 export async function POST() {
   try {
+    // Check if Supabase is properly configured
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'Supabase configuration is missing. Please check your environment variables.' 
+      }, { status: 500 })
+    }
+
     console.log('Starting database seeding...')
 
     // Clear existing data (optional - comment out if you want to keep existing data)
