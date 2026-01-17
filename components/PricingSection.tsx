@@ -77,8 +77,8 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-12 2xl:gap-16">
-          {plans.map((plan, index) => (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-6 lg:gap-8 xl:gap-12 2xl:gap-16">
+          {plans.map((plan) => (
             <div
               key={plan.id}
               className={`relative backdrop-blur-xl bg-white/10 rounded-3xl p-8 lg:p-10 border border-white/20 transition-all duration-300 hover:bg-white/15 hover:border-white/30 group ${

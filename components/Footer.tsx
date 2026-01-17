@@ -60,7 +60,7 @@ export default function Footer() {
               </h2>
             </div>
             <div>
-              <button className="px-8 py-4 bg-white text-black font-montreal font-medium rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button className="px-8 py-4 bg-white text-black font-montreal font-medium rounded-full hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
                 Request a Demo
               </button>
             </div>
@@ -185,7 +185,7 @@ export default function Footer() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-white text-black py-3 rounded-lg font-montreal font-medium hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-white text-black py-3 rounded-full font-montreal font-medium hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit'}
               </button>

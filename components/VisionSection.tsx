@@ -46,7 +46,7 @@ export default function VisionSection() {
             <div className="mt-8 md:mt-12">
               <div className="relative w-full aspect-[16/9] rounded-sm overflow-hidden bg-gray-200">
                 <img
-                  src="/img/office.avif"
+                  src="/img/office.jpg"
                   alt="Office space"
                   className="w-full h-full object-cover"
                 />

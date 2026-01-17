@@ -7,6 +7,7 @@ export default function Header() {
   const navRef = useRef<HTMLElement>(null)
   const glowRef = useRef<HTMLDivElement>(null)
   const navMenuRef = useRef<HTMLDivElement>(null)
+  const authButtonsRef = useRef<HTMLDivElement>(null)
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up')
   const [isDarkSection, setIsDarkSection] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -73,33 +74,47 @@ export default function Header() {
       setScrollDirection(direction)
       lastScrollY.current = currentScrollY
 
-      if (navMenu && nav) {
+      if (navMenuRef.current && authButtonsRef.current && nav) {
         // If scrolling up or at top, expand header
         if (direction === 'up' || scrolled < 50) {
-          // Expand header
+          // Expand header - show everything
           nav.style.maxWidth = '1152px'
-          navMenu.style.opacity = '1'
-          navMenu.style.visibility = 'visible'
+          navMenuRef.current.style.opacity = '1'
+          navMenuRef.current.style.visibility = 'visible'
+          authButtonsRef.current.style.opacity = '1'
+          authButtonsRef.current.style.visibility = 'visible'
+          
+          // Show both buttons
+          const loginBtn = authButtonsRef.current.querySelector('a:first-child') as HTMLElement
+          const signupBtn = authButtonsRef.current.querySelector('a:last-child') as HTMLElement
+          if (loginBtn && signupBtn) {
+            loginBtn.style.display = 'block'
+            signupBtn.style.display = 'block'
+          }
         } else {
-          // Scrolling down - collapse header
+          // Scrolling down - contract header
           const scrollProgress = Math.min(scrolled / maxScroll, 1) // 0 to 1
           
           // Use easing function for smoother transition
           const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4)
           const easedProgress = easeOutQuart(scrollProgress)
           
-          // Very smooth opacity transition
-          const opacity = Math.max(0, 1 - (easedProgress * 1.5))
-          
-          // Smooth header width transition with CSS
+          // Smooth header width transition
           nav.style.maxWidth = `${1152 - (easedProgress * 852)}px`
-          navMenu.style.opacity = opacity.toString()
           
-          // Hide navigation completely when opacity is very low
-          if (opacity < 0.1) {
-            navMenu.style.visibility = 'hidden'
-          } else {
-            navMenu.style.visibility = 'visible'
+          // Hide navigation menu completely
+          navMenuRef.current.style.opacity = '0'
+          navMenuRef.current.style.visibility = 'hidden'
+          
+          // Keep auth buttons visible but hide Sign Up, show only Login
+          authButtonsRef.current.style.opacity = '1'
+          authButtonsRef.current.style.visibility = 'visible'
+          
+          const loginBtn = authButtonsRef.current.querySelector('a:first-child') as HTMLElement
+          const signupBtn = authButtonsRef.current.querySelector('a:last-child') as HTMLElement
+          if (loginBtn && signupBtn) {
+            loginBtn.style.display = 'block'
+            signupBtn.style.display = 'none' // Hide Sign Up when contracted
           }
         }
       }
@@ -270,17 +285,31 @@ export default function Header() {
           </div>
         </button>
         
-        {/* Login Button on Right Corner */}
-        <div className="hidden md:flex relative z-10 items-center flex-shrink-0">
+        {/* Login and Sign Up Buttons on Right Corner */}
+        <div 
+          ref={authButtonsRef}
+          className="hidden md:flex relative z-10 items-center flex-shrink-0 gap-3 transition-all duration-500 ease-out"
+          style={{ transitionProperty: 'opacity, visibility' }}
+        >
           <a 
             href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
             className={`font-montreal text-xs md:text-sm rounded-full px-4 md:px-6 py-2 transition-all duration-300 ${
               isDarkSection 
-                ? 'bg-white/10 hover:bg-white/20 border border-white/20 text-white/80 hover:text-white' 
-                : 'bg-black/10 hover:bg-black/20 border border-black/20 text-black/80 hover:text-black'
+                ? 'bg-transparent hover:bg-white/10 border border-white/20 text-white/80 hover:text-white' 
+                : 'bg-transparent hover:bg-black/10 border border-black/20 text-black/80 hover:text-black'
             }`}
           >
             Login
+          </a>
+          <a 
+            href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
+            className={`font-montreal text-xs md:text-sm rounded-full px-4 md:px-6 py-2 transition-all duration-300 ${
+              isDarkSection 
+                ? 'bg-white text-black hover:bg-white/90' 
+                : 'bg-black text-white hover:bg-black/90'
+            }`}
+          >
+            Sign Up
           </a>
         </div>
       </nav>
@@ -358,17 +387,29 @@ export default function Header() {
               Contact
             </a>
             
-            {/* Mobile Login Button */}
-            <a 
-              href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
-              className={`font-montreal text-lg rounded-full px-6 py-3 text-center transition-all duration-300 mt-4 ${
-                isDarkSection 
-                  ? 'bg-white/10 hover:bg-white/20 border border-white/20 text-white/80 hover:text-white' 
-                  : 'bg-black/10 hover:bg-black/20 border border-black/20 text-black/80 hover:text-black'
-              }`}
-            >
-              Login
-            </a>
+            {/* Mobile Login and Sign Up Buttons */}
+            <div className="flex flex-col gap-3 mt-6">
+              <a 
+                href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
+                className={`font-montreal text-lg rounded-full px-6 py-3 text-center transition-all duration-300 ${
+                  isDarkSection 
+                    ? 'bg-transparent hover:bg-white/10 border border-white/20 text-white/80 hover:text-white' 
+                    : 'bg-transparent hover:bg-black/10 border border-black/20 text-black/80 hover:text-black'
+                }`}
+              >
+                Login
+              </a>
+              <a 
+                href="https://app.murphys-law.ai/?_gl=1*r2vl0e*_ga*MTU1NDY5OTcwOC4xNzY3OTUzNjc1*_ga_HQ19QDQ45R*czE3NjgzNjk1MzckbzExJGcwJHQxNzY4MzY5NTM3JGo2MCRsMCRoMA.."
+                className={`font-montreal text-lg rounded-full px-6 py-3 text-center transition-all duration-300 ${
+                  isDarkSection 
+                    ? 'bg-white text-black hover:bg-white/90' 
+                    : 'bg-black text-white hover:bg-black/90'
+                }`}
+              >
+                Sign Up
+              </a>
+            </div>
           </nav>
         </div>
       </div>
