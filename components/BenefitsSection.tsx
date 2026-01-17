@@ -67,27 +67,27 @@ export default function BenefitsSection() {
         <div className="space-y-8 lg:space-y-12">
           {benefitsData.map((benefit, index) => (
             <div key={index} className="group">
-              <div className="bg-white border border-black/10 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-[700px]">
+              <div className="bg-white border border-black/10 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-[500px] md:h-[600px] lg:h-[700px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 h-full">
                   {/* Content Side */}
-                  <div className={`p-8 lg:p-12 flex flex-col justify-start ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <div className={`p-6 md:p-8 lg:p-12 flex flex-col justify-start ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                     {/* Category Badge */}
-                    <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-orange-500/10 to-red-200/10 border border-orange-500/20 w-fit">
+                    <div className="inline-flex items-center px-4 py-2 mb-4 md:mb-6 rounded-full bg-gradient-to-r from-orange-500/10 to-red-200/10 border border-orange-500/20 w-fit">
                       <span className="text-orange-600 text-sm font-montreal font-medium">{benefit.title}</span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-black font-migra text-2xl lg:text-3xl xl:text-4xl mb-4 leading-tight">
+                    <h3 className="text-black font-migra text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-3 md:mb-4 leading-tight">
                       {benefit.subtitle}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-black/70 font-montreal text-base lg:text-lg leading-relaxed mb-8">
+                    <p className="text-black/70 font-montreal text-sm md:text-base lg:text-lg leading-relaxed mb-6 md:mb-8">
                       {benefit.description}
                     </p>
 
                     {/* Features List */}
-                    <div className="space-y-3 mb-8">
+                    <div className="space-y-2 md:space-y-3 mb-6 md:mb-8">
                       {benefit.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-start space-x-3">
                           <div className="w-2 h-2 bg-gradient-to-r from-orange-500 to-red-200 rounded-full mt-2 flex-shrink-0"></div>
