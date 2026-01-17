@@ -100,7 +100,8 @@ export async function POST(request: NextRequest) {
         connectionSuccessful = true
         console.log('SMTP connection successful on port 587')
       } catch (primaryError) {
-        console.log('Port 587 failed, trying port 25...', primaryError.message)
+        const primaryErrorMessage = primaryError instanceof Error ? primaryError.message : 'Unknown error'
+        console.log('Port 587 failed, trying port 25...', primaryErrorMessage)
         
         // Try alternative transporter (port 25)
         try {
@@ -109,11 +110,12 @@ export async function POST(request: NextRequest) {
           connectionSuccessful = true
           console.log('SMTP connection successful on port 25')
         } catch (alternativeError) {
+          const alternativeErrorMessage = alternativeError instanceof Error ? alternativeError.message : 'Unknown error'
           console.error('Both SMTP ports failed:', {
-            port587: primaryError.message,
-            port25: alternativeError.message
+            port587: primaryErrorMessage,
+            port25: alternativeErrorMessage
           })
-          throw new Error(`SMTP connection failed on both ports: 587 (${primaryError.message}), 25 (${alternativeError.message})`)
+          throw new Error(`SMTP connection failed on both ports: 587 (${primaryErrorMessage}), 25 (${alternativeErrorMessage})`)
         }
       }
 
