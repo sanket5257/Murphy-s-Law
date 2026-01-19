@@ -1,69 +1,56 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
+import { supabase } from '@/lib/supabase'
 
-const testimonials = [
-  {
-    id: 1,
-    text: "The team at Estrela have been amazing and critical to our UI/UX journey, they challenge our thoughts for the better and have allowed us to become South Africa's fastest-growing Buy Now Pay Later platform. I cannot recommend them enough.",
-    name: "Craig Newborn",
-    role: "Former CEO, PayJustNow",
-    company: "PayJustNow"
-  },
-  {
-    id: 2,
-    text: "Working with Estrela Studio has been a genuinely outstanding experience. Their team brings a rare combination of creativity, technical expertise, and collaborative spirit. Estrela met us exactly where we were – they listened closely, understood the strategic goals and translated that direction into clear, compelling visual design.",
-    name: "Donna Blackwell-Kopotic",
-    role: "Sims Lifecycle Service (US)",
-    company: "Sims Lifecycle"
-  },
-  {
-    id: 3,
-    text: "The Estrela team have a grasp of branding and product design like I've never seen before. We searched the globe for a tech-focused CI design agency and found that the top talent was right here in Cape Town.",
-    name: "Colleen Harrison",
-    role: "Former Head of Marketing, Payfast",
-    company: "Payfast"
-  },
-  {
-    id: 4,
-    text: "I am very impressed. Murphy has saved me a lot of time and helped me consider things that may have otherwise gone unnoticed. I have used it in contract reviews, summarizing of complicated new matter facts and even drafting letters. I am really loving it and have even cancelled my other AI subscriptions.",
-    name: "Jason Martin",
-    role: "Founder and Director",
-    company: "Martin Attorneys"
-  },
-  {
-    id: 5,
-    text: "The document analysis feature is incredible. It catches compliance issues and potential risks that would take our team days to identify manually.",
-    name: "David Chen",
-    role: "Legal Counsel",
-    company: "TechCorp Legal"
-  }
-]
+interface Testimonial {
+  id: number
+  text: string
+  name: string
+  role: string
+  order_index: number
+}
 
 export default function TestimonialsCarousel() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([])
+  const [loading, setLoading] = useState(true)
+
+  // Fetch testimonials from database
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('testimonials')
+          .select('*')
+          .order('order_index', { ascending: true })
+        
+        if (error) {
+          console.error('Error fetching testimonials:', error)
+          return
+        }
+        
+        if (data && data.length > 0) {
+          setTestimonials(data)
+        }
+      } catch (error) {
+        console.error('Error fetching testimonials:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchTestimonials()
+  }, [])
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(console.error)
     }
   }, [])
-
-  // Auto-play functionality with pause capability
-  useEffect(() => {
-    if (isPaused) return
-
-    const interval = setInterval(() => {
-      if (!isAnimating) {
-        nextSlide()
-      }
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [currentIndex, isPaused, isAnimating])
 
   const nextSlide = () => {
     if (isAnimating) return
@@ -84,6 +71,42 @@ export default function TestimonialsCarousel() {
     setIsAnimating(true)
     setCurrentIndex(index)
     setTimeout(() => setIsAnimating(false), 800)
+  }
+
+  // Auto-play functionality with pause capability
+  useEffect(() => {
+    if (isPaused || testimonials.length === 0) return
+
+    const interval = setInterval(() => {
+      if (!isAnimating) {
+        nextSlide()
+      }
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [currentIndex, isPaused, isAnimating, testimonials.length])
+
+  // Show loading state
+  if (loading) {
+    return (
+      <section className="relative min-h-screen w-full overflow-hidden bg-black">
+        <div className="relative z-10 min-h-screen flex flex-col justify-center items-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+          <p className="text-white mt-4">Loading testimonials...</p>
+        </div>
+      </section>
+    )
+  }
+
+  // Show empty state
+  if (testimonials.length === 0) {
+    return (
+      <section className="relative min-h-screen w-full overflow-hidden bg-black">
+        <div className="relative z-10 min-h-screen flex flex-col justify-center items-center">
+          <p className="text-white text-xl">No testimonials available</p>
+        </div>
+      </section>
+    )
   }
 
   const getSlidePosition = (index: number) => {
@@ -222,9 +245,6 @@ export default function TestimonialsCarousel() {
                       getSlidePosition(index) === 0 ? 'text-xs md:text-sm' : 'text-xs'
                     }`}>
                       {testimonial.role}
-                    </p>
-                    <p className={`text-white/50 mt-1 transition-all duration-700 text-xs`}>
-                      {testimonial.company}
                     </p>
                   </div>
                   
