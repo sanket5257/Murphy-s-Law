@@ -1,269 +1,205 @@
 import React from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function TermsOfService() {
   return (
-    <div className="min-h-screen pt-32 bg-white text-black">
-      {/* Header */}
-      <div className="py-16 px-8">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-migra mb-4 text-black">Terms of Service</h1>
-          <p className="font-montreal text-black/70 text-lg">
-            Last updated: January 13, 2026
-          </p>
+    <>
+      <Header />
+      <div className="min-h-screen pt-32 bg-white text-black">
+        {/* Header */}
+        <div className="py-16 px-8">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-migra mb-4 text-black">Terms & Conditions</h1>
+            <p className="font-montreal text-black/70 text-lg mb-4">
+              Murphy drafted his own T's & C's – just one example of the many things he is capable of.
+            </p>
+            <p className="font-montreal text-black/70 text-lg">
+              <strong>A LEGAL DISCLAIMER</strong>
+            </p>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="max-w-4xl mx-auto px-8 pb-16">
+          <div className="prose prose-lg max-w-none">
+            
+            {/* Introduction */}
+            <section className="mb-12">
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                Welcome to Murphy's Law, your AI legal companion. By accessing or using our services, you agree to comply with and be bound by the following Terms and Conditions. Please read them carefully before using our platform.
+              </p>
+            </section>
+
+            {/* Overview */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Overview</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                Murphy's Law is an AI-powered legal assistant based in South Africa, designed to assist users with answering legal queries, drafting agreements, and conducting legal research. Our services are offered through both free and paid versions.
+              </p>
+            </section>
+
+            {/* Acceptance of Terms */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Acceptance of Terms</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                By using Murphy's Law, you acknowledge that you have read, understood, and agree to these Terms and Conditions. If you do not agree, you may not use our services.
+              </p>
+            </section>
+
+            {/* Eligibility */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Eligibility</h2>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li>You must be at least 18 years old to use our services.</li>
+                <li>By using Murphy's Law, you represent that you have the legal capacity to enter into binding agreements.</li>
+              </ul>
+            </section>
+
+            {/* Services Provider */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Services Provider</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                Murphy's Law provides the following services:
+              </p>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li><strong>Legal Queries:</strong> General guidance based on South African laws.</li>
+                <li><strong>Drafting Agreements:</strong> Assistance with creating contracts and legal documents.</li>
+                <li><strong>Legal Research:</strong> Summaries of legal concepts and case law.</li>
+              </ul>
+              <p className="font-montreal text-black/70 leading-relaxed mb-6">
+                Our AI is a tool for informational purposes and does not constitute legal advice. Always consult a qualified attorney for specific legal issues.
+              </p>
+            </section>
+
+            {/* User Responsibilities */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">User Responsibilities</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                By using Murphy's Law, you agree to:
+              </p>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li>Provide accurate and truthful information when using the platform.</li>
+                <li>Use the services for lawful purposes only.</li>
+                <li>Not misuse, exploit, or reverse-engineer our platform or AI tools.</li>
+                <li>Not rely solely on Murphy's Law for critical or high-stakes legal matters.</li>
+              </ul>
+            </section>
+
+            {/* Free and Paid Version */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Free and Paid Version</h2>
+              
+              <h3 className="text-xl font-migra mb-4 text-black">6.1 Free Version:</h3>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li>Access to basic legal query assistance.</li>
+                <li>Limited features compared to the paid version.</li>
+              </ul>
+
+              <h3 className="text-xl font-migra mb-4 text-black">6.2 Paid Version:</h3>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li>Access to advanced features, including more comprehensive document drafting and detailed legal research.</li>
+                <li>Subscription fees apply, as outlined on our website.</li>
+              </ul>
+            </section>
+
+            {/* Payments and Refunds */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Payments and Refunds</h2>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li>Payments for the paid version are processed through secure third-party payment gateways.</li>
+                <li>Subscription fees are non-refundable except as required by applicable law.</li>
+                <li>Users may cancel subscriptions at any time, but no refunds will be issued for unused portions of the subscription term.</li>
+              </ul>
+            </section>
+
+            {/* Limitation of Liability */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Limitation of Liability</h2>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li>Murphy's Law is provided "as is" and "as available."</li>
+                <li>We do not guarantee the accuracy, reliability, or completeness of the information provided by the AI.</li>
+                <li>To the extent permitted by law, Murphy's Law and its affiliates are not liable for any damages, losses, or claims arising from your use of the platform, including but not limited to:</li>
+                <ul className="list-disc pl-6 mt-2">
+                  <li>Misuse of drafted documents.</li>
+                  <li>Service interruptions or technical issues.</li>
+                  <li>Incorrect or incomplete legal information.</li>
+                </ul>
+              </ul>
+            </section>
+
+            {/* Intellectual Property */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Intellectual Property</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-6">
+                All content, features, and functionality on Murphy's Law, including but not limited to text, graphics, code, and software, are the intellectual property of Murphy's Law and are protected by copyright and other applicable laws.
+              </p>
+            </section>
+
+            {/* Privacy Policy */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Privacy Policy</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-6">
+                Your use of Murphy's Law is governed by our Privacy Policy, which outlines how we collect, use, and safeguard your personal information. By using our services, you agree to the terms of the Privacy Policy.
+              </p>
+            </section>
+
+            {/* Termination */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Termination</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-6">
+                We reserve the right to suspend or terminate your access to Murphy's Law at any time without prior notice if you violate these Terms and Conditions or engage in unlawful or inappropriate behaviour.
+              </p>
+            </section>
+
+            {/* Modification of Terms & Conditions */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Modification of Terms & Conditions</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-6">
+                Murphy's Law reserves the right to update or modify these Terms and Conditions at any time. Changes will be effective upon posting to our platform. Continued use of the services after modifications indicates acceptance of the updated terms.
+              </p>
+            </section>
+
+            {/* Governing Law */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Governing Law</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-6">
+                These Terms and Conditions are governed by the laws of South Africa. Any disputes arising from your use of Murphy's Law shall be subject to the exclusive jurisdiction of South African courts.
+              </p>
+            </section>
+
+            {/* Contact Information */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">Contact Information</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                If you have questions or concerns regarding these Terms and Conditions, please contact us at:
+              </p>
+              <div className="bg-black/5 p-6 rounded-lg border border-black/10">
+                <p className="font-montreal text-black leading-relaxed mb-2">
+                  <strong>Murphy's Law</strong>
+                </p>
+                <p className="font-montreal text-black/70 leading-relaxed mb-2">
+                  28 6th Street, Wynberg
+                </p>
+                <p className="font-montreal text-black/70 leading-relaxed mb-2">
+                  Sandton, 2191
+                </p>
+                <p className="font-montreal text-black/70 leading-relaxed mb-2">
+                  tim@kvelld.co.za
+                </p>
+                <p className="font-montreal text-black/70 leading-relaxed">
+                  Cell: 076 787 7637
+                </p>
+              </div>
+              <p className="font-montreal text-black/70 leading-relaxed mt-6">
+                By using Murphy's Law, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.
+              </p>
+            </section>
+
+          </div>
         </div>
       </div>
-
-      {/* Content */}
-      <div className="max-w-4xl mx-auto px-8 pb-16">
-        <div className="prose prose-lg max-w-none">
-          
-          {/* Introduction */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">1. Acceptance of Terms</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              Welcome to Murphy's Law AI. These Terms of Service ("Terms") govern your use of our AI-powered legal assistance platform and related services (collectively, the "Service") operated by Murphy's Law AI ("we," "our," or "us").
-            </p>
-            <p className="font-montreal text-black/70 leading-relaxed">
-              By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of these Terms, then you may not access the Service.
-            </p>
-          </section>
-
-          {/* Description of Service */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">2. Description of Service</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              Murphy's Law AI provides an AI-powered platform that offers:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Legal document drafting and analysis</li>
-              <li>Case law research and legal database access</li>
-              <li>Contract review and compliance checking</li>
-              <li>Legal research assistance and insights</li>
-              <li>Integration with document management systems</li>
-              <li>AI-driven legal intelligence and recommendations</li>
-            </ul>
-            <p className="font-montreal text-black/70 leading-relaxed">
-              Our Service is designed to assist legal professionals and does not constitute legal advice. Users remain responsible for all legal decisions and professional judgments.
-            </p>
-          </section>
-
-          {/* User Accounts and Registration */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">3. User Accounts and Registration</h2>
-            
-            <h3 className="text-xl font-migra mb-4 text-black">3.1 Account Creation</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              To access certain features of our Service, you must create an account. You agree to:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Provide accurate, current, and complete information</li>
-              <li>Maintain and update your account information</li>
-              <li>Keep your login credentials secure and confidential</li>
-              <li>Notify us immediately of any unauthorized access</li>
-              <li>Accept responsibility for all activities under your account</li>
-            </ul>
-
-            <h3 className="text-xl font-migra mb-4 text-black">3.2 Professional Verification</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              Certain features may require verification of your legal professional status. We reserve the right to verify credentials and restrict access to professional-only features.
-            </p>
-          </section>
-
-          {/* Acceptable Use Policy */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">4. Acceptable Use Policy</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              You agree not to use the Service to:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Violate any applicable laws, regulations, or professional ethics rules</li>
-              <li>Infringe upon intellectual property rights of others</li>
-              <li>Upload malicious code, viruses, or harmful content</li>
-              <li>Attempt to gain unauthorized access to our systems</li>
-              <li>Reverse engineer, decompile, or disassemble our software</li>
-              <li>Use the Service for any unlawful or fraudulent purpose</li>
-              <li>Share account credentials with unauthorized parties</li>
-              <li>Interfere with or disrupt the Service or servers</li>
-              <li>Create derivative works based on our AI models</li>
-            </ul>
-          </section>
-
-          {/* Intellectual Property Rights */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">5. Intellectual Property Rights</h2>
-            
-            <h3 className="text-xl font-migra mb-4 text-black">5.1 Our Intellectual Property</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              The Service, including all software, AI models, algorithms, content, and materials, is owned by Murphy's Law AI and protected by intellectual property laws. You are granted a limited, non-exclusive, non-transferable license to use the Service in accordance with these Terms.
-            </p>
-
-            <h3 className="text-xl font-migra mb-4 text-black">5.2 User Content</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              You retain ownership of documents and content you upload to the Service. By using our Service, you grant us a limited license to:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Process and analyze your content to provide our services</li>
-              <li>Use anonymized and aggregated data to improve our AI models</li>
-              <li>Store and backup your content for service delivery</li>
-            </ul>
-          </section>
-
-          {/* Privacy and Data Protection */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">6. Privacy and Data Protection</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              Your privacy is important to us. Our collection, use, and protection of your personal information is governed by our Privacy Policy, which is incorporated into these Terms by reference. We implement legal-grade security measures and operate under GDPR compliance standards.
-            </p>
-          </section>
-
-          {/* Professional Responsibility */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">7. Professional Responsibility and Legal Advice Disclaimer</h2>
-            
-            <h3 className="text-xl font-migra mb-4 text-black">7.1 No Attorney-Client Relationship</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              Use of our Service does not create an attorney-client relationship between you and Murphy's Law AI. We are not a law firm and do not provide legal advice, legal representation, or legal services.
-            </p>
-
-            <h3 className="text-xl font-migra mb-4 text-black">7.2 Professional Judgment Required</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              Our AI-generated content and recommendations are tools to assist your professional work. You remain solely responsible for exercising professional judgment, verifying accuracy, ensuring compliance with applicable laws, and making all legal decisions.
-            </p>
-
-            <h3 className="text-xl font-migra mb-4 text-black">7.3 Accuracy and Reliability</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              While we strive for accuracy, AI-generated content may contain errors, omissions, or outdated information. You must independently verify all information and ensure compliance with current laws and regulations.
-            </p>
-          </section>
-
-          {/* Payment Terms */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">8. Payment Terms</h2>
-            
-            <h3 className="text-xl font-migra mb-4 text-black">8.1 Subscription Fees</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              Access to certain features requires payment of subscription fees. By subscribing, you agree to:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Pay all applicable fees as described in your subscription plan</li>
-              <li>Provide accurate billing information</li>
-              <li>Authorize automatic recurring payments</li>
-              <li>Pay any applicable taxes</li>
-            </ul>
-
-            <h3 className="text-xl font-migra mb-4 text-black">8.2 Refund Policy</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              Refunds are provided in accordance with our refund policy. Generally, fees are non-refundable except as required by applicable law or as specifically stated in your subscription agreement.
-            </p>
-          </section>
-
-          {/* Service Availability */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">9. Service Availability and Modifications</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              We strive to maintain high service availability but cannot guarantee uninterrupted access. We reserve the right to:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Modify, suspend, or discontinue any part of the Service</li>
-              <li>Perform maintenance and updates</li>
-              <li>Implement new features or remove existing ones</li>
-              <li>Change these Terms with appropriate notice</li>
-            </ul>
-          </section>
-
-          {/* Limitation of Liability */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">10. Limitation of Liability</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              TO THE MAXIMUM EXTENT PERMITTED BY LAW:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>THE SERVICE IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND</li>
-              <li>WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED</li>
-              <li>OUR LIABILITY IS LIMITED TO THE AMOUNT PAID FOR THE SERVICE</li>
-              <li>WE ARE NOT LIABLE FOR INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES</li>
-              <li>YOU ASSUME ALL RISKS ASSOCIATED WITH USE OF AI-GENERATED CONTENT</li>
-            </ul>
-          </section>
-
-          {/* Indemnification */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">11. Indemnification</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              You agree to indemnify and hold harmless Murphy's Law AI from any claims, damages, losses, or expenses arising from your use of the Service, violation of these Terms, or infringement of any rights of another party.
-            </p>
-          </section>
-
-          {/* Termination */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">12. Termination</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              Either party may terminate your account and access to the Service:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>At any time with or without cause</li>
-              <li>Immediately for violation of these Terms</li>
-              <li>Upon non-payment of fees</li>
-              <li>For any reason with appropriate notice</li>
-            </ul>
-            <p className="font-montreal text-black/70 leading-relaxed">
-              Upon termination, your right to use the Service ceases immediately, and we may delete your account and data in accordance with our data retention policies.
-            </p>
-          </section>
-
-          {/* Governing Law and Dispute Resolution */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">13. Governing Law and Dispute Resolution</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              These Terms are governed by the laws of South Africa. Any disputes arising from these Terms or your use of the Service shall be resolved through:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Good faith negotiations between the parties</li>
-              <li>Binding arbitration if negotiations fail</li>
-              <li>Courts of competent jurisdiction in South Africa</li>
-            </ul>
-          </section>
-
-          {/* Changes to Terms */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">14. Changes to These Terms</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              We may update these Terms from time to time. We will notify you of material changes by posting the updated Terms on our website and updating the "Last updated" date. Your continued use of the Service after such changes constitutes acceptance of the updated Terms.
-            </p>
-          </section>
-
-          {/* Contact Information */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">15. Contact Information</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              If you have questions about these Terms, please contact us:
-            </p>
-            <div className="bg-black/5 p-6 rounded-lg border border-black/10">
-              <p className="font-montreal text-black leading-relaxed mb-2">
-                <strong>Murphy's Law AI</strong>
-              </p>
-              <p className="font-montreal text-black/70 leading-relaxed mb-2">
-                Email: tim@kvelld.co.za
-              </p>
-              <p className="font-montreal text-black/70 leading-relaxed mb-2">
-                Cell: 076 787 7637
-              </p>
-              <p className="font-montreal text-black/70 leading-relaxed">
-                Address: 28 6th Street, Wynberg, Sandton, 2191
-              </p>
-            </div>
-          </section>
-
-          {/* Severability */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">16. Severability</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that these Terms will otherwise remain in full force and effect.
-            </p>
-          </section>
-
-        </div>
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 }

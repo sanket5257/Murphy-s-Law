@@ -1,256 +1,180 @@
 import React from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function PrivacyPolicy() {
   return (
-    <section className="min-h-screen pt-32 bg-white text-black">
-      {/* Header */}
-      <section className="py-16 px-8">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-migra mb-4 text-black">Privacy Policy</h1>
-          <p className="font-montreal text-black/70 text-lg">
-            Last updated: January 13, 2026
-          </p>
-        </div>
-      </section>
-
-      {/* Content */}
-      <section className="max-w-4xl mx-auto px-8 pb-16">
-        <div className="prose prose-lg max-w-none">
-          
-          {/* Introduction */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">1. Introduction</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              Murphy's Law AI ("we," "our," or "us") is committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI-powered legal assistance platform and related services (collectively, the "Service").
+    <>
+      <Header />
+      <section className="min-h-screen pt-32 bg-white text-black">
+        {/* Header */}
+        <section className="py-16 px-8">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-migra mb-4 text-black">Privacy Policy</h1>
+            <p className="font-montreal text-black/70 text-lg mb-4">
+              Murphy also drafted his own Privacy Policy – and it fits perfectly with the Terms & Conditions, because he's a genius.
             </p>
-            <p className="font-montreal text-black/70 leading-relaxed">
-              By accessing or using our Service, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree with our policies and practices, please do not use our Service.
+            <p className="font-montreal text-black/70 text-lg">
+              <strong>LEGAL STUFF</strong><br />
+              Effective Date: January 2025
             </p>
-          </section>
+          </div>
+        </section>
 
-          {/* Information We Collect */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">2. Information We Collect</h2>
+        {/* Content */}
+        <section className="max-w-4xl mx-auto px-8 pb-16">
+          <div className="prose prose-lg max-w-none">
             
-            <h3 className="text-xl font-migra mb-4 text-black">2.1 Personal Information</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              We may collect the following types of personal information:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Contact information (name, email address, phone number)</li>
-              <li>Account credentials (username, password)</li>
-              <li>Professional information (law firm, practice area, bar admission details)</li>
-              <li>Billing and payment information</li>
-              <li>Communication preferences</li>
-            </ul>
-
-            <h3 className="text-xl font-migra mb-4 text-black">2.2 Legal Documents and Content</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              When you use our Service, we may collect:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Legal documents you upload for review, analysis, or drafting</li>
-              <li>Search queries and research requests</li>
-              <li>Generated legal content and documents</li>
-              <li>Case law research history</li>
-              <li>Usage patterns and preferences</li>
-            </ul>
-
-            <h3 className="text-xl font-migra mb-4 text-black">2.3 Technical Information</h3>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>IP address and device information</li>
-              <li>Browser type and version</li>
-              <li>Operating system</li>
-              <li>Access times and pages viewed</li>
-              <li>Cookies and similar tracking technologies</li>
-            </ul>
-          </section>
-
-          {/* How We Use Your Information */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">3. How We Use Your Information</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              We use the collected information for the following purposes:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Provide and maintain our AI-powered legal assistance services</li>
-              <li>Process legal document analysis, drafting, and research requests</li>
-              <li>Improve our AI algorithms and service quality</li>
-              <li>Authenticate users and prevent unauthorized access</li>
-              <li>Process payments and manage subscriptions</li>
-              <li>Send service-related communications and updates</li>
-              <li>Provide customer support and technical assistance</li>
-              <li>Comply with legal obligations and regulatory requirements</li>
-              <li>Detect and prevent fraud, abuse, or security incidents</li>
-            </ul>
-          </section>
-
-          {/* Data Security and Protection */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">4. Data Security and Protection</h2>
-            
-            <h3 className="text-xl font-migra mb-4 text-black">4.1 Security Measures</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              We implement industry-standard security measures to protect your information:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>End-to-end encryption for data transmission and storage</li>
-              <li>Multi-factor authentication for account access</li>
-              <li>Regular security audits and penetration testing</li>
-              <li>SOC 2 Type II compliance</li>
-              <li>ISO 27001 certified data centers</li>
-              <li>Role-based access controls and data segregation</li>
-            </ul>
-
-            <h3 className="text-xl font-migra mb-4 text-black">4.2 GDPR Compliance</h3>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              With our technical team based in Sweden, we operate under GDPR — the world's strictest standard for data privacy. We ensure full compliance with European data protection regulations and provide comprehensive data subject rights.
-            </p>
-          </section>
-
-          {/* Information Sharing and Disclosure */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">5. Information Sharing and Disclosure</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li><strong className="text-black">Service Providers:</strong> With trusted third-party vendors who assist in operating our Service</li>
-              <li><strong className="text-black">Legal Requirements:</strong> When required by law, court order, or government regulation</li>
-              <li><strong className="text-black">Business Transfers:</strong> In connection with mergers, acquisitions, or asset sales</li>
-              <li><strong className="text-black">Consent:</strong> When you have given explicit consent for specific sharing</li>
-              <li><strong className="text-black">Protection:</strong> To protect our rights, property, or safety, or that of our users</li>
-            </ul>
-          </section>
-
-          {/* Data Retention */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">6. Data Retention</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              We retain your information for as long as necessary to:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Provide our services and maintain your account</li>
-              <li>Comply with legal obligations and regulatory requirements</li>
-              <li>Resolve disputes and enforce our agreements</li>
-              <li>Improve our AI models and service quality (in anonymized form)</li>
-            </ul>
-            <p className="font-montreal text-black/70 leading-relaxed">
-              Legal documents and research data are typically retained for 7 years in accordance with legal industry standards, unless you request earlier deletion.
-            </p>
-          </section>
-
-          {/* Your Rights and Choices */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">7. Your Rights and Choices</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              You have the following rights regarding your personal information:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li><strong className="text-black">Access:</strong> Request access to your personal information</li>
-              <li><strong className="text-black">Correction:</strong> Request correction of inaccurate or incomplete information</li>
-              <li><strong className="text-black">Deletion:</strong> Request deletion of your personal information</li>
-              <li><strong className="text-black">Portability:</strong> Request a copy of your data in a portable format</li>
-              <li><strong className="text-black">Restriction:</strong> Request restriction of processing in certain circumstances</li>
-              <li><strong className="text-black">Objection:</strong> Object to processing based on legitimate interests</li>
-              <li><strong className="text-black">Withdrawal:</strong> Withdraw consent where processing is based on consent</li>
-            </ul>
-            <p className="font-montreal text-black/70 leading-relaxed">
-              To exercise these rights, please contact us at privacy@murphyslawai.com.
-            </p>
-          </section>
-
-          {/* Cookies and Tracking */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">8. Cookies and Tracking Technologies</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              We use cookies and similar technologies to:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Maintain your login session and preferences</li>
-              <li>Analyze usage patterns and improve our Service</li>
-              <li>Provide personalized content and recommendations</li>
-              <li>Ensure security and prevent fraud</li>
-            </ul>
-            <p className="font-montreal text-black/70 leading-relaxed">
-              You can control cookie settings through your browser preferences. However, disabling certain cookies may limit your ability to use some features of our Service.
-            </p>
-          </section>
-
-          {/* Third-Party Services */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">9. Third-Party Services</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              Our Service may integrate with third-party services, including:
-            </p>
-            <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
-              <li>Legal databases and case law repositories</li>
-              <li>Document management systems (DMS)</li>
-              <li>Microsoft SharePoint integrations</li>
-              <li>Payment processing services</li>
-              <li>Analytics and monitoring tools</li>
-            </ul>
-            <p className="font-montreal text-black/70 leading-relaxed">
-              These third-party services have their own privacy policies. We encourage you to review their privacy practices before using integrated services.
-            </p>
-          </section>
-
-          {/* International Data Transfers */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">10. International Data Transfers</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              Your information may be transferred to and processed in countries other than your country of residence. We ensure that such transfers comply with applicable data protection laws and implement appropriate safeguards, including Standard Contractual Clauses approved by the European Commission.
-            </p>
-          </section>
-
-          {/* Children's Privacy */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">11. Children's Privacy</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              Our Service is not intended for individuals under the age of 18. We do not knowingly collect personal information from children under 18. If we become aware that we have collected personal information from a child under 18, we will take steps to delete such information promptly.
-            </p>
-          </section>
-
-          {/* Changes to This Privacy Policy */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">12. Changes to This Privacy Policy</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              We may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. We will notify you of any material changes by posting the updated policy on our website and updating the "Last updated" date. Your continued use of our Service after such changes constitutes acceptance of the updated Privacy Policy.
-            </p>
-          </section>
-
-          {/* Contact Information */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">13. Contact Us</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-4">
-              If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
-            </p>
-            <div className="bg-black/5 p-6 rounded-lg border border-black/10">
-              <p className="font-montreal text-black leading-relaxed mb-2">
-                <strong>Murphy's Law AI</strong>
+            {/* Introduction */}
+            <section className="mb-12">
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                At Murphy's Law, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you use our AI legal assistant services, whether on the free or paid version. By using our services, you agree to the terms outlined in this Privacy Policy.
               </p>
-              <p className="font-montreal text-black/70 leading-relaxed mb-2">
-                Email: tim@kvelld.co.za
-              </p>
-              <p className="font-montreal text-black/70 leading-relaxed mb-2">
-                Cell: 076 787 7637
-              </p>
-              <p className="font-montreal text-black/70 leading-relaxed">
-                Address: 28 6th Street, Wynberg, Sandton, 2191
-              </p>
-            </div>
-          </section>
+            </section>
 
-          {/* Jurisdiction */}
-          <section className="mb-12">
-            <h2 className="text-2xl font-migra mb-6 text-black">14. Governing Law</h2>
-            <p className="font-montreal text-black/70 leading-relaxed mb-6">
-              This Privacy Policy is governed by and construed in accordance with the laws of South Africa and the European Union General Data Protection Regulation (GDPR), without regard to conflict of law principles.
-            </p>
-          </section>
+            {/* Who We Are */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">1. Who We Are</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                Murphy's Law is an AI-powered legal assistant based in South Africa. We assist clients with answering legal queries, drafting agreements, and conducting legal research. Our goal is to make legal assistance accessible and affordable for everyone.
+              </p>
+            </section>
 
-        </div>
+            {/* Information We Collect */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">2. Information We Collect</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                We collect and process personal data to provide, improve, and secure our services. The types of data we collect include:
+              </p>
+              
+              <h3 className="text-xl font-migra mb-4 text-black">2.1. Personal Information:</h3>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li>Name, email address, and contact details (provided during account registration).</li>
+                <li>Payment information (for paid version users).</li>
+              </ul>
+
+              <h3 className="text-xl font-migra mb-4 text-black">2.2. Legal Information:</h3>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li>Any legal queries, documents, or agreements you provide for processing or drafting purposes.</li>
+              </ul>
+
+              <h3 className="text-xl font-migra mb-4 text-black">2.3. Usage Data:</h3>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li>Information about how you interact with our platform, such as IP address, browser type, device information, and usage statistics.</li>
+              </ul>
+
+              <h3 className="text-xl font-migra mb-4 text-black">2.4. Cookies and Tracking Technologies:</h3>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li>We use cookies and similar technologies to enhance user experience and collect analytical data.</li>
+              </ul>
+            </section>
+
+            {/* How We Use Your Information */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">3. How We Use Your Information</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                We use the information collected for the following purposes:
+              </p>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li><strong>Service Delivery:</strong> To provide responses to legal queries, draft agreements, and conduct legal research.</li>
+                <li><strong>Account Management:</strong> To manage your account, process payments, and provide customer support.</li>
+                <li><strong>Service Improvement:</strong> To enhance the functionality and performance of our services.</li>
+                <li><strong>Compliance:</strong> To comply with legal obligations, enforce our terms, and prevent misuse of the platform.</li>
+              </ul>
+            </section>
+
+            {/* Data Sharing and Disclosure */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">4. Data Sharing and Disclosure</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                We do not sell your personal data to third parties. However, we may share your information in the following situations:
+              </p>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li><strong>Service Providers:</strong> With trusted third-party vendors who assist in providing our services (e.g., payment processors or cloud service providers).</li>
+                <li><strong>Legal Requirements:</strong> When required by law or to protect our legal rights.</li>
+                <li><strong>With Your Consent:</strong> When you explicitly authorize us to share specific information.</li>
+              </ul>
+            </section>
+
+            {/* Data Security */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">5. Data Security</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-6">
+                We implement robust security measures to protect your data from unauthorized access, alteration, disclosure, or destruction. These measures include encryption, secure storage, and regular security audits. However, no system is completely secure, and we cannot guarantee absolute security.
+              </p>
+            </section>
+
+            {/* Your Rights */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">6. Your Rights</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                As a user, you have the following rights under South African data protection laws (e.g., POPIA):
+              </p>
+              <ul className="font-montreal text-black/70 leading-relaxed mb-6 list-disc pl-6">
+                <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
+                <li><strong>Correction:</strong> Request corrections to inaccurate or incomplete data.</li>
+                <li><strong>Deletion:</strong> Request the deletion of your data, subject to legal obligations.</li>
+                <li><strong>Restriction:</strong> Request that we limit the processing of your data.</li>
+                <li><strong>Objection:</strong> Object to the processing of your data for certain purposes.</li>
+              </ul>
+              <p className="font-montreal text-black/70 leading-relaxed mb-6">
+                To exercise your rights, please contact us at tim@kvelld.co.za.
+              </p>
+            </section>
+
+            {/* Data Retention */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">7. Data Retention</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-6">
+                We retain your data only as long as necessary to fulfil the purposes outlined in this policy or as required by law. For free version users, data may be anonymized and retained for analytical purposes. Paid version users' data is retained per their subscription agreement.
+              </p>
+            </section>
+
+            {/* Children's Privacy */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">8. Children's Privacy</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-6">
+                Murphy's Law is not intended for use by individuals under the age of 18. We do not knowingly collect data from minors. If you believe a minor has provided us with personal data, please contact us immediately.
+              </p>
+            </section>
+
+            {/* Changes to This Privacy Policy */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">9. Changes to This Privacy Policy</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-6">
+                We may update this Privacy Policy from time to time. Any changes will be posted on this page with the updated effective date. We encourage you to review this policy periodically.
+              </p>
+            </section>
+
+            {/* Contact Information */}
+            <section className="mb-12">
+              <h2 className="text-2xl font-migra mb-6 text-black">10. Contact Us</h2>
+              <p className="font-montreal text-black/70 leading-relaxed mb-4">
+                If you have questions or concerns about this Privacy Policy or our data practices, please contact us:
+              </p>
+              <div className="bg-black/5 p-6 rounded-lg border border-black/10">
+                <p className="font-montreal text-black leading-relaxed mb-2">
+                  <strong>Murphy's Law</strong>
+                </p>
+                <p className="font-montreal text-black/70 leading-relaxed mb-2">
+                  28 6th Street, Wynberg, Sandton, 2191
+                </p>
+                <p className="font-montreal text-black/70 leading-relaxed mb-2">
+                  tim@kvelld.co.za
+                </p>
+                <p className="font-montreal text-black/70 leading-relaxed">
+                  Cell: 076 787 7637
+                </p>
+              </div>
+              <p className="font-montreal text-black/70 leading-relaxed mt-6">
+                By using Murphy's Law, you acknowledge that you have read and understood this Privacy Policy and agree to its terms.
+              </p>
+            </section>
+
+          </div>
+        </section>
       </section>
-    </section>
+      <Footer />
+    </>
   );
 }

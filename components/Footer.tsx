@@ -54,9 +54,9 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div>
               <h2 className="text-white font-migra text-3xl md:text-4xl lg:text-5xl leading-tight">
-                Unlock Professional Class AI
+                Experience Enterprise-Class AI 
                 <br />
-                for Your Firm
+                for Your Business
               </h2>
             </div>
             <div>
@@ -132,11 +132,11 @@ export default function Footer() {
               Quick Links
             </h3>
             <ul className="space-y-4">
-              <li><a href="#Key_Features" className="font-montreal text-white/80 hover:text-white transition-colors">Key Features</a></li>
-              <li><a href="#pricing"className="font-montreal text-white/80 hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="#About" className="font-montreal text-white/80 hover:text-white transition-colors">About</a></li>
-              <li><a href="/security" className="font-montreal text-white/80 hover:text-white transition-colors">Security</a></li>
-              <li><a href="#contact" className="font-montreal text-white/80 hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/#Key_Features" className="font-montreal text-white/80 hover:text-white transition-colors">Key Features</a></li>
+              <li><a href="/#pricing"className="font-montreal text-white/80 hover:text-white transition-colors">Pricing</a></li>
+              <li><a href="/#About" className="font-montreal text-white/80 hover:text-white transition-colors">About</a></li>
+              {/* <li><a href="/security" className="font-montreal text-white/80 hover:text-white transition-colors">Security</a></li> */}
+              <li><a href="/#contact" className="font-montreal text-white/80 hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
 

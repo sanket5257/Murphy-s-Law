@@ -63,8 +63,8 @@ export default function MarqueeSection() {
         {/* Text below marquee - right bottom */}
         <div className="flex justify-end mt-16 px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
           <p className="text-black text-right max-w-2xl font-migra text-lg md:text-xl">
-            Spend less time on routine, and more time on the work only lawyers can do. Murphy frees you from admin so you can think sharper, move faster, and deliver more for your clients.
-          </p>
+Refocus your time on high-value legal work.
+Murphy removes administrative friction so your firm can think sharper, act faster, and serve clients at a higher standard.          </p>
         </div>
       </div>
 
